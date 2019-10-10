@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  
+  <!-- <test name="Billing Validation"> thread-count="25"
+    <classes>
+      <class name="com.hostgator.Billing"/>
+    </classes>
+  </test> -->
+  
+  <test name="Package signup"> 
+    <classes>
+      <class name="com.hostgator.PkgSignup"/>
+    </classes>
+  </test>
+  
+  <!-- <test name="MakePaymentFeature Validation">
+    <classes>
+      <class name="com.hostgator.MakePaymentFeature"/>
+    </classes>
+  </test>
+  
+  <test name="Addon Validation"> 
+    <classes>
+      <class name="com.hostgator.AddOn"/>
+    </classes>
+  </test> -->
+  
+</suite> <!-- Suite -->
