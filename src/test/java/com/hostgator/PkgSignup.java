@@ -3,6 +3,7 @@ package com.hostgator;
 import java.io.IOException;
 
 import org.apache.logging.log4j.*;
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 import com.hostgator.driver.TestDriver;
@@ -19,6 +20,14 @@ public class PkgSignup extends TestDriver {
 		driver =  initializeDriver();
 		log.info("Driver is initialized");
 	}
+//	@Test
+//	public void testListener() {
+//
+//		log.info("Test listener testcase");
+//		Assert.assertTrue(false);
+//		
+//				
+//	}
 	@Test
 	public void SharedNewCustomerNewDomainCC() throws IOException, InterruptedException 
 	{
@@ -37,7 +46,9 @@ public class PkgSignup extends TestDriver {
 		signupFlow.enterBillingInfo();
 		signupFlow.enterCredirCardInfo();
 		signupFlow.checkTOSandCheckout();
+		signup.clickCheckout(); //Clicking checkout again cause first click loads up and does nothing
 		signupFlow.verifyPaymentComplete();
+		
 				
 	}
 	

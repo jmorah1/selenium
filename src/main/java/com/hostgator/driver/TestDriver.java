@@ -6,13 +6,13 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import org.apache.commons.io.FileUtils;
 
 
 
@@ -50,9 +50,9 @@ public class TestDriver {
 		
 	}
 	
-	public void getScreenshot() throws IOException {
+	public void getScreenshot(String result) throws IOException {
 		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(src,new File("/Users/jmorah/Documents/Screenshots/screenshot.png"));
+		FileUtils.copyFile(src,new File("/Users/jmorah/Documents/"+result+"-failureScreenshot.png")); ///Users/jmorah/git/automation/Screenshots
 	}
 	
 }

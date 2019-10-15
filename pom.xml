@@ -71,7 +71,7 @@
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
       <version>7.0.0</version>
-      <scope>test</scope>
+      <scope>compile</scope>
 	</dependency>
 	
 	<dependency>
@@ -79,6 +79,8 @@
       <artifactId>selenium-java</artifactId>
       <version>4.0.0-alpha-3</version>
 	</dependency>
+	
+	
 	
 <!-- 	<dependency>
       <groupId>org.apache.logging.log4j</groupId>

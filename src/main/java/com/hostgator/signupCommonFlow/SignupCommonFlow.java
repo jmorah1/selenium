@@ -57,5 +57,6 @@ public class SignupCommonFlow extends TestDriver{
 		paypalLogin.clickPayPalNextButton();
 		paypalLogin.enterPayPalPassword(StaticData.payPalPassword);
 		paypalLogin.clickPayPalLoginButton();
+		paypalLogin.clickPayPalContinueButton();
 	}
 }

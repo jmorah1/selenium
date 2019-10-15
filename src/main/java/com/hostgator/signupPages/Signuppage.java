@@ -43,7 +43,7 @@ public class Signuppage{
 	By cc_card_name_field  = By.id("new-name-on-card");
 	By cc_number_field     = By.id("new_cc");
 	By cc_cvv_field        = By.id("security_code_new");
-	By tos_checkbox        = By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins");
+	By tos_checkbox        = By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins"); //By.id("tos-agree");  //By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins");
 	By checkout_button     = By.id("final-checkout");
 	
 	

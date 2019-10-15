@@ -23,7 +23,7 @@ public class PayPalLogin{
 	By paypal_next_buttom    = By.id("btnNext"); 
 	By paypal_password_field = By.id("password"); 
 	By paypal_login_button   = By.id("btnLogin"); 
-	By paypal_continue_button= By.id("//*[@id=\"button\"]/button");
+	By paypal_continue_button= By.xpath("//*[@id=\"button\"]/button");
 	
 	public void enterPayPalEmail(String payPalEmail)
 	{
