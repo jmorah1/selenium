@@ -36,8 +36,6 @@ public class listeners implements ITestListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		testDriver.failtest();
 	}
 
 	public void onTestSkipped(ITestResult arg0) {

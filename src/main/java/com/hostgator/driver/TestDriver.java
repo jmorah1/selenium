@@ -24,10 +24,10 @@ public class TestDriver {
 	public WebDriver initializeDriver() throws IOException
 	{
 	
-		prop=new Properties();
-		FileInputStream fis=new FileInputStream("/Users/jmorah/Automation/src/main/java/com/hostgator/util/browser.properties");
+		prop=new Properties();                
+		FileInputStream fis=new FileInputStream("/Users/jmorah/git/automation/src/main/java/com/hostgator/util/browser.properties");
 		
-		FileInputStream fis2=new FileInputStream("/Users/jmorah/Automation/Environments.properties");	
+		FileInputStream fis2=new FileInputStream("/Users/jmorah/git/automation/Environments.properties");	
 		
 		prop.load(fis);
 		prop.load(fis2);
@@ -37,15 +37,15 @@ public class TestDriver {
 		
 		if(browserName.equals("chrome"))
 		{
-			System.setProperty("webdriver.chrome.driver", "/Users/jmorah/Documents/chromedriver");
+			System.setProperty("webdriver.chrome.driver", "/Users/jmorah/git/automation/webDrivers/chromedriver");
 			driver=new ChromeDriver();
 		}
 		else if (browserName.equals("firefox")){
-			System.setProperty("webdriver.chrome.driver", "/Users/jmorah/Documents/geckodriver");
+			System.setProperty("webdriver.chrome.driver", "/Users/jmorah/git/automation/webDrivers/geckodriver");
 			driver=new FirefoxDriver();
 		}
 		
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		return driver;
 		
 	}
@@ -53,10 +53,6 @@ public class TestDriver {
 	public void getScreenshot() throws IOException {
 		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(src,new File("/Users/jmorah/Documents/Screenshots/screenshot.png"));
-	}
-	
-	public void failtest() {
-		System.out.println("//////////FAILED//////////");
 	}
 	
 }

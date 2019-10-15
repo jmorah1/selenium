@@ -3,8 +3,9 @@ package com.hostgator.util;
 
 public class StaticData {
 
-	public static final String sharedpkg  = "/signup/shared/29/36/SHARED3660/";
-	
+	public static final String sharedPkg       = "/signup/shared/29/36/SHARED3660/";
+	public static final String dediPkg         = "/signup/dedicated/85/36/SNAPPY";
+	public static final String wordPressPkg    = "/signup/wordpress/83021/36/SNAPPYW579";
 	public static final String domainName = "hgtest";
 	public static final String userName   = "hg";
 	public static final String pin        = "1234";
@@ -18,6 +19,8 @@ public class StaticData {
 	public static final String testCreditCardNumber = "4111111111111111";
 	public static final String testCreditCardName = "Test Card";
 	public static final String testCreditCardCVV = "111";
+	public static final String payPalEmail = "robert.stone+paypal.buyer@endurance.com";
+	public static final String payPalPassword = "hksjaHdaWI$&9837";
 
 	
 }
