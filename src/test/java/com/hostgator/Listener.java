@@ -14,7 +14,7 @@ public class Listener implements ITestListener{
 	
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub
-		System.out.println("Starting TestCase -"+result.getName());
+		System.out.println("Starting Test - "+result.getName());
 	}
 
 	public void onTestSuccess(ITestResult result) {
@@ -23,19 +23,20 @@ public class Listener implements ITestListener{
 	}
 
 	public void onTestFailure(ITestResult result) {
-		// TODO Auto-generated method stub
 		
 		try {
-			testDriver.getScreenshot(result.getName());
+			testDriver.getShot(result.getName());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		System.out.println("Test - "+result.getName()+"Failed");
 	}
 
 	public void onTestSkipped(ITestResult result) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Skipped Test - "+result.getName());
 	}
 
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {

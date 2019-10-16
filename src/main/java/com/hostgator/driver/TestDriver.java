@@ -6,12 +6,18 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import javax.imageio.ImageIO;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
 
 
@@ -49,10 +55,16 @@ public class TestDriver {
 		return driver;
 		
 	}
-	
+	//Takes screenshot of section of page 
 	public void getScreenshot(String result) throws IOException {
 		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(src,new File("/Users/jmorah/Documents/"+result+"-failureScreenshot.png")); ///Users/jmorah/git/automation/Screenshots
+		FileUtils.copyFile(src,new File("/Users/jmorah/git/automation/Screenshots/"+result+"-failureScreenshot.png")); ///Users/jmorah/git/automation/Screenshots
+	}
+	
+	//Full page Screenshot. currently takes screenshot of half of page (horizontally)
+	public void getShot(String result) throws IOException {
+		Screenshot fpScreenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver);
+		ImageIO.write(fpScreenshot.getImage(),"PNG",new File("/Users/jmorah/git/automation/Screenshots/"+result+"-FullPageScreenshot.png"));
 	}
 	
 }

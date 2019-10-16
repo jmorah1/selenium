@@ -52,48 +52,48 @@ public class PkgSignup extends TestDriver {
 				
 	}
 	
-	@Test
-	public void DediToprightSigninExistingCustomerExistingDomainPP() throws InterruptedException {
-		
-		driver.get(prop.getProperty("qaAutoMaintenace")+StaticData.dediPkg);
-		log.info("Navigated to dedi pkg signup page");
-		
-		SignupCommonFlow signupFlow=new SignupCommonFlow();
-		Signuppage signup=new Signuppage(driver);
-
-		signup.enterDomain(StaticData.domainName);
-		signup.billingDropdown(1);
-		Thread.sleep(3000);
-		signup.enterPin(StaticData.pin);
-		signupFlow.enterEmailAndConfirm();
-		signupFlow.enterBillingInfo();
-		signup.clickPaypalPaymentType();
-		signupFlow.checkTOSandCheckout();
-		signupFlow.paypalLogin();
-		signupFlow.verifyPaymentComplete();
-
-	}	
-	
-	@Test
-	public void WordpressExistingCustomerExistingDomainCC() throws InterruptedException {
-		
-		driver.get(prop.getProperty("qaAutoMaintenace")+StaticData.wordPressPkg);
-		log.info("Navigated to dedi pkg signup page");
-		
-		SignupCommonFlow signupFlow=new SignupCommonFlow();
-		Signuppage signup=new Signuppage(driver);
-
-		signup.enterDomain(StaticData.domainName);
-		signup.billingDropdown(1);
-		Thread.sleep(3000);
-		signup.enterPin(StaticData.pin);
-		signupFlow.enterEmailAndConfirm();
-		signupFlow.enterBillingInfo();
-		signupFlow.enterCredirCardInfo();
-		signupFlow.checkTOSandCheckout();
-		signupFlow.verifyPaymentComplete();
-
-	}
+//	@Test
+//	public void DediToprightSigninExistingCustomerExistingDomainPP() throws InterruptedException {
+//		
+//		driver.get(prop.getProperty("qaAutoMaintenace")+StaticData.dediPkg);
+//		log.info("Navigated to dedi pkg signup page");
+//		
+//		SignupCommonFlow signupFlow=new SignupCommonFlow();
+//		Signuppage signup=new Signuppage(driver);
+//
+//		signup.enterDomain(StaticData.domainName);
+//		signup.billingDropdown(1);
+//		Thread.sleep(3000);
+//		signup.enterPin(StaticData.pin);
+//		signupFlow.enterEmailAndConfirm();
+//		signupFlow.enterBillingInfo();
+//		signup.clickPaypalPaymentType();
+//		signupFlow.checkTOSandCheckout();
+//		signupFlow.paypalLogin();
+//		signupFlow.verifyPaymentComplete();
+//
+//	}	
+//	
+//	@Test
+//	public void WordpressExistingCustomerExistingDomainCC() throws InterruptedException {
+//		
+//		driver.get(prop.getProperty("qaAutoMaintenace")+StaticData.wordPressPkg);
+//		log.info("Navigated to dedi pkg signup page");
+//		
+//		SignupCommonFlow signupFlow=new SignupCommonFlow();
+//		Signuppage signup=new Signuppage(driver);
+//
+//		signup.enterDomain(StaticData.domainName);
+//		signup.billingDropdown(1);
+//		Thread.sleep(3000);
+//		signup.enterPin(StaticData.pin);
+//		signupFlow.enterEmailAndConfirm();
+//		signupFlow.enterBillingInfo();
+//		signupFlow.enterCredirCardInfo();
+//		signupFlow.checkTOSandCheckout();
+//		signupFlow.verifyPaymentComplete();
+//
+//	}
 	
 	@AfterTest
 	public void teardown() {
