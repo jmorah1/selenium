@@ -10,37 +10,6 @@
 
   <profiles>
     <profile>
-    <id>egression</id>
-    
-      <build>
-        <resources>
-          <resource>
-            <directory>src/main/java/com/hostgator/util</directory>
-            <filtering>true</filtering>
-          </resource>
-        </resources>
-        
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-surefire-plugin</artifactId>
-              <version>3.0.0-M3</version>
-        
-              <configuration>
-                <suiteXmlFiles>
-                  <suiteXmlFile>regression.xml</suiteXmlFile>
-                </suiteXmlFiles>
-              </configuration>
-        
-            </plugin>
-          </plugins>
-        </pluginManagement>
-      </build>
-      
-    </profile>
-    
-    <profile>
     <id>smoketest</id>
     
       <build>
@@ -82,7 +51,7 @@
 	
 	
 	
-<!-- 	<dependency>
+    <!-- 	<dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-api</artifactId>
       <version>2.12.1</version>
@@ -119,6 +88,18 @@
       <artifactId>ashot</artifactId>
       <version>1.5.2</version>
     </dependency>
+    
+    <dependency>
+      <groupId>com.assertthat</groupId>
+      <artifactId>selenium-shutterbug</artifactId>
+      <version> 0.9.3</version>
+      <exclusions>
+        <exclusion>
+	      <groupId>org.seleniumhq.selenium</groupId>
+	      <artifactId>selenium-java</artifactId>
+	    </exclusion>
+     </exclusions>
+   </dependency>
 
   
   </dependencies>

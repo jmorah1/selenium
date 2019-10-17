@@ -17,10 +17,11 @@ public class StaticData {
 	public static final String city       = "Houston";
 	public static final String zip        = "77092";
 	public static final String testCreditCardNumber = "4111111111111111";
-	public static final String testCreditCardName = "Test Card";
-	public static final String testCreditCardCVV = "111";
-	public static final String payPalEmail = "robert.stone+paypal.buyer@endurance.com";
+	public static final String testCreditCardName   = "Test Card";
+	public static final String testCreditCardCVV    = "111";
+	public static final String payPalEmail    = "robert.stone+paypal.buyer@endurance.com";
 	public static final String payPalPassword = "hksjaHdaWI$&9837";
-
+	public static final String portalEmail    = "sharedpackage@hostgator.com";
+	public static final String portalPassword = "TEST_PASSWORD";
 	
 }

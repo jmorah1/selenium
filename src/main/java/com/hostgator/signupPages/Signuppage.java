@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import com.hostgator.util.StaticData;
+
 
 public class Signuppage{
 
@@ -43,24 +45,68 @@ public class Signuppage{
 	By cc_card_name_field  = By.id("new-name-on-card");
 	By cc_number_field     = By.id("new_cc");
 	By cc_cvv_field        = By.id("security_code_new");
-	By tos_checkbox        = By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins"); //By.id("tos-agree");  //By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins");
+	By tos_checkbox1       = By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins"); 
+	By tos_checkbox2       = By.id("tos-agree");  //By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins");
+	By tos_checkbox3       = By.className("iCheck-helper"); //By.id("tos-agree");  //By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins");
 	By checkout_button     = By.id("final-checkout");
 	
+	By regflowTopRightEmailField     = By.id("sign-in-un");
+	By regflowTopRightPasswordField  = By.id("sign-in-pw"); 
+	By regflowTopRightSignintext     = By.linkText("Sign In!");
+	By regFlowTopRightSigninButton   = By.xpath("//*[@id=\"signup-container\"]/section/div[1]/div/div/div/div[2]/a");
 	
-
+	By usePayPalTab = By.id("paypal_tab");
+	
+	public void clickPayPalTab()
+	{
+		driver.findElement(usePayPalTab).click();
+	}
+	
+	public void clickTopRightSignintext()
+	{
+		driver.findElement(regflowTopRightSignintext).click();
+	}
+	
+	public void enterTopRightEmail(String email)
+	{
+		driver.findElement(regflowTopRightEmailField).sendKeys(email);
+	}
+	
+	public void enterTopRightPassword(String password)
+	{
+		driver.findElement(regflowTopRightPasswordField).sendKeys(password);
+	}
+	
+	public void clickTopRightSigninButton()
+	{
+		driver.findElement(regFlowTopRightSigninButton).click();
+	}
+	
+	
 	public void clickIAlreadyOwnThisDomian()
 	{
 		driver.findElement(i_own_this_domain).click();;
 	}
 	
-	public void enterExistingDomain(String domain)
+	public void enterStoredExistingDomain(String domain)
 	{
-		driver.findElement(domain_text_field).sendKeys(domain+date.getTime()+".com");
+		driver.findElement(domain_text_field).sendKeys(domain);
 	}
 	
-	public void enterDomain(String domain)
+//	public String getText()
+//	{
+//		String text = driver.findElement(domain_text_field).getText();
+//		return text;
+//	}		
+	
+	public void enterExistingDomain(String domain, String packageName)
 	{
-		driver.findElement(domain_text_field).sendKeys(domain+date.getTime());
+		driver.findElement(domain_text_field).sendKeys(domain+random.nextInt(10000)+packageName+random.nextInt(100000)+".com");
+	}
+	
+	public void enterDomain(String domain, String packageName)
+	{
+		driver.findElement(domain_text_field).sendKeys(domain+random.nextInt(10000)+packageName+random.nextInt(10000)); //random.nextInt(10000) //date.getTime());
 	}
 	
 	public void tldDropdown(int index)
@@ -157,9 +203,15 @@ public class Signuppage{
 		log.info("Entered CC CVV");
 	}
 	
-	public void checkTos()
+	public void checkTos1()
 	{
-		driver.findElement(tos_checkbox).click();
+		driver.findElement(tos_checkbox1).click();
+		log.info("Clicked TOS");
+	}
+	
+	public void tos_checkbox3() //works for shared pkg
+	{
+		driver.findElement(tos_checkbox3).click();
 		log.info("Clicked TOS");
 	}
 	
