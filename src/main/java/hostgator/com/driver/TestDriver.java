@@ -1,4 +1,4 @@
-package com.hostgator.driver;
+package hostgator.com.driver;
 
 import java.io.File;
 import java.io.FileInputStream;
