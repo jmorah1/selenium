@@ -1,4 +1,4 @@
-package com.hostgator.util;
+package hostgator.com.util.com.hostgator.util;
 
 public class StaticData {
 

@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.hostgator.driver.TestDriver;
-import com.hostgator.util.StaticData;
+import hostgator.com.util.com.hostgator.util.StaticData;
 
 import hostgator.com.Pages.PayPalLogin;
 import hostgator.com.Pages.Signuppage;

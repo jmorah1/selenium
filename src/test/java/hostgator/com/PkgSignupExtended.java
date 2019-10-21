@@ -8,7 +8,7 @@ import org.apache.logging.log4j.*;
 import org.testng.annotations.*;
 
 import com.hostgator.driver.TestDriver;
-import com.hostgator.util.StaticData;
+import hostgator.com.util.com.hostgator.util.StaticData;
 
 import hostgator.com.CommonFlow.SignupCommonFlow;
 import hostgator.com.Pages.Signuppage;

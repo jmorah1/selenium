@@ -5,14 +5,10 @@ import java.util.Random;
 
 
 import org.apache.logging.log4j.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
 
 import com.hostgator.driver.TestDriver;
-import com.hostgator.util.StaticData;
+import hostgator.com.util.com.hostgator.util.StaticData;
 
 import hostgator.com.CommonFlow.SignupCommonFlow;
 import hostgator.com.Pages.*;
@@ -125,7 +121,4 @@ public class PkgSignup extends TestDriver {
 //		log.info("Closing Driver");
 		driver=null;
 	}
-	
-
-
 }
