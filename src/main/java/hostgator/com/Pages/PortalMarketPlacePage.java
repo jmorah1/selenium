@@ -1,4 +1,4 @@
-package com.hostgator.portalPages;
+package hostgator.com.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

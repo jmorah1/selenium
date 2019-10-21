@@ -1,7 +1,9 @@
-package com.hostgator;
+package hostgator.com;
 
 import java.io.IOException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -9,6 +11,8 @@ import org.testng.ITestResult;
 import com.hostgator.driver.TestDriver;
 
 public class Listener implements ITestListener{
+
+	private static Logger log = LogManager.getLogger(Listener.class.getName());
 
 	TestDriver testDriver=new TestDriver();
 	
@@ -35,10 +39,9 @@ public class Listener implements ITestListener{
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-
+		}		
 		//testDriver.anotherscreenshotLib();
-		
+		testDriver.analyzeLog(result.getName());
 		System.out.println("Failed - "+result.getName()+" Test");
 	}
 

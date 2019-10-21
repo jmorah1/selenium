@@ -6,9 +6,9 @@
   	<listener class-name="hostgator.com.Listener"/>
   </listeners>
   
-  <test thread-count="3" name="PkgSignup">
+  <test thread-count="3" name="PkgSignupExtended">
     <classes>
-      <class name="hostgator.com.PkgSignup"/>
+      <class name="hostgator.com.PkgSignupExtended"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

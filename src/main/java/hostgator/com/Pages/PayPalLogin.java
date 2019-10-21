@@ -1,11 +1,10 @@
-package com.hostgator.signupPages;
+package hostgator.com.Pages;
 
 
 
 import org.apache.logging.log4j.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 
 public class PayPalLogin{

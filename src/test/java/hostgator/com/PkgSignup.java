@@ -1,127 +1,131 @@
-package com.hostgator;
+package hostgator.com;
 
 import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.Random;
 
 
 import org.apache.logging.log4j.*;
-import org.testng.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
 
 import com.hostgator.driver.TestDriver;
-import com.hostgator.signupCommonFlow.SignupCommonFlow;
-import com.hostgator.signupPages.*;
 import com.hostgator.util.StaticData;
+
+import hostgator.com.CommonFlow.SignupCommonFlow;
+import hostgator.com.Pages.*;
 
 public class PkgSignup extends TestDriver {
 
+	TestDriver testDriver=new TestDriver();
 	Random random = new Random();
+	
 	private static Logger log = LogManager.getLogger(PkgSignup.class.getName());
 	
-	@BeforeTest
+	@BeforeClass
+	//@BeforeTest
 	public void initialize() throws IOException {
-		//driver =  initializeDriver();
-		log.info("Driver is initialized");
+//		driver =  initializeDriver();
+//		log.info("Driver is initialized");
 	}
 
-//	@Test
-//	public void test() {
-//		Timestamp timestamp = new Timestamp(System.currentTimeMillis()); //2019-10-16 16:50:40.916
-//		System.out.println(timestamp);
-//		Assert.assertTrue(false);
-//	}
-	@Test
-	public void SharedNewCustomerNewDomainCC() throws IOException, InterruptedException 
-	{
+	@BeforeMethod
+	public void beforeMethod() {
+//		driver.manage().window().maximize();
+	   
+	}
+	
+	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-898
+	public void SharedNewCustomerNewDomainCC() throws IOException, InterruptedException {
 		
 		driver =  initializeDriver();
-
+		driver.manage().window().maximize();
+		
 		driver.get(prop.getProperty("qaAutoMaintenace")+StaticData.sharedPkg);
 		log.info("Navigated to shared pkg signup page");
 
-		driver.manage().window().maximize();
-
 		SignupCommonFlow signupFlow=new SignupCommonFlow();
 		Signuppage signup=new Signuppage(driver);
-
 		signup.enterDomain(StaticData.domainName, "sharedpackage");
+		signup.tldDropdown(0);
+		Thread.sleep(2000);
 		signup.billingDropdown(0);
 		Thread.sleep(2000);
 		signup.enterUsername(StaticData.userName);
 		signup.enterPin(StaticData.pin);
-
 		signupFlow.enterEmailAndConfirm("shared");
 		signupFlow.enterBillingInfo();
 		signupFlow.enterCredirCardInfo();
 		signup.tos_checkbox3();
 		signup.clickCheckout();
-//		signupFlow.checkTOSandCheckout();
+		signup.clickCheckout(); //Clicking checkout again cause first click loads up and does nothing		
+		signupFlow.verifyPaymentComplete();	
 		
-		signup.clickCheckout(); //Clicking checkout again cause first click loads up and does nothing
-		signupFlow.verifyPaymentComplete();		
-				
 		driver.close();
 	}
 	
-	@Test
+	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-899
 	public void DediToprightSigninExistingCustomerExistingDomainPP() throws InterruptedException, IOException {
+		
 		driver =  initializeDriver();
-
+		driver.manage().window().maximize();
+		
 		driver.get(prop.getProperty("qaAutoMaintenace")+StaticData.dediPkg);
 		log.info("Navigated to dedi pkg signup page");
 		
 		SignupCommonFlow signupFlow=new SignupCommonFlow();
 		Signuppage signup=new Signuppage(driver);
-
-		driver.manage().window().maximize();
-		
 		signup.clickIAlreadyOwnThisDomian();
-		
-		
 		String existingDomain = StaticData.domainName+random.nextInt(10000)+"dedi"+random.nextInt(100000)+".com";
 		signup.enterStoredExistingDomain(existingDomain);
-				
 		signup.billingDropdown(0);
-		signupFlow.topRightSignIn();	
+		signupFlow.topRightSignIn(StaticData.sharedDefaultAccount);	
 		signup.clickPayPalTab();
 		Thread.sleep(4000); //explicit wait
 		signupFlow.checkTOSandCheckout();
 		signupFlow.verifyPaymentComplete();
-
+		
 		driver.close();
 	}	
 	
-	@Test
-	public void WordpressExistingCustomerExistingDomainCC() throws InterruptedException, IOException {
+	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-900
+	public void WordpressExistingCustomerExistingDomainCC() throws InterruptedException, IOException {		
+		
 		driver =  initializeDriver();
-
+		driver.manage().window().maximize();
+		
 		driver.get(prop.getProperty("qaAutoMaintenace")+StaticData.wordPressPkg);
 		log.info("Navigated to dedi pkg signup page");
 		
 		SignupCommonFlow signupFlow=new SignupCommonFlow();
 		Signuppage signup=new Signuppage(driver);
-
-		driver.manage().window().maximize();
-		
-		signup.enterDomain(StaticData.domainName, "owp");
-		signup.billingDropdown(1);
+		signup.clickIAlreadyOwnThisDomian();
+		signup.enterExistingDomain(StaticData.domainName, "owp");
+		signup.billingDropdown(0);
 		Thread.sleep(3000);
 		signup.enterPin(StaticData.pin);
-		signupFlow.enterEmailAndConfirm("owp");
-		signupFlow.enterBillingInfo();
-		signupFlow.enterCredirCardInfo();
+		signupFlow.existingEmailSignIn(StaticData.sharedDefaultEmail, StaticData.defaultPassword);
 		signupFlow.checkTOSandCheckout();
 		signupFlow.verifyPaymentComplete();
-
+		
 		driver.close();
 	}
 	
-//	@AfterTest
-//	public void teardown() {
-////		driver.close();
-//		driver=null;
-//	}
+	@AfterMethod
+	public void afterMethod() throws InterruptedException {
+//		driver.close();
+        
+	}
+	
+	@AfterClass
+	public void teardown() {
+//		driver.close();
+//		log.info("Closing Driver");
+		driver=null;
+	}
+	
 
 
 }
