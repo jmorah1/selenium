@@ -1,6 +1,4 @@
-com/hostgator/listeners.class
-com/hostgator/AddOn.class
-com/hostgator/PkgSignup.class
-com/hostgator/Hosting.class
-com/hostgator/MakePaymentFeature.class
-com/hostgator/Billing.class
+hostgator/com/PkgSignupExtended.class
+hostgator/com/MakePaymentFeature.class
+hostgator/com/PkgSignup.class
+hostgator/com/Listener.class

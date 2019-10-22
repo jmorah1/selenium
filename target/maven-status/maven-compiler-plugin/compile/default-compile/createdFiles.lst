@@ -1,7 +1,11 @@
-com/hostgator/signupPages/signupCompletePage.class
 com/hostgator/util/StaticData.class
-com/hostgator/signupPages/Signuppage.class
-com/hostgator/portalPages/PortalHostingPage.class
-com/hostgator/portalPages/PortalDashboardPage.class
-com/hostgator/portalPages/PortalMarketPlacePage.class
+hostgator/com/Pages/PortalDashboardPage.class
+hostgator/com/Pages/PortalMarketPlacePage.class
+hostgator/com/Pages/PortalHostingPage.class
+hostgator/com/Pages/LoginPage.class
+hostgator/com/Pages/PortalHomePage.class
+hostgator/com/Pages/PayPalLogin.class
+hostgator/com/Pages/Signuppage.class
+hostgator/com/CommonFlow/SignupCommonFlow.class
 com/hostgator/driver/TestDriver.class
+hostgator/com/Pages/signupCompletePage.class

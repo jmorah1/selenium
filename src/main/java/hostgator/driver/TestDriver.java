@@ -60,23 +60,6 @@ public class TestDriver {
 		String browserName = prop.getProperty("browser");
 		if(os.contains("Windows")) {
 			if (browserName.equals("chrome")) {
-//			BrowserMobProxy proxy = new BrowserMobProxyServer();
-//		    proxy.start(); // can specify a port here if you like
-//
-//		    // get the selenium proxy object
-//		    Proxy seleniumProxy = ClientUtil.createSeleniumProxy(proxy);
-//		    proxy.addHeader("X-GATOR-REQUESTOR", "jjones-test");
-//		    proxy.addHeader("X-GATOR-AUTH", "f57dc3764b5d9fe2f179cfc4f7aeee55");
-//
-//		    DesiredCapabilities capabilities = new DesiredCapabilities();
-//		    capabilities.setCapability(CapabilityType.PROXY, seleniumProxy);
-//
-//
-//	        // Setting up Proxy for chrome
-//	        ChromeOptions opts = new ChromeOptions();
-//	        String proxyOption = "--proxy-server=" + seleniumProxy.getHttpProxy();
-//	        opts.addArguments(proxyOption);
-
 				System.setProperty("webdriver.chrome.driver", "./webDrivers/Windows/chromedriver.exe");
 				driver = new ChromeDriver();
 			} else if (browserName.equals("firefox")) {
@@ -85,25 +68,8 @@ public class TestDriver {
 			}
 		}
 
-		if(os.contains("mac os")) {
+		if(os.contains("Mac")) {
 			if (browserName.equals("chrome")) {
-//			BrowserMobProxy proxy = new BrowserMobProxyServer();
-//		    proxy.start(); // can specify a port here if you like
-//
-//		    // get the selenium proxy object
-//		    Proxy seleniumProxy = ClientUtil.createSeleniumProxy(proxy);
-//		    proxy.addHeader("X-GATOR-REQUESTOR", "jjones-test");
-//		    proxy.addHeader("X-GATOR-AUTH", "f57dc3764b5d9fe2f179cfc4f7aeee55");
-//
-//		    DesiredCapabilities capabilities = new DesiredCapabilities();
-//		    capabilities.setCapability(CapabilityType.PROXY, seleniumProxy);
-//
-//
-//	        // Setting up Proxy for chrome
-//	        ChromeOptions opts = new ChromeOptions();
-//	        String proxyOption = "--proxy-server=" + seleniumProxy.getHttpProxy();
-//	        opts.addArguments(proxyOption);
-
 				System.setProperty("webdriver.chrome.driver", "./webDrivers/Mac/chromedriver");
 				driver = new ChromeDriver();
 			} else if (browserName.equals("firefox")) {
@@ -112,6 +78,7 @@ public class TestDriver {
 			}
 		}
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		//		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		return driver;
 		
 	}

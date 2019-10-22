@@ -1,6 +1,4 @@
-/Users/jmorah/Automation/src/test/java/com/hostgator/Billing.java
-/Users/jmorah/Automation/src/test/java/com/hostgator/listeners.java
-/Users/jmorah/Automation/src/test/java/com/hostgator/PkgSignup.java
-/Users/jmorah/Automation/src/test/java/com/hostgator/AddOn.java
-/Users/jmorah/Automation/src/test/java/com/hostgator/Hosting.java
-/Users/jmorah/Automation/src/test/java/com/hostgator/MakePaymentFeature.java
+/Users/jmorah/IdeaProjects/automation/src/test/java/hostgator/com/MakePaymentFeature.java
+/Users/jmorah/IdeaProjects/automation/src/test/java/hostgator/com/Listener.java
+/Users/jmorah/IdeaProjects/automation/src/test/java/hostgator/com/PkgSignupExtended.java
+/Users/jmorah/IdeaProjects/automation/src/test/java/hostgator/com/PkgSignup.java
