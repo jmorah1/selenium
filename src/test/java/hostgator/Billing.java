@@ -1,18 +1,16 @@
-package hostgator.com;
+package hostgator;
 
+
+import hostgator.Pages.LoginPage;
+import hostgator.Pages.PortalHomePage;
+import hostgator.driver.TestDriver;
+import hostgator.util.com.hostgator.util.StaticData;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 import java.util.Random;
-
-
-import org.apache.logging.log4j.*;
-import org.testng.annotations.*;
-
-import hostgator.com.driver.TestDriver;
-import hostgator.com.util.com.hostgator.util.StaticData;
-
-import hostgator.com.CommonFlow.SignupCommonFlow;
-import hostgator.com.Pages.*;
 
 public class Billing extends TestDriver {
 

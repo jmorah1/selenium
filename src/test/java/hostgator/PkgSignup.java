@@ -16,7 +16,7 @@ import hostgator.Pages.*;
 
 public class PkgSignup extends TestDriver {
 
-	TestDriver testDriver=new TestDriver();
+//	TestDriver testDriver=new TestDriver();
 	Random random = new Random();
 	
 	private static Logger log = LogManager.getLogger(PkgSignup.class.getName());
