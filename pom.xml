@@ -25,6 +25,8 @@
                 <version>3.0.0-M3</version>
         
                 <configuration>
+                  <source>1.8</source>
+                  <target>1.8</target>
                   <suiteXmlFiles>
                     <suiteXmlFile>smoketest.xml</suiteXmlFile>
                   </suiteXmlFiles>
@@ -49,6 +51,8 @@
                 <version>3.0.0-M3</version>
         
                 <configuration>
+                  <source>1.8</source>
+                  <target>1.8</target>
                   <suiteXmlFiles>
                     <suiteXmlFile>smoketestExtended.xml</suiteXmlFile>
                   </suiteXmlFiles>

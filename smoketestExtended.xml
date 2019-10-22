@@ -3,12 +3,12 @@
 <suite name="Suite">
 
   <listeners>
-  	<listener class-name="hostgator.com.Listener"/>
+  	<listener class-name="Listener"/>
   </listeners>
   
   <test thread-count="3" name="PkgSignupExtended">
     <classes>
-      <class name="hostgator.com.PkgSignupExtended"/>
+      <class name="PkgSignupExtended"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
