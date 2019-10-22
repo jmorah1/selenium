@@ -11,7 +11,7 @@ import hostgator.driver.TestDriver;
 import hostgator.util.com.hostgator.util.StaticData;
 
 import hostgator.CommonFlow.SignupCommonFlow;
-import hostgator.Pages.Signuppage;
+import hostgator.Pages.Signup.Signuppage;
 
 
 public class PkgSignupExtended extends TestDriver {

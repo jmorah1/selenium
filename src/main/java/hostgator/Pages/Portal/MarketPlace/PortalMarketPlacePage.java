@@ -1,4 +1,4 @@
-package hostgator.Pages;
+package hostgator.Pages.Portal.MarketPlace;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

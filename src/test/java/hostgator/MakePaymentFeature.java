@@ -3,7 +3,7 @@ package hostgator;
 import java.io.IOException;
 import java.util.Random;
 
-import hostgator.Pages.LoginPage;
+import hostgator.Pages.Portal.LoginPage;
 import org.apache.logging.log4j.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import hostgator.driver.TestDriver;
 import hostgator.util.com.hostgator.util.StaticData;
 
-import hostgator.Pages.PortalHomePage;
+import hostgator.Pages.Portal.PortalHomePage;
 
 public class MakePaymentFeature extends TestDriver{
 

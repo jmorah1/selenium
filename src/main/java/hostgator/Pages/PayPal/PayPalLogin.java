@@ -1,4 +1,4 @@
-package hostgator.Pages;
+package hostgator.Pages.PayPal;
 
 
 

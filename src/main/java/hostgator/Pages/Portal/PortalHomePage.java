@@ -1,4 +1,4 @@
-package hostgator.Pages;
+package hostgator.Pages.Portal;
 
 import org.apache.logging.log4j.*;
 import org.openqa.selenium.By;

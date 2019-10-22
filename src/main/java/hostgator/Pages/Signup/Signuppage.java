@@ -1,4 +1,4 @@
-package hostgator.Pages;
+package hostgator.Pages.Signup;
 
 import java.util.Date;
 import java.util.Random;

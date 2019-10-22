@@ -1,8 +1,8 @@
 package hostgator;
 
 
-import hostgator.Pages.LoginPage;
-import hostgator.Pages.PortalHomePage;
+import hostgator.Pages.Portal.LoginPage;
+import hostgator.Pages.Portal.PortalHomePage;
 import hostgator.driver.TestDriver;
 import hostgator.util.com.hostgator.util.StaticData;
 import org.apache.logging.log4j.LogManager;

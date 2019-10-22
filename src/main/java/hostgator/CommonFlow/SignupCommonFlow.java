@@ -2,9 +2,9 @@ package hostgator.CommonFlow;
 
 import java.util.Random;
 
-import hostgator.Pages.PayPalLogin;
-import hostgator.Pages.Signuppage;
-import hostgator.Pages.signupCompletePage;
+import hostgator.Pages.PayPal.PayPalLogin;
+import hostgator.Pages.Signup.Signuppage;
+import hostgator.Pages.Signup.signupCompletePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;

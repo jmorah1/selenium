@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Random;
 
 
-import hostgator.Pages.Signuppage;
+import hostgator.Pages.Signup.Signuppage;
 import org.apache.logging.log4j.*;
 import org.testng.annotations.*;
 
@@ -12,7 +12,6 @@ import hostgator.driver.TestDriver;
 import hostgator.util.com.hostgator.util.StaticData;
 
 import hostgator.CommonFlow.SignupCommonFlow;
-import hostgator.Pages.*;
 
 public class PkgSignup extends TestDriver {
 
