@@ -39,7 +39,7 @@ public class Billing extends TestDriver {
         LoginPage portalLogin=new LoginPage(driver);
         PortalHomePage portalHomePage=new PortalHomePage(driver);
 
-        portalLogin.portalLogin(StaticData.sharedDefaultEmail, StaticData.portalPassword);
+        portalLogin.PortalLogin(StaticData.sharedDefaultEmail, StaticData.portalPassword);
         portalHomePage.clickBillingNav();
 
         /*template_1: 'hostgator/templates/hostgator/login_to_portal_generic_shared_template'

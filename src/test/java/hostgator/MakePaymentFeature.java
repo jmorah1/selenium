@@ -43,7 +43,7 @@ public class MakePaymentFeature extends TestDriver{
 		LoginPage portalLogin=new LoginPage(driver);
 		PortalHomePage homePage=new PortalHomePage(driver);
 
-		portalLogin.portalLogin(StaticData.sharedDefaultEmail, StaticData.portalPassword);
+		portalLogin.PortalLogin(StaticData.sharedDefaultEmail, StaticData.portalPassword);
 		homePage.clickBillingNav();
 		homePage.clickMakePayment();
 		

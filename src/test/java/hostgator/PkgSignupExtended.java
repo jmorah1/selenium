@@ -39,12 +39,12 @@ public class PkgSignupExtended extends TestDriver {
 		
 		SignupCommonFlow signupFlow=new SignupCommonFlow();
 		Signuppage signup=new Signuppage(driver);
-		signup.clickIAlreadyOwnThisDomian();
-		signup.enterExistingDomain(StaticData.domainName, "reseller");
-		signup.billingDropdown(0);
+		signup.ClickIAlreadyOwnThisDomian();
+		signup.EnterExistingDomain(StaticData.domainName, "reseller");
+		signup.BillingDropdown(0);
 		signupFlow.topRightSignIn(StaticData.resellerDefaultAccount);
-		signup.enterUsername(StaticData.userName);
-		signup.clickPayPalTab();
+		signup.EnterUsername(StaticData.userName);
+		signup.ClickPayPalTab();
 		Thread.sleep(4000); //explicit wait
 		signupFlow.checkTOSandCheckout();
 		signupFlow.paypalLogin();
@@ -59,11 +59,11 @@ public class PkgSignupExtended extends TestDriver {
 		
 		SignupCommonFlow signupFlow=new SignupCommonFlow();
 		Signuppage signup=new Signuppage(driver);
-		signup.clickIAlreadyOwnThisDomian();
-		signup.enterExistingDomain(StaticData.domainName, "vps");
-		signup.billingDropdown(0);
-		signup.enterPin(StaticData.pin);
-		signupFlow.enterEmailAndConfirm("cloud");
+		signup.ClickIAlreadyOwnThisDomian();
+		signup.EnterExistingDomain(StaticData.domainName, "vps");
+		signup.BillingDropdown(0);
+		signup.EnterPin(StaticData.pin);
+		signupFlow.EnterEmailAndConfirm("cloud");
 		signupFlow.enterBillingInfo();
 		signupFlow.enterCredirCardInfo();
 		signupFlow.checkTOSandCheckout();
@@ -77,13 +77,13 @@ public class PkgSignupExtended extends TestDriver {
 		
 		SignupCommonFlow signupFlow=new SignupCommonFlow();
 		Signuppage signup=new Signuppage(driver);
-		signup.clickIAlreadyOwnThisDomian();
-		signup.enterExistingDomain(StaticData.domainName, "cloud");
-		signup.billingDropdown(0);
-		signup.enterPin(StaticData.pin);
-		signupFlow.enterEmailAndConfirm("cloud");
+		signup.ClickIAlreadyOwnThisDomian();
+		signup.EnterExistingDomain(StaticData.domainName, "cloud");
+		signup.BillingDropdown(0);
+		signup.EnterPin(StaticData.pin);
+		signupFlow.EnterEmailAndConfirm("cloud");
 		signupFlow.enterBillingInfo();
-		signup.clickPaypalPaymentType();
+		signup.ClickPaypalPaymentType();
 		signupFlow.checkTOSandCheckout();
 		signupFlow.paypalLogin();
 		signupFlow.verifyPaymentComplete();
