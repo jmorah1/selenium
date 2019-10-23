@@ -105,7 +105,7 @@ public class TestDriver {
 		w.until(ExpectedConditions.visibilityOfElementLocated(By.id(id)));
 	}
 
-	public void setButtonBuy(String element) {
+	public void selectButtonBuy(String element) {
 		JavascriptExecutor executor = (JavascriptExecutor)driver;
 		executor.executeScript("arguments[0].click();", element);
 	}

@@ -2,18 +2,18 @@ package hostgator.CommonFlow;
 
 import java.util.Random;
 
-import hostgator.Pages.PayPal.PayPalLogin;
+import hostgator.util.StaticData;
+import hostgator.driver.TestDriver;
 import hostgator.Pages.Signup.Signuppage;
+import hostgator.Pages.PayPal.PayPalLogin;
 import hostgator.Pages.Signup.signupCompletePage;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
-import hostgator.driver.TestDriver;
-import hostgator.util.com.hostgator.util.StaticData;
 
 public class SignupCommonFlow extends TestDriver{
 
@@ -27,7 +27,6 @@ public class SignupCommonFlow extends TestDriver{
 		String email = "hgtest"+random.nextInt(10000)+packageName +random.nextInt(100000)+ "@endurance.com";
 		signup.enterEmail(email);
 		signup.enterConfirmEmail(email);
-	
 	}
 	
 	public void enterBillingInfo() {
@@ -50,7 +49,8 @@ public class SignupCommonFlow extends TestDriver{
 		Thread.sleep(5000);
 		signup.checkTos1();
 		signup.clickCheckout();
-		
+
+//below c heck for invalid domain error and fixes it.
 //		Boolean isPresent = driver.findElements(By.xpath("//*[@id=\"results-area\"]/h3")).size() > 0;
 ////		if ( driver.findElement(By.xpath("//*[@id=\"results-area\"]/h3")) != null ) {
 //		if ( isPresent ) {
@@ -80,17 +80,11 @@ public class SignupCommonFlow extends TestDriver{
 	}
 	
 	public void verifyPaymentComplete() throws InterruptedException {
-		//WebDriverWait webWait=new WebDriverWait(driver, 10); /*above is deprecated find alternate explicit wait. See: https://stackoverflow.com/questions/42421148/wait-untilexpectedconditions-doesnt-work-any-more-in-selenium */
-
-		//Adding this to handle regflow's seemingly random invalid domain error 
-
 		int waitTime = 30;
 		@SuppressWarnings("deprecation")
 		WebDriverWait w = new WebDriverWait(driver, waitTime);
 		w.until(ExpectedConditions.urlContains("/signup/complete/")); //visibilityOfElementLocated(By.id("new_cc_tab")));
 		Assert.assertTrue(driver.getCurrentUrl().contains("/signup/complete/"), "Waited for "+ waitTime +". Did not make it to signup/complete page");
-		
-	
 	}
 	
 	public void paypalLogin() throws InterruptedException {
@@ -113,7 +107,6 @@ public class SignupCommonFlow extends TestDriver{
 		
 		paypalLogin.clickPayPalContinueButton();
 		
-//		Thread.sleep(8000); //replace with explicit
 		waitUntilID(10, "confirmButtonTop");
 		paypalLogin.clickPaypalAgreeAndContinuebutton();
 

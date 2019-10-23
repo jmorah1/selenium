@@ -1,21 +1,17 @@
 package hostgator;
 
-
-import hostgator.Pages.Portal.LoginPage;
 import hostgator.Pages.Portal.PortalHomePage;
+import hostgator.Pages.Portal.LoginPage;
 import hostgator.driver.TestDriver;
-import hostgator.util.com.hostgator.util.StaticData;
+import hostgator.util.StaticData;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.*;
 
 import java.io.IOException;
-import java.util.Random;
 
 public class Billing extends TestDriver {
-
-    TestDriver testDriver=new TestDriver();
-    Random random = new Random();
 
     private static Logger log = LogManager.getLogger(PkgSignup.class.getName());
 
@@ -50,8 +46,6 @@ public class Billing extends TestDriver {
         template_2: 'hostgator/templates/hostgator/portal_billing_history_fetch_latest_invoice_template' */
         driver.close();
     }
-
-
 
     @AfterMethod
     public void afterMethod() throws InterruptedException {
