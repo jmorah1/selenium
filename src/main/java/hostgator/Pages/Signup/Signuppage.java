@@ -15,7 +15,6 @@ public class Signuppage{
 	Random random = new Random();
 
 	private static Logger log = LogManager.getLogger(Signuppage.class.getName());
-
 	
 	private WebDriver driver;
 	public Signuppage(WebDriver driver)

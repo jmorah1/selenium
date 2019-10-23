@@ -1,4 +1,4 @@
-package hostgator.util.com.hostgator.util;
+package hostgator.util;
 
 public class StaticData {
 
@@ -8,7 +8,8 @@ public class StaticData {
 	public static final String wordPressPkg  = "/signup/wordpress/83021/36/SNAPPYW579";
 	public static final String cloudSitesPkg = "/signup/cloudsites/90106/36/SNAPPY";	
 	public static final String vpsPkg        = "/vps/82/36/SNAPPYV2/";
-	public static final String resellerPkg        = "/signup/reseller/7/36/SNAPPYR192424";
+	public static final String resellerPkg   = "/signup/reseller/7/36/SNAPPYR192424";
+	public static final String domainPurchase  = "/domain/purchase/registration";
 
 	//Default Accounts
 	public static final String resellerDefaultEmail = "resellerpackage@hostgator.com";
