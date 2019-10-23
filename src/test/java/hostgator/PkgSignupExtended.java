@@ -8,7 +8,7 @@ import org.apache.logging.log4j.*;
 import org.testng.annotations.*;
 
 import hostgator.driver.TestDriver;
-import hostgator.util.com.hostgator.util.StaticData;
+import hostgator.util.StaticData;
 
 import hostgator.CommonFlow.SignupCommonFlow;
 import hostgator.Pages.Signup.Signuppage;
@@ -51,7 +51,7 @@ public class PkgSignupExtended extends TestDriver {
 		signupFlow.verifyPaymentComplete();
 	}	
 
-	@Test(groups  = {"SmokeTest", "SignupRegression"})
+	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-1133
 	public void VPSNewCustomerExistingDomainCC() throws InterruptedException, IOException {
 		//driver.get(prop.getProperty("qaAutoMaintenace")+StaticData.vpsPkg);
 		driver.get("https://qa-automation-maintenance-portal.houston1.endurancedevs.com/signup/vps/82/36/SNAPPYV2/");
@@ -88,9 +88,7 @@ public class PkgSignupExtended extends TestDriver {
 		signupFlow.paypalLogin();
 		signupFlow.verifyPaymentComplete();
 	}
-	
 
-	
 	@AfterMethod
 	public void afterMethod() {
 	}

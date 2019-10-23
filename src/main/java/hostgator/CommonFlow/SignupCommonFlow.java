@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import hostgator.driver.TestDriver;
-import hostgator.util.com.hostgator.util.StaticData;
+import hostgator.util.StaticData;
 
 public class SignupCommonFlow extends TestDriver{
 
