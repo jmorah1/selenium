@@ -24,40 +24,40 @@ public class Signuppage{
 	}
 	//Page Elements
 	//<editor-fold desc="Domain Section">
-	By i_own_this_domain = By.id("old_domain_tab");
-	By domain_text_field = By.id("domain_field");
+	By iOwnThisDomain = By.id("old_domain_tab");
+	By domainTextField = By.id("domain_field");
 	//</editor-fold>
 
 	//<editor-fold desc="Hosting Plan">
-	By tld_select          = By.id("tld_select");
-	By billingdropdown     = By.id("billing_cycle");
-	By username_text_field = By.xpath("//*[@id=\"username\"]");
-	By pin_text_field      = By.id("new_pin");
+	By tldSelect          = By.id("tld_select");
+	By billingDropdown     = By.id("billing_cycle");
+	By usernameTextField = By.xpath("//*[@id=\"username\"]");
+	By pinTextField      = By.id("new_pin");
 	//</editor-fold>
 
 	//<editor-fold desc="Billing Info Section">
-	By email_text_field    = By.id("new-email");			
-	By confirm_email_field = By.id("new-email-confirm");
-	By first_name          = By.id("new-first-name");		
-	By last_name           = By.id("new-last-name");
-	By phone_number        = By.id("hphone");
-	By address1_field      = By.id("new-address1");
-	By address2_filed      = By.id("new-address2");
-	By city_field          = By.id("new-city");
-	By zip_code_field      = By.id("zip_code");
+	By emailTextField    = By.id("new-email");
+	By confirmRmailField = By.id("new-email-confirm");
+	By firstNameField          = By.id("new-first-name");
+	By lastNameField           = By.id("new-last-name");
+	By phoneNumberField        = By.id("hphone");
+	By address1Field      = By.id("new-address1");
+	By address2Field      = By.id("new-address2");
+	By cityField          = By.id("new-city");
+	By zipCodeField      = By.id("zip_code");
 	//</editor-fold>
 
 	//<editor-fold desc="Credit Card Payment Type">
-	By cc_card_name_field = By.id("new-name-on-card");
-	By cc_number_field    = By.id("new_cc");
-	By cc_cvv_field       = By.id("security_code_new");
+	By ccCardNameField = By.id("new-name-on-card");
+	By ccNumberField    = By.id("new_cc");
+	By ccCvvField       = By.id("security_code_new");
 	//</editor-fold>
 
 	//<editor-fold desc="Checkout Section">
-	By tos_checkbox1   = By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins"); 
-	By tos_checkbox2   = By.id("tos-agree");  //By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins");
-	By tos_checkbox3   = By.className("iCheck-helper"); //By.id("tos-agree");  //By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins");
-	By checkout_button = By.id("final-checkout");
+	By tosCheckbox1   = By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins");
+	By tosCheckbox2   = By.id("tos-agree");  //By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins");
+	By tosCheckbox3   = By.className("iCheck-helper"); //By.id("tos-agree");  //By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins");
+	By checkoutButton = By.id("final-checkout");
 	//</editor-fold>
 
 	//<editor-fold desc="Top Right Sign-in">
@@ -74,32 +74,32 @@ public class Signuppage{
 
 	//<editor-fold desc="PayPal">
 	By usePayPalTab = By.id("paypal_tab");
-	By paypal_radio        = By.id("paypal");
+	By paypalRadio        = By.id("paypal");
 	//</editor-fold>
 	//End of Page Elements
 
 	//Page Functions
 
 	//<editor-fold desc="Top Right Sign-in">
-	public void clickTopRightSignintext()
+	public void ClickTopRightSignintext()
 	{
 		driver.findElement(regflowTopRightSignintext).click();
 		log.info("Clicked Top Right Sign in Button");
 	}
 
-	public void enterTopRightEmail(String email)
+	public void EnterTopRightEmail(String email)
 	{
 		driver.findElement(regflowTopRightEmailField).sendKeys(email);
 		log.info("Entered Existing Email");
 	}
 
-	public void enterTopRightPassword(String password)
+	public void EnterTopRightPassword(String password)
 	{
 		driver.findElement(regflowTopRightPasswordField).sendKeys(password);
 		log.info("Clicked Password");
 	}
 
-	public void clickTopRightSigninButton()
+	public void ClickTopRightSigninButton()
 	{
 		driver.findElement(regFlowTopRightSigninButton).click();
 		log.info("Clicked Signin Button");
@@ -107,19 +107,19 @@ public class Signuppage{
 	//</editor-fold>
 
 	//<editor-fold desc="Login With Existing Account: Middle Sign in">
-	public void enterExistingAccountEmail(String email)
+	public void EnterExistingAccountEmail(String email)
 	{
-		driver.findElement(email_text_field).sendKeys(email);
+		driver.findElement(emailTextField).sendKeys(email);
 		log.info("Entered Existing Email");
 	}
 	
-	public void enterExistingAccountPassword(String existingAccountPassword)
+	public void EnterExistingAccountPassword(String existingAccountPassword)
 	{
 		driver.findElement(existingAccountPasswordField).sendKeys(existingAccountPassword);
 		log.info("Entered Existing Account Password");
 	}
 	
-	public void clickExistingAccoiuntLoginButton()
+	public void ClickExistingAccoiuntLoginButton()
 	{
 		driver.findElement(existingAccoiuntLoginButton).click();
 		log.info("Clicked on Logion Button");
@@ -127,112 +127,112 @@ public class Signuppage{
 	//</editor-fold>
 
 	//<editor-fold desc="Choose a Domain">
-	public void clickIAlreadyOwnThisDomian()
+	public void ClickIAlreadyOwnThisDomian()
 	{
-		driver.findElement(i_own_this_domain).click();
+		driver.findElement(iOwnThisDomain).click();
 		log.info("Switched to I Already Own This Domain Tab");
 	}
 	
-	public void enterStoredExistingDomain(String domain)
+	public void EnterStoredExistingDomain(String domain)
 	{
-		driver.findElement(domain_text_field).sendKeys(domain);
+		driver.findElement(domainTextField).sendKeys(domain);
 		log.info("Entered and Stored Existing Domain");
 	}		
 	
-	public void enterExistingDomain(String domain, String packageName)
+	public void EnterExistingDomain(String domain, String packageName)
 	{
-		driver.findElement(domain_text_field).sendKeys(domain+random.nextInt(10000)+packageName+random.nextInt(100000)+".com");
+		driver.findElement(domainTextField).sendKeys(domain+random.nextInt(10000)+packageName+random.nextInt(100000)+".com");
 		log.info("Entered Existing Domain");
 	}
 
-	public void enterDomain(String domain, String packageName)
+	public void EnterDomain(String domain, String packageName)
 	{
-		driver.findElement(domain_text_field).sendKeys(domain+random.nextInt(10000)+packageName+random.nextInt(10000)); //random.nextInt(10000) //date.getTime());
+		driver.findElement(domainTextField).sendKeys(domain+random.nextInt(10000)+packageName+random.nextInt(10000)); //random.nextInt(10000) //date.getTime());
 		log.info("Entered New Domain");
 	}
 	//</editor-fold>
 
 	//<editor-fold desc="Choose a Hosting Plan">
-	public void tldDropdown(int index)
+	public void TldDropdown(int index)
 	{
-		Select s=new Select(driver.findElement(tld_select));
+		Select s=new Select(driver.findElement(tldSelect));
 		s.selectByIndex(index);
 		log.info("Selected TLD");
 	}
 	
-	public void billingDropdown(int index)
+	public void BillingDropdown(int index)
 	{
-		Select s=new Select(driver.findElement(billingdropdown));
+		Select s=new Select(driver.findElement(billingDropdown));
 		s.selectByIndex(index);
 		log.info("Selected billing Term");
 	}
 	
     
-	public void enterUsername(String username)
+	public void EnterUsername(String username)
 	{
-		driver.findElement(username_text_field).sendKeys(username+random.nextInt(50));
+		driver.findElement(usernameTextField).sendKeys(username+random.nextInt(50));
 		log.info("Entered Username");
 	}
 	
-	public void enterPin(String pin)
+	public void EnterPin(String pin)
 	{
-		driver.findElement(pin_text_field).sendKeys(pin);
+		driver.findElement(pinTextField).sendKeys(pin);
 		log.info("Entered Pin");
 	}
 	//</editor-fold>
 
 	//<editor-fold desc="Enter Your Billing Info">
-	public void enterEmail(String email)
+	public void EnterEmail(String email)
 	{
-		driver.findElement(email_text_field).sendKeys(email);
+		driver.findElement(emailTextField).sendKeys(email);
 		log.info("Entered New Email");
 	}
 	
-	public void enterConfirmEmail(String email)
+	public void EnterConfirmEmail(String email)
 	{
-		driver.findElement(confirm_email_field).sendKeys(email);
+		driver.findElement(confirmRmailField).sendKeys(email);
 		log.info("Confirmed New Email");
 	}
 	
-	public void enterFirstName(String firstName)
+	public void EnterFirstName(String firstName)
 	{
-		driver.findElement(first_name).sendKeys(firstName);
+		driver.findElement(firstNameField).sendKeys(firstName);
 		log.info("Entered First Name");
 	}
 	
-	public void enterLastName(String lastName)
+	public void EnterLastName(String lastName)
 	{
-		driver.findElement(last_name).sendKeys(lastName);
+		driver.findElement(lastNameField).sendKeys(lastName);
 		log.info("Entered Last Name");
 	}
 	
-	public void enterPhone(String phone)
+	public void EnterPhone(String phone)
 	{
-		driver.findElement(phone_number).sendKeys(phone);
+		driver.findElement(phoneNumberField).sendKeys(phone);
 		log.info("Entered Phone #");
 	}
 	
-	public void enterAddress1(String address1)
+	public void EnterAddress1(String address1)
 	{
-		driver.findElement(address1_field).sendKeys(address1);
+		driver.findElement(address1Field).sendKeys(address1);
 		log.info("Entered Adress1");
 	}
 	
-	public void enterAddress2(String address2)
+	public void EnterAddress2(String address2)
 	{
-		driver.findElement(address2_filed).sendKeys(address2);
+		driver.findElement(address2Field).sendKeys(address2);
 		log.info("Entered Address2");
 	}
 	
-	public void enterCity(String city)
+	public void EnterCity(String city)
 	{
-		driver.findElement(city_field).sendKeys(city);
+		driver.findElement(cityField).sendKeys(city);
 		log.info("Entered Billing City");
 	}
 	
-	public void enterZipCode(String zipcode)
+	public void EnterZipCode(String zipcode)
 	{
-		driver.findElement(zip_code_field).sendKeys(zipcode);
+		driver.findElement(zipCodeField).sendKeys(zipcode);
 		log.info("Entered Billing ZipCode");
 
 	}
@@ -245,54 +245,54 @@ public class Signuppage{
 //	}
 	
 	//<editor-fold desc="Payment Type: PayPal">
-	public void clickPayPalTab()
+	public void ClickPayPalTab()
 	{
 		driver.findElement(usePayPalTab).click();
 		log.info("Switched to PayPal Tab");
 	}
 	
-	public void clickPaypalPaymentType() {
-		driver.findElement(paypal_radio).click();
+	public void ClickPaypalPaymentType() {
+		driver.findElement(paypalRadio).click();
 		log.info("Selected Paypal Payment type");
 	}
 	//</editor-fold>
 
 	//<editor-fold desc="Payment Type: Credit Card">
-	public void enterCreditCardName(String ccName)
+	public void EnterCreditCardName(String ccName)
 	{
-		driver.findElement(cc_card_name_field).sendKeys(ccName);
+		driver.findElement(ccCardNameField).sendKeys(ccName);
 		log.info("Entered CC Name");
 	}
 	
-	public void enterCreditCardNumber(String cc)
+	public void EnterCreditCardNumber(String cc)
 	{
-		driver.findElement(cc_number_field).sendKeys(cc);
+		driver.findElement(ccNumberField).sendKeys(cc);
 		log.info("Entered CC #");
 	}
 	
-	public void enterCreditCardCVV(String  cvv)
+	public void EnterCreditCardCVV(String  cvv)
 	{
-		driver.findElement(cc_cvv_field).sendKeys(cvv);
+		driver.findElement(ccCvvField).sendKeys(cvv);
 		log.info("Entered CC CVV");
 	}
 	//</editor-fold>
 
 	//<editor-fold desc="Review Order Details and Checkout">
-	public void checkTos1()
+	public void CheckTos1()
 	{
-		driver.findElement(tos_checkbox1).click();
+		driver.findElement(tosCheckbox1).click();
 		log.info("Clicked TOS");
 	}
 	
-	public void tos_checkbox3() //works for shared pkg
+	public void TosCheckbox3() //works for shared pkg
 	{
-		driver.findElement(tos_checkbox3).click();
+		driver.findElement(tosCheckbox3).click();
 		log.info("Clicked TOS");
 	}
 	
-	public void clickCheckout()
+	public void ClickCheckout()
 	{
-		driver.findElement(checkout_button).click();
+		driver.findElement(checkoutButton).click();
 		log.info("Clicked Checkout Button");
 	}
 	//</editor-fold>

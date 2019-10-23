@@ -23,33 +23,33 @@ public class SignupCommonFlow extends TestDriver{
 	signupCompletePage signupComplete=new signupCompletePage(driver);
 	PayPalLogin paypalLogin=new PayPalLogin(driver);
 	
-	public void enterEmailAndConfirm(String packageName) {
+	public void EnterEmailAndConfirm(String packageName) {
 		String email = "hgtest"+random.nextInt(10000)+packageName +random.nextInt(100000)+ "@endurance.com";
-		signup.enterEmail(email);
-		signup.enterConfirmEmail(email);
+		signup.EnterEmail(email);
+		signup.EnterConfirmEmail(email);
 	
 	}
 	
 	public void enterBillingInfo() {
-		signup.enterFirstName(StaticData.firstName);
-		signup.enterLastName(StaticData.lastName);
-		signup.enterPhone(StaticData.phone);
-		signup.enterAddress1(StaticData.address1);
-		signup.enterAddress2(StaticData.address2);
-		signup.enterCity(StaticData.city);
-		signup.enterZipCode(StaticData.zip);
+		signup.EnterFirstName(StaticData.firstName);
+		signup.EnterLastName(StaticData.lastName);
+		signup.EnterPhone(StaticData.phone);
+		signup.EnterAddress1(StaticData.address1);
+		signup.EnterAddress2(StaticData.address2);
+		signup.EnterCity(StaticData.city);
+		signup.EnterZipCode(StaticData.zip);
 	}
 	
 	public void enterCredirCardInfo() {
-		signup.enterCreditCardName(StaticData.testCreditCardName);
-		signup.enterCreditCardNumber(StaticData.testCreditCardNumber);
-		signup.enterCreditCardCVV(StaticData.testCreditCardCVV);
+		signup.EnterCreditCardName(StaticData.testCreditCardName);
+		signup.EnterCreditCardNumber(StaticData.testCreditCardNumber);
+		signup.EnterCreditCardCVV(StaticData.testCreditCardCVV);
 	}
 	
 	public void checkTOSandCheckout() throws InterruptedException {
 		Thread.sleep(5000);
-		signup.checkTos1();
-		signup.clickCheckout();
+		signup.CheckTos1();
+		signup.ClickCheckout();
 		
 //		Boolean isPresent = driver.findElements(By.xpath("//*[@id=\"results-area\"]/h3")).size() > 0;
 ////		if ( driver.findElement(By.xpath("//*[@id=\"results-area\"]/h3")) != null ) {
@@ -73,7 +73,7 @@ public class SignupCommonFlow extends TestDriver{
 //				}
 //				
 //				Thread.sleep(3000);
-//				signup.clickCheckout();
+//				signup.ClickCheckout();
 //			
 //			}
 //		}
@@ -120,21 +120,21 @@ public class SignupCommonFlow extends TestDriver{
 	}
 	
 	public void topRightSignIn(String email) {
-		signup.clickTopRightSignintext();
-		signup.enterTopRightEmail(email);
-		signup.enterTopRightPassword(StaticData.portalPassword); 
-		signup.clickTopRightSigninButton();
+		signup.ClickTopRightSignintext();
+		signup.EnterTopRightEmail(email);
+		signup.EnterTopRightPassword(StaticData.portalPassword);
+		signup.ClickTopRightSigninButton();
 	}
 
 	public void existingEmailSignIn(String existingEmail, String password) throws InterruptedException {
 		
-		signup.enterExistingAccountEmail(existingEmail);
+		signup.EnterExistingAccountEmail(existingEmail);
 		
 		WebElement webElement = driver.findElement(By.id("new-email"));
 		webElement.sendKeys(Keys.TAB);
 		
-		signup.enterExistingAccountPassword(password);
-		signup.clickExistingAccoiuntLoginButton();
+		signup.EnterExistingAccountPassword(password);
+		signup.ClickExistingAccoiuntLoginButton();
 		
 		@SuppressWarnings("deprecation")
 		WebDriverWait w = new WebDriverWait(driver, 10);

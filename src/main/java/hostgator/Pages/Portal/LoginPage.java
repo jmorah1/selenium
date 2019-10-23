@@ -18,41 +18,41 @@ public class LoginPage {
 	}
 	
 
-	By EmailField    = By.id("email");
+	By emailField    = By.id("email");
 	By nextButton    = By.id("loginBtn"); 
 	By passwordField = By.id("password"); 
 	By loginButton   = By.id("loginBtn"); 
 	
-	public void enterExistingAccountEmail(String email)
+	public void EnterExistingAccountEmail(String email)
 	{
-		driver.findElement(EmailField).sendKeys(email);
+		driver.findElement(emailField).sendKeys(email);
 		log.info("Entered Existing Email");
 	}
 	
-	public void clickNextButton()
+	public void ClickNextButton()
 	{
 		driver.findElement(nextButton).click();
 		log.info("Clicked Next");
 	}
 	
-	public void enterExistingAccountPassword(String password)
+	public void EnterExistingAccountPassword(String password)
 	{
 		driver.findElement(passwordField).sendKeys(password);
 		log.info("Entered Password");
 	}
 	
-	public void clickLoginButton()
+	public void ClickLoginButton()
 	{
 		driver.findElement(loginButton).click();
 		log.info("Clicked Login");
 	}
 	
-	public void portalLogin(String email, String password)
+	public void PortalLogin(String email, String password)
 	{
-		enterExistingAccountEmail(email);
-		clickNextButton();
-		enterExistingAccountPassword(password);
-		clickLoginButton();
+		EnterExistingAccountEmail(email);
+		ClickNextButton();
+		EnterExistingAccountPassword(password);
+		ClickLoginButton();
 		
 		@SuppressWarnings("deprecation")
 		WebDriverWait w = new WebDriverWait(driver, 15);

@@ -44,19 +44,19 @@ public class PkgSignup extends TestDriver {
 
 		SignupCommonFlow signupFlow=new SignupCommonFlow();
 		Signuppage signup=new Signuppage(driver);
-		signup.enterDomain(StaticData.domainName, "sharedpackage");
-		signup.tldDropdown(0);
+		signup.EnterDomain(StaticData.domainName, "sharedpackage");
+		signup.TldDropdown(0);
 		Thread.sleep(2000);
-		signup.billingDropdown(0);
+		signup.BillingDropdown(0);
 		Thread.sleep(2000);
-		signup.enterUsername(StaticData.userName);
-		signup.enterPin(StaticData.pin);
-		signupFlow.enterEmailAndConfirm("shared");
+		signup.EnterUsername(StaticData.userName);
+		signup.EnterPin(StaticData.pin);
+		signupFlow.EnterEmailAndConfirm("shared");
 		signupFlow.enterBillingInfo();
 		signupFlow.enterCredirCardInfo();
-		signup.tos_checkbox3();
-		signup.clickCheckout();
-		signup.clickCheckout(); //Clicking checkout again cause first click loads up and does nothing		
+		signup.TosCheckbox3();
+		signup.ClickCheckout();
+		signup.ClickCheckout(); //Clicking checkout again cause first click loads up and does nothing
 		signupFlow.verifyPaymentComplete();	
 		
 		driver.close();
@@ -73,12 +73,12 @@ public class PkgSignup extends TestDriver {
 		
 		SignupCommonFlow signupFlow=new SignupCommonFlow();
 		Signuppage signup=new Signuppage(driver);
-		signup.clickIAlreadyOwnThisDomian();
+		signup.ClickIAlreadyOwnThisDomian();
 		String existingDomain = StaticData.domainName+random.nextInt(10000)+"dedi"+random.nextInt(100000)+".com";
-		signup.enterStoredExistingDomain(existingDomain);
-		signup.billingDropdown(0);
+		signup.EnterStoredExistingDomain(existingDomain);
+		signup.BillingDropdown(0);
 		signupFlow.topRightSignIn(StaticData.sharedDefaultAccount);	
-		signup.clickPayPalTab();
+		signup.ClickPayPalTab();
 		Thread.sleep(4000); //explicit wait
 		signupFlow.checkTOSandCheckout();
 		signupFlow.verifyPaymentComplete();
@@ -97,11 +97,11 @@ public class PkgSignup extends TestDriver {
 		
 		SignupCommonFlow signupFlow=new SignupCommonFlow();
 		Signuppage signup=new Signuppage(driver);
-		signup.clickIAlreadyOwnThisDomian();
-		signup.enterExistingDomain(StaticData.domainName, "owp");
-		signup.billingDropdown(0);
+		signup.ClickIAlreadyOwnThisDomian();
+		signup.EnterExistingDomain(StaticData.domainName, "owp");
+		signup.BillingDropdown(0);
 		Thread.sleep(3000);
-		signup.enterPin(StaticData.pin);
+		signup.EnterPin(StaticData.pin);
 		signupFlow.existingEmailSignIn(StaticData.sharedDefaultEmail, StaticData.defaultPassword);
 		signupFlow.checkTOSandCheckout();
 		signupFlow.verifyPaymentComplete();
