@@ -73,6 +73,16 @@ public class TestDriver {
 				driver = new FirefoxDriver();
 			}
 		}
+
+		if(os.contains("Linux")) {
+			if (browserName.equals("chrome")) {
+				System.setProperty("webdriver.chrome.driver", "./webDrivers/Linux/chromedriver");
+				driver = new ChromeDriver();
+			} else if (browserName.equals("firefox")) {
+				System.setProperty("webdriver.chrome.driver", "./webDrivers/Linux/geckodriver");
+				driver = new FirefoxDriver();
+			}
+		}
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		//		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		return driver;
@@ -105,7 +115,7 @@ public class TestDriver {
 		w.until(ExpectedConditions.visibilityOfElementLocated(By.id(id)));
 	}
 
-	public void selectButtonBuy(String element) {
+	public void clickIgnoreIntercept(String element) {
 		JavascriptExecutor executor = (JavascriptExecutor)driver;
 		executor.executeScript("arguments[0].click();", element);
 	}
