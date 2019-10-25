@@ -12,7 +12,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import hostgator.driver.TestDriver;
-import hostgator.util.com.hostgator.util.StaticData;
+import hostgator.util.StaticData;
 
 import hostgator.Pages.Portal.PortalHomePage;
 
