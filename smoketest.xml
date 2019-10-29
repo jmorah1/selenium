@@ -1,45 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite">
+<suite name="SignupSuite" parallel="tests" thread-count="3">
 
   <listeners>
   	<listener class-name="hostgator.Listener"/>
   </listeners>
-  
-  <test thread-count="6" name="PkgSignup">
+
+  <test name="SharedPkgSignup">
     <classes>
-      <class name="hostgator.PkgSignup"/>
-      <class name="hostgator.PkgSignupExtended"/>
+      <class name="hostgator.SharedPkgSignup"/>
     </classes>
   </test> <!-- Test -->
-
+  <test name="OWPSignup">
+    <classes>
+      <class name="hostgator.OWPSignup"/>
+    </classes>
+  </test> <!-- Test -->
+  <test name="DediPkgSignup">
+    <classes>
+      <class name="hostgator.DediPkgSignup"/>
+    </classes>
+  </test> <!-- Test -->
+  <test name="TestMadeToFail">
+    <classes>
+      <class name="hostgator.TestMadeToFail"/>
+    </classes>
+  </test> <!-- Test -->
 </suite> <!-- Suite -->
-
-
-<!-- <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-  <test name="Billing Validation"> thread-count="25"
-    <classes>
-      <class name="com.hostgator.Billing"/>
-    </classes>
-  </test>
-  
-  <test name="Package signup"> 
-    <classes>
-      <class name="com.hostgator.PkgSignup"/>
-    </classes>
-  </test>
-  
-  <test name="MakePaymentFeature Validation">
-    <classes>
-      <class name="com.hostgator.MakePaymentFeature"/>
-    </classes>
-  </test>
-  
-  <test name="Addon Validation"> 
-    <classes>
-      <class name="com.hostgator.AddOn"/>
-    </classes>
-  </test>
-</suite> Suite -->

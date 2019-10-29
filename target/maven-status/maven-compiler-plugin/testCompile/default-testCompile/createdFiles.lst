@@ -1,4 +1,10 @@
-hostgator/com/PkgSignupExtended.class
-hostgator/com/MakePaymentFeature.class
-hostgator/com/PkgSignup.class
-hostgator/com/Listener.class
+hostgator/Billing.class
+hostgator/PkgSignupExtended.class
+hostgator/TestMadeToFail.class
+hostgator/SharedPkgSignup.class
+hostgator/Listener2.class
+hostgator/OWPSignup.class
+hostgator/DediPkgSignup.class
+hostgator/MakePaymentFeature.class
+hostgator/Domain.class
+hostgator/Listener.class

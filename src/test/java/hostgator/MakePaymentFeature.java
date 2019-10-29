@@ -12,7 +12,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import hostgator.driver.TestDriver;
-import hostgator.util.com.hostgator.util.StaticData;
+import hostgator.util.StaticData;
 
 import hostgator.Pages.Portal.PortalHomePage;
 
@@ -26,7 +26,7 @@ public class MakePaymentFeature extends TestDriver{
 	@BeforeClass
 	//@BeforeTest
 	public void initialize() throws IOException {
-		driver =  initializeDriver();
+		driver =  initializeDriver("chrome");
 		log.info("Driver is initialized");
 	}
 

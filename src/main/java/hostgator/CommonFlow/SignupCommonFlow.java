@@ -7,6 +7,7 @@ import hostgator.Pages.Signup.Signuppage;
 import hostgator.Pages.Signup.signupCompletePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,7 +23,11 @@ public class SignupCommonFlow extends TestDriver{
 	Signuppage signup=new Signuppage(driver);
 	signupCompletePage signupComplete=new signupCompletePage(driver);
 	PayPalLogin paypalLogin=new PayPalLogin(driver);
-	
+
+	public SignupCommonFlow(WebDriver driver) {
+		this.driver=driver;
+	}
+
 	public void EnterEmailAndConfirm(String packageName) {
 		String email = "hgtest"+random.nextInt(10000)+packageName +random.nextInt(100000)+ "@endurance.com";
 		signup.EnterEmail(email);

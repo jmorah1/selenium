@@ -19,11 +19,11 @@ public class PkgSignupExtended extends TestDriver {
 	TestDriver testDriver=new TestDriver();
 	Random random = new Random();
 	
-	private static Logger log = LogManager.getLogger(PkgSignup.class.getName());
+	private static Logger log = LogManager.getLogger(PkgSignupExtended.class.getName());
 	
 	@BeforeClass
 	public void initialize() throws IOException {
-		driver =  initializeDriver();
+		driver =  initializeDriver("chrome");
 		log.info("Driver is initialized");
 	}
 
@@ -37,7 +37,7 @@ public class PkgSignupExtended extends TestDriver {
 		driver.get(prop.getProperty("qaAutoMaintenace")+StaticData.resellerPkg);
 		log.info("Navigated to dedi pkg signup page");
 		
-		SignupCommonFlow signupFlow=new SignupCommonFlow();
+		SignupCommonFlow signupFlow=new SignupCommonFlow(driver);
 		Signuppage signup=new Signuppage(driver);
 		signup.ClickIAlreadyOwnThisDomian();
 		signup.EnterExistingDomain(StaticData.domainName, "reseller");
@@ -57,7 +57,7 @@ public class PkgSignupExtended extends TestDriver {
 		driver.get("https://qa-automation-maintenance-portal.houston1.endurancedevs.com/signup/vps/82/36/SNAPPYV2/");
 		log.info("Navigated to dedi pkg signup page");
 		
-		SignupCommonFlow signupFlow=new SignupCommonFlow();
+		SignupCommonFlow signupFlow=new SignupCommonFlow(driver);
 		Signuppage signup=new Signuppage(driver);
 		signup.ClickIAlreadyOwnThisDomian();
 		signup.EnterExistingDomain(StaticData.domainName, "vps");
@@ -75,7 +75,7 @@ public class PkgSignupExtended extends TestDriver {
 		driver.get(prop.getProperty("qaAutoMaintenace")+StaticData.cloudSitesPkg);
 		log.info("Navigated to dedi pkg signup page");
 		
-		SignupCommonFlow signupFlow=new SignupCommonFlow();
+		SignupCommonFlow signupFlow=new SignupCommonFlow(driver);
 		Signuppage signup=new Signuppage(driver);
 		signup.ClickIAlreadyOwnThisDomian();
 		signup.EnterExistingDomain(StaticData.domainName, "cloud");

@@ -18,12 +18,14 @@ public class Listener implements ITestListener{
 
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub
-		System.out.println("Starting Test - "+result.getName());
+		log.info("Starting Test - "+result.getName());
+//		System.out.println("Starting Test - "+result.getName());
 	}
 
 	public void onTestSuccess(ITestResult result) {
 		// TODO Auto-generated method stub
-		System.out.println("Passed - "+result.getName()+" Test");
+		log.info("Passed - "+result.getName()+" Test");
+//		System.out.println("Passed - "+result.getName()+" Test");
 	}
 
 	public void onTestFailure(ITestResult result) {
@@ -34,12 +36,16 @@ public class Listener implements ITestListener{
 			e.printStackTrace();
 		}
 
-		try {
-			testDriver.getShot(result.getName());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		System.out.println("got here 1");
+
+//		try {
+//			testDriver.getShot(result.getName());
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		System.out.println("got here 2");
+
 		//testDriver.anotherscreenshotLib();
 		testDriver.analyzeLog(result.getName());
 		System.out.println("Failed - "+result.getName()+" Test");

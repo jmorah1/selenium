@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class Billing extends TestDriver {
 
-    private static Logger log = LogManager.getLogger(PkgSignup.class.getName());
+    private static Logger log = LogManager.getLogger(Billing.class.getName());
 
     @BeforeClass
     //@BeforeTest
@@ -30,7 +30,7 @@ public class Billing extends TestDriver {
 
     @Test(groups  = {"SmokeTest", "BillingRegression"}) //HGQ-1127
     public void VerifyBillingHistory() throws IOException, InterruptedException {
-        driver =  initializeDriver();
+        driver =  initializeDriver("chrome");
         driver.manage().window().maximize();
 
         driver.get(prop.getProperty("qaAutoMaintenace"));
