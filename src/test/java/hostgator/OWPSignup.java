@@ -21,8 +21,7 @@ public class OWPSignup extends TestDriver {
 		driver =  initializeDriver("chrome");
 		log.info("Driver is initialized");
 //		driver.manage().window().maximize();
-//		driver.get(prop.getProperty("qaAutoMaintenace")+StaticData.wordPressPkg);
-		driver.get("https://portal10.hostgator.com/signup/wordpress/83021/36/SNAPPYW579");
+		driver.get(prop.getProperty("qaAutoMaintenace")+StaticData.wordPressPkg);
 		log.info("Navigated to OWP pkg signup page");
 	}
 

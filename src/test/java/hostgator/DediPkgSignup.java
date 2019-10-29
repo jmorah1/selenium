@@ -22,8 +22,7 @@ public class DediPkgSignup extends TestDriver {
 		driver =  initializeDriver("chrome");
 		log.info("Driver is initialized");
 //		driver.manage().window().maximize();
-//		driver.get(prop.getProperty("qaAutoMaintenace")+StaticData.dediPkg);
-		driver.get("https://portal10.hostgator.com/signup/dedicated/85/36/SNAPPY");
+		driver.get(prop.getProperty("qaAutoMaintenace")+StaticData.dediPkg);
 		log.info("Navigated to dedi pkg signup page");
 	}
 	

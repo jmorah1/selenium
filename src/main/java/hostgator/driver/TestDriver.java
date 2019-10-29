@@ -25,7 +25,7 @@ import org.openqa.selenium.TakesScreenshot;
 
 public class TestDriver {
 
-	public WebDriver driver;
+	public static WebDriver driver;
 	public Properties prop;
 	
 	public WebDriver initializeDriver(String browser) throws IOException

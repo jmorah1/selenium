@@ -4,6 +4,7 @@
 
   <listeners>
   	<listener class-name="hostgator.Listener"/>
+    <listener class-name="reports.ExtentReporterNG"/>
   </listeners>
 
   <test name="SharedPkgSignup">
