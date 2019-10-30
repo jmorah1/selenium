@@ -43,6 +43,7 @@ public class TestDriver {
 
 //		String browserName = prop.getProperty("browser");
 		String browserName = browser;
+//		String browserName = System.getProperty("browser");
 
 		if(os.contains("Windows")) {
 			if (browserName.equals("chrome")) {

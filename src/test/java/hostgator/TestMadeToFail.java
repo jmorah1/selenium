@@ -27,7 +27,7 @@ public class TestMadeToFail extends TestDriver {
 
 	
 	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-898
-	public void TestMadeToFail() throws InterruptedException {
+	public void TestMadeToPass() throws InterruptedException {
 		Signuppage signup=new Signuppage(driver);
 		signup.EnterDomain(StaticData.domainName, "sharedpackage");
 		signup.TldDropdown(0);
@@ -36,7 +36,7 @@ public class TestMadeToFail extends TestDriver {
 		Thread.sleep(2000);
 		signup.EnterUsername(StaticData.userName);
 		signup.EnterPin(StaticData.pin);
-		Assert.assertTrue(false, "TestMadeToFail");
+//		Assert.assertTrue(false, "TestMadeToFail");
 	}
 
 	

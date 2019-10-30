@@ -7,21 +7,21 @@
     <listener class-name="reports.ExtentReporterNG"/>
   </listeners>
 
-  <test name="SharedPkgSignup">
-    <classes>
-      <class name="hostgator.SharedPkgSignup"/>
-    </classes>
-  </test> <!-- Test -->
-  <test name="OWPSignup">
-    <classes>
-      <class name="hostgator.OWPSignup"/>
-    </classes>
-  </test> <!-- Test -->
-  <test name="DediPkgSignup">
-    <classes>
-      <class name="hostgator.DediPkgSignup"/>
-    </classes>
-  </test> <!-- Test -->
+<!--  <test name="SharedPkgSignup">-->
+<!--    <classes>-->
+<!--      <class name="hostgator.SharedPkgSignup"/>-->
+<!--    </classes>-->
+<!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
+<!--  <test name="OWPSignup">-->
+<!--    <classes>-->
+<!--      <class name="hostgator.OWPSignup"/>-->
+<!--    </classes>-->
+<!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
+<!--  <test name="DediPkgSignup">-->
+<!--    <classes>-->
+<!--      <class name="hostgator.DediPkgSignup"/>-->
+<!--    </classes>-->
+<!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
   <test name="TestMadeToFail">
     <classes>
       <class name="hostgator.TestMadeToFail"/>
