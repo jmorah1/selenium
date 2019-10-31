@@ -1,30 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="SignupSuite" parallel="tests" thread-count="3">
+<suite name="SignupSuite" parallel="tests" thread-count="1">
 
   <listeners>
   	<listener class-name="hostgator.Listener"/>
     <listener class-name="reports.ExtentReporterNG"/>
   </listeners>
+<!--    <groups>-->
+<!--      <run>-->
+<!--        <include name="SmokeTest"/>-->
+<!--      </run>-->
+<!--    </groups>-->
 
 <!--  <test name="SharedPkgSignup">-->
 <!--    <classes>-->
 <!--      <class name="hostgator.SharedPkgSignup"/>-->
 <!--    </classes>-->
 <!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
+<!--  -->
 <!--  <test name="OWPSignup">-->
 <!--    <classes>-->
 <!--      <class name="hostgator.OWPSignup"/>-->
 <!--    </classes>-->
 <!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
+<!--  -->
 <!--  <test name="DediPkgSignup">-->
 <!--    <classes>-->
 <!--      <class name="hostgator.DediPkgSignup"/>-->
 <!--    </classes>-->
 <!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
-  <test name="TestMadeToFail">
+
+  <test name="TrialTest" parallel="methods" thread-count="2">
     <classes>
-      <class name="hostgator.TestMadeToFail"/>
+      <class name="hostgator.TrialTest">
+<!--        <methods>-->
+<!--          <include name="TrialTest1"/>-->
+<!--        </methods>-->
+      </class>
+<!--      <class name="hostgator.PackageSignup"/>-->
     </classes>
   </test> <!-- Test -->
+
+<!--  <test name="PackageSignup">-->
+<!--    <classes>-->
+<!--      <class name="hostgator.PackageSignup">-->
+<!--&lt;!&ndash;        <methods>&ndash;&gt;-->
+<!--&lt;!&ndash;          <include name="TrialTest1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        </methods>&ndash;&gt;-->
+<!--      </class>-->
+<!--    </classes>-->
+<!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
+
 </suite> <!-- Suite -->

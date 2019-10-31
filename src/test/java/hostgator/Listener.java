@@ -35,17 +35,12 @@ public class Listener implements ITestListener{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		System.out.println("got here 1");
-
 //		try {
 //			testDriver.getShot(result.getName());
 //		} catch (IOException e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-		System.out.println("got here 2");
-
 		//testDriver.anotherscreenshotLib();
 		testDriver.analyzeLog(result.getName());
 		System.out.println("Failed - "+result.getName()+" Test");

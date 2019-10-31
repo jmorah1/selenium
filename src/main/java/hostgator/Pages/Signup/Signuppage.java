@@ -31,57 +31,57 @@ public class Signuppage extends TestDriver {
 	}
 	//Page Elements
 	//<editor-fold desc="Domain Section">
-	By iOwnThisDomain = By.id("old_domain_tab");
-	By domainTextField = By.id("domain_field");
+	private By iOwnThisDomain = By.id("old_domain_tab");
+	private By domainTextField = By.id("domain_field");
 	//</editor-fold>
 
 	//<editor-fold desc="Hosting Plan">
-	By tldSelect          = By.id("tld_select");
-	By billingDropdown     = By.id("billing_cycle");
-	By usernameTextField = By.xpath("//*[@id=\"username\"]");
-	By pinTextField      = By.id("new_pin");
+	private By tldSelect          = By.id("tld_select");
+	private By billingDropdown     = By.id("billing_cycle");
+	private By usernameTextField = By.xpath("//*[@id=\"username\"]");
+	private By pinTextField      = By.id("new_pin");
 	//</editor-fold>
 
 	//<editor-fold desc="Billing Info Section">
-	By emailTextField    = By.id("new-email");
-	By confirmRmailField = By.id("new-email-confirm");
-	By firstNameField          = By.id("new-first-name");
-	By lastNameField           = By.id("new-last-name");
-	By phoneNumberField        = By.id("hphone");
-	By address1Field      = By.id("new-address1");
-	By address2Field      = By.id("new-address2");
-	By cityField          = By.id("new-city");
-	By zipCodeField      = By.id("zip_code");
+	private By emailTextField    = By.id("new-email");
+	private By confirmRmailField = By.id("new-email-confirm");
+	private By firstNameField          = By.id("new-first-name");
+	private By lastNameField           = By.id("new-last-name");
+	private By phoneNumberField        = By.id("hphone");
+	private By address1Field      = By.id("new-address1");
+	private By address2Field      = By.id("new-address2");
+	private By cityField          = By.id("new-city");
+	private By zipCodeField      = By.id("zip_code");
 	//</editor-fold>
 
 	//<editor-fold desc="Credit Card Payment Type">
-	By ccCardNameField = By.id("new-name-on-card");
-	By ccNumberField    = By.id("new_cc");
-	By ccCvvField       = By.id("security_code_new");
+	private By ccCardNameField = By.id("new-name-on-card");
+	private By ccNumberField    = By.id("new_cc");
+	private By ccCvvField       = By.id("security_code_new");
 	//</editor-fold>
 
 	//<editor-fold desc="Checkout Section">
-	By tosCheckbox1   = By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins");
-	By tosCheckbox2   = By.id("tos-agree");  //By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins");
-	By tosCheckbox3   = By.className("iCheck-helper"); //By.id("tos-agree");  //By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins");
-	By checkoutButton = By.id("final-checkout");
+	private By tosCheckbox1   = By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins");
+	private By tosCheckbox2   = By.id("tos-agree");  //By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins");
+	private By tosCheckbox3   = By.className("iCheck-helper"); //By.id("tos-agree");  //By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins");
+	private By checkoutButton = By.id("final-checkout");
 	//</editor-fold>
 
 	//<editor-fold desc="Top Right Sign-in">
-	By regflowTopRightEmailField     = By.id("sign-in-un");
-	By regflowTopRightPasswordField  = By.id("sign-in-pw"); 
-	By regflowTopRightSignintext     = By.linkText("Sign In!");
-	By regFlowTopRightSigninButton   = By.xpath("//*[@id=\"signup-container\"]/section/div[1]/div/div/div/div[2]/a");
+	private By regflowTopRightEmailField     = By.id("sign-in-un");
+	private By regflowTopRightPasswordField  = By.id("sign-in-pw");
+	private By regflowTopRightSignintext     = By.linkText("Sign In!");
+	private By regFlowTopRightSigninButton   = By.xpath("//*[@id=\"signup-container\"]/section/div[1]/div/div/div/div[2]/a");
 	//</editor-fold>
 
 	//<editor-fold desc="Existing Account Sign-in">
-	By existingAccountPasswordField = By.id("existing-password"); 
-	By existingAccoiuntLoginButton  = By.id("section-login");
+	private By existingAccountPasswordField = By.id("existing-password");
+	private By existingAccoiuntLoginButton  = By.id("section-login");
 	//</editor-fold>
 
 	//<editor-fold desc="PayPal">
-	By usePayPalTab = By.id("paypal_tab");
-	By paypalRadio        = By.id("paypal");
+	private By usePayPalTab = By.id("paypal_tab");
+	private By paypalRadio        = By.id("paypal");
 	//</editor-fold>
 	//End of Page Elements
 
@@ -304,9 +304,7 @@ public class Signuppage extends TestDriver {
 	}
 	//</editor-fold>
 
-	//////
-	///////
-	////below from signupcommonflow///
+	//// from signupcommonflow below///
 
 	PayPalLogin paypalLogin=new PayPalLogin(driver);
 

@@ -16,10 +16,10 @@ public class SharedPkgSignup extends TestDriver {
 	
 	@BeforeTest
 	public void initialize() throws IOException {
-		driver =  initializeDriver("chrome");
+		driver =  initializeDriver();
 		log.info("Driver is initialized");
 //		driver.manage().window().maximize();
-		driver.get(prop.getProperty("qaAutoMaintenace")+StaticData.sharedPkg);
+		driver.get(prop.getProperty(MvnPassedEnvironment())+StaticData.sharedPkg);
 		log.info("Navigated to shared pkg signup page");
 	}
 

@@ -18,10 +18,11 @@ public class OWPSignup extends TestDriver {
 	
 	@BeforeTest
 	public void initialize() throws IOException {
-		driver =  initializeDriver("chrome");
+		driver =  initializeDriver();
 		log.info("Driver is initialized");
 //		driver.manage().window().maximize();
-		driver.get(prop.getProperty("qaAutoMaintenace")+StaticData.wordPressPkg);
+		driver.get(prop.getProperty(MvnPassedEnvironment())+StaticData.wordPressPkg);
+
 		log.info("Navigated to OWP pkg signup page");
 	}
 
