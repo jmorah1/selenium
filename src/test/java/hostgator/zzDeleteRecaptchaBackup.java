@@ -14,7 +14,7 @@ import net.lightbody.bmp.core.har.HarEntry;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class recaptcha {
+public class recaptchaBackup {
     @Test
     public void test() throws Exception {
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/webDrivers/Mac/chromedriver");
@@ -53,7 +53,9 @@ public class recaptcha {
         proxy.start();
 
         proxy.addRequestFilter((request, contents, messageInfo) -> {
-            request.headers().add("my-test-header", "my-test-value");
+            request.headers().add("X-GATOR-REQUESTOR", "jmorah-test");
+            request.headers().add("X-GATOR-AUTH", "87aa0de52ec992880513105308e3c990");
+
             System.out.println(request.headers().entries().toString());
             return null;
         });

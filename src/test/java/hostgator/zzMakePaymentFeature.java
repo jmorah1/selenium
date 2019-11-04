@@ -5,11 +5,7 @@
 //
 //import hostgator.Pages.Portal.LoginPage;
 //import org.apache.logging.log4j.*;
-//import org.testng.annotations.AfterClass;
-//import org.testng.annotations.AfterMethod;
-//import org.testng.annotations.BeforeClass;
-//import org.testng.annotations.BeforeMethod;
-//import org.testng.annotations.Test;
+//import org.testng.annotations.*;
 //
 //import hostgator.driver.TestDriver;
 //import hostgator.util.StaticData;
@@ -18,13 +14,9 @@
 //
 //public class MakePaymentFeature extends TestDriver{
 //
-//	TestDriver testDriver=new TestDriver();
-//	Random random = new Random();
-//
 //	private static Logger log = LogManager.getLogger(MakePaymentFeature.class.getName());
 //
-//	@BeforeClass
-//	//@BeforeTest
+//	@BeforeTest
 //	public void initialize() throws IOException {
 //		driver =  initializeDriver();
 //		log.info("Driver is initialized");
@@ -33,13 +25,12 @@
 //	@BeforeMethod
 //	public void beforeMethod() {
 //		driver.manage().window().maximize();
+//        driver.get(prop.getProperty("qaAutoMaintenace"));
+//        log.info("Navigated signin page");
 //	}
 //
 //	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-898
 //	public void MakePaymentFeatureByUsingCC() throws IOException, InterruptedException {
-//		driver.get(prop.getProperty("qaAutoMaintenace"));
-//		log.info("Navigated signin page");
-//
 //		LoginPage portalLogin=new LoginPage(driver);
 //		PortalHomePage homePage=new PortalHomePage(driver);
 //
