@@ -10,35 +10,31 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.util.Random;
 
 public class OWPSignup extends TestDriver {
 
 	private static Logger log = LogManager.getLogger(OWPSignup.class.getName());
-	
+    Signuppage signup;
+
 	@BeforeTest
 	public void initialize() throws IOException {
 		driver =  initializeDriver();
-		log.info("Driver is initialized");
 //		driver.manage().window().maximize();
-		driver.get(prop.getProperty(MvnPassedEnvironment())+StaticData.wordPressPkg);
-
-		log.info("Navigated to OWP pkg signup page");
+		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.wordPressPkg);
 	}
 
 	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-900
 	public void WordpressExistingCustomerExistingDomainCC() throws InterruptedException, IOException {
-		Signuppage signup=new Signuppage(driver);
-		signup.ClickIAlreadyOwnThisDomian();
-		signup.EnterExistingDomain(StaticData.domainName, "owp");
-		signup.BillingDropdown(0);
-		Thread.sleep(3000);
-		signup.EnterPin(StaticData.pin);
+		signup=new Signuppage(driver);
+		signup.clickIAlreadyOwnThisDomian();
+		signup.enterExistingDomain(StaticData.domainName, "owp");
+		signup.billingDropdown(0);
+		signup.enterPin(StaticData.pin);
 		signup.existingEmailSignIn(StaticData.sharedDefaultEmail, StaticData.defaultPassword);
 		signup.checkTOSandCheckout();
-//		signup.verifyPaymentComplete();
+		signup.verifyPaymentComplete();
 	}
-	
+
 	@AfterTest
 	public void teardown() {
 		driver.close();

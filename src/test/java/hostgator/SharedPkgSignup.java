@@ -1,7 +1,6 @@
 package hostgator;
 
 import java.io.IOException;
-import java.util.Random;
 
 import hostgator.Pages.Signup.Signuppage;
 import org.apache.logging.log4j.*;
@@ -13,37 +12,35 @@ import hostgator.util.StaticData;
 public class SharedPkgSignup extends TestDriver {
 
 	private static Logger log = LogManager.getLogger(SharedPkgSignup.class.getName());
-	
+    Signuppage signup;
+
 	@BeforeTest
 	public void initialize() throws IOException {
 		driver =  initializeDriver();
-		log.info("Driver is initialized");
 //		driver.manage().window().maximize();
-		driver.get(prop.getProperty(MvnPassedEnvironment())+StaticData.sharedPkg);
+		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.sharedPkg);
 		log.info("Navigated to shared pkg signup page");
 	}
 
-	
+
 	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-898
 	public void SharedNewCustomerNewDomainCC() throws IOException, InterruptedException {
-		Signuppage signup=new Signuppage(driver);
-		signup.EnterDomain(StaticData.domainName, "sharedpackage");
-		signup.TldDropdown(0);
-		Thread.sleep(2000);
-		signup.BillingDropdown(0);
-		Thread.sleep(2000);
-		signup.EnterUsername(StaticData.userName);
-		signup.EnterPin(StaticData.pin);
-		signup.EnterEmailAndConfirm("shared");
+		signup=new Signuppage(driver);
+		signup.enterDomain(StaticData.domainName, "sharedpackage");
+		signup.tldDropdown(0);
+//		Thread.sleep(2000);
+		signup.billingDropdown(0);
+//		Thread.sleep(2000);
+		signup.enterUsername(StaticData.userName);
+		signup.enterPin(StaticData.pin);
+		signup.enterEmailAndConfirm("shared");
 		signup.enterBillingInfo();
 		signup.enterCredirCardInfo();
-		signup.TosCheckbox3();
-		signup.ClickCheckout();
-//		signup.ClickCheckout(); //Clicking checkout again cause first click loads up and does nothing
-//		signup.verifyPaymentComplete();
+		signup.sharedPackageCheckTOSandCheckoutTwice();
+		signup.verifyPaymentComplete();
 	}
 
-	
+
 	@AfterTest
 	public void teardown() {
 		driver.close();

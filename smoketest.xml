@@ -1,54 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="SignupSuite" parallel="tests" thread-count="1">
+<suite name="SmokeTestSuite" parallel="tests" thread-count="1">
 
   <listeners>
   	<listener class-name="hostgator.Listener"/>
-    <listener class-name="reports.ExtentReporterNG"/>
   </listeners>
-<!--    <groups>-->
-<!--      <run>-->
-<!--        <include name="SmokeTest"/>-->
-<!--      </run>-->
-<!--    </groups>-->
 
-<!--  <test name="SharedPkgSignup">-->
-<!--    <classes>-->
-<!--      <class name="hostgator.SharedPkgSignup"/>-->
-<!--    </classes>-->
-<!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
-<!--  -->
-<!--  <test name="OWPSignup">-->
-<!--    <classes>-->
-<!--      <class name="hostgator.OWPSignup"/>-->
-<!--    </classes>-->
-<!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
-<!--  -->
-<!--  <test name="DediPkgSignup">-->
-<!--    <classes>-->
-<!--      <class name="hostgator.DediPkgSignup"/>-->
-<!--    </classes>-->
-<!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
-
-  <test name="TrialTest" parallel="methods" thread-count="2">
+  <test name="DediPkgSignup">
     <classes>
-      <class name="hostgator.TrialTest">
-<!--        <methods>-->
-<!--          <include name="TrialTest1"/>-->
-<!--        </methods>-->
-      </class>
-<!--      <class name="hostgator.PackageSignup"/>-->
+      <class name="hostgator.DediPkgSignup"/>
     </classes>
   </test> <!-- Test -->
 
-<!--  <test name="PackageSignup">-->
-<!--    <classes>-->
-<!--      <class name="hostgator.PackageSignup">-->
-<!--&lt;!&ndash;        <methods>&ndash;&gt;-->
-<!--&lt;!&ndash;          <include name="TrialTest1"/>&ndash;&gt;-->
-<!--&lt;!&ndash;        </methods>&ndash;&gt;-->
-<!--      </class>-->
-<!--    </classes>-->
-<!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
+  <test name="OWPSignup">
+    <classes>
+      <class name="hostgator.OWPSignup"/>
+    </classes>
+  </test> <!-- Test -->
+
+  <test name="ResellerSignup">
+    <classes>
+      <class name="hostgator.ResellerSignup"/>
+    </classes>
+  </test> <!-- Test -->
+
+  <test name="SharedPkgSignup">
+    <classes>
+      <class name="hostgator.SharedPkgSignup"/>
+    </classes>
+  </test> <!-- Test -->
+
+  <test name="VPSSignup">
+    <classes>
+      <class name="hostgator.VPSSignup"/>
+    </classes>
+  </test> <!-- Test -->
 
 </suite> <!-- Suite -->

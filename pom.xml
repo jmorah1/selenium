@@ -11,8 +11,8 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>8</source>
-          <target>8</target>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
     </plugins>
@@ -28,9 +28,7 @@
   <profiles>
     <profile>
       <id>smoketest</id>
-    
         <build>
-
           <resources>
             <resource>
               <directory>src/main/java/reports</directory>
@@ -60,35 +58,42 @@
         </build>
       
     </profile>
-    
-<!--     <profile>-->
-<!--      <id>smoketestExtended</id>-->
-<!--    -->
-<!--        <build>-->
-<!--          <pluginManagement>-->
-<!--            <plugins>-->
-<!--              <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-surefire-plugin</artifactId>-->
-<!--                <version>3.0.0-M3</version>-->
-<!--        -->
-<!--                <configuration>-->
-<!--                  <suiteXmlFiles>-->
-<!--                    <suiteXmlFile>smoketestExtended.xml</suiteXmlFile>-->
-<!--                  </suiteXmlFiles>-->
-<!--                </configuration>-->
-<!--        -->
-<!--              </plugin>-->
-<!--            </plugins>-->
-<!--          </pluginManagement>-->
-<!--        </build>-->
-<!--      -->
-<!--    </profile>-->
+
+    <profile>
+      <id>singleTest</id>
+      <build>
+        <resources>
+          <resource>
+            <directory>src/main/java/reports</directory>
+            <filtering>true</filtering>
+          </resource>
+        </resources>
+
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>2.20</version>
+
+              <!--                <configuration>-->
+              <!--                  <skipTests>true</skipTests>-->
+              <!--                </configuration>-->
+              <configuration>
+                <suiteXmlFiles>
+                  <suiteXmlFile>singleTest.xml</suiteXmlFile>
+                </suiteXmlFiles>
+              </configuration>
+
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+  </profile>
     
   </profiles> 
   
   <dependencies>
-  
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
@@ -101,14 +106,6 @@
       <artifactId>selenium-java</artifactId>
       <version>4.0.0-alpha-3</version>
 	</dependency>
-	
-	
-	
-    <!-- 	<dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-api</artifactId>
-      <version>2.12.1</version>
-    </dependency> -->
   
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
@@ -154,15 +151,14 @@
      </exclusions>
    </dependency>
    
-   
-   <dependency>
+    <dependency>
         <groupId>net.lightbody.bmp</groupId>
         <artifactId>browsermob-core</artifactId>
         <version>2.1.4</version>
         <scope>compile</scope>
    </dependency>
 	 
-   <dependency>
+    <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
       <version>21.0</version>
@@ -179,9 +175,5 @@
       <artifactId>extentreports</artifactId>
       <version>2.41.2</version>
     </dependency>
-
-
-
-
   </dependencies>
 </project>

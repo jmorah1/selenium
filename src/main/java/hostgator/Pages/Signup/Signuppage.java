@@ -1,6 +1,7 @@
 package hostgator.Pages.Signup;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 import hostgator.Pages.PayPal.PayPalLogin;
@@ -12,6 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -23,7 +25,7 @@ public class Signuppage extends TestDriver {
 	Random random = new Random();
 
 	private static Logger log = LogManager.getLogger(Signuppage.class.getName());
-	
+
 //	private WebDriver driver;
 	public Signuppage(WebDriver driver)
 	{
@@ -45,12 +47,12 @@ public class Signuppage extends TestDriver {
 	//<editor-fold desc="Billing Info Section">
 	private By emailTextField    = By.id("new-email");
 	private By confirmRmailField = By.id("new-email-confirm");
-	private By firstNameField          = By.id("new-first-name");
-	private By lastNameField           = By.id("new-last-name");
-	private By phoneNumberField        = By.id("hphone");
-	private By address1Field      = By.id("new-address1");
-	private By address2Field      = By.id("new-address2");
-	private By cityField          = By.id("new-city");
+	private By firstNameField    = By.id("new-first-name");
+	private By lastNameField     = By.id("new-last-name");
+	private By phoneNumberField  = By.id("hphone");
+	private By address1Field     = By.id("new-address1");
+	private By address2Field     = By.id("new-address2");
+	private By cityField         = By.id("new-city");
 	private By zipCodeField      = By.id("zip_code");
 	//</editor-fold>
 
@@ -72,6 +74,7 @@ public class Signuppage extends TestDriver {
 	private By regflowTopRightPasswordField  = By.id("sign-in-pw");
 	private By regflowTopRightSignintext     = By.linkText("Sign In!");
 	private By regFlowTopRightSigninButton   = By.xpath("//*[@id=\"signup-container\"]/section/div[1]/div/div/div/div[2]/a");
+	private By logoutlink = By.xpath("//*[@id=\"signup-container\"]/section/div[1]/div/div/a");
 	//</editor-fold>
 
 	//<editor-fold desc="Existing Account Sign-in">
@@ -88,25 +91,25 @@ public class Signuppage extends TestDriver {
 	//Page Functions
 
 	//<editor-fold desc="Top Right Sign-in">
-	public void ClickTopRightSignintext()
+	public void clickTopRightSignintext()
 	{
 		driver.findElement(regflowTopRightSignintext).click();
 		log.info("Clicked Top Right Sign in Button");
 	}
 
-	public void EnterTopRightEmail(String email)
+	public void enterTopRightEmail(String email)
 	{
 		driver.findElement(regflowTopRightEmailField).sendKeys(email);
 		log.info("Entered Existing Email");
 	}
 
-	public void EnterTopRightPassword(String password)
+	public void enterTopRightPassword(String password)
 	{
 		driver.findElement(regflowTopRightPasswordField).sendKeys(password);
 		log.info("Clicked Password");
 	}
 
-	public void ClickTopRightSigninButton()
+	public void clickTopRightSigninButton()
 	{
 		driver.findElement(regFlowTopRightSigninButton).click();
 		log.info("Clicked Signin Button");
@@ -114,19 +117,19 @@ public class Signuppage extends TestDriver {
 	//</editor-fold>
 
 	//<editor-fold desc="Login With Existing Account: Middle Sign in">
-	public void EnterExistingAccountEmail(String email)
+	public void enterExistingAccountEmail(String email)
 	{
 		driver.findElement(emailTextField).sendKeys(email);
 		log.info("Entered Existing Email");
 	}
-	
-	public void EnterExistingAccountPassword(String existingAccountPassword)
+
+	public void enterExistingAccountPassword(String existingAccountPassword)
 	{
 		driver.findElement(existingAccountPasswordField).sendKeys(existingAccountPassword);
 		log.info("Entered Existing Account Password");
 	}
-	
-	public void ClickExistingAccoiuntLoginButton()
+
+	public void clickExistingAccoiuntLoginButton()
 	{
 		driver.findElement(existingAccoiuntLoginButton).click();
 		log.info("Clicked on Logion Button");
@@ -134,54 +137,65 @@ public class Signuppage extends TestDriver {
 	//</editor-fold>
 
 	//<editor-fold desc="Choose a Domain">
-	public void ClickIAlreadyOwnThisDomian()
+	public void clickIAlreadyOwnThisDomian()
 	{
 		driver.findElement(iOwnThisDomain).click();
 		log.info("Switched to I Already Own This Domain Tab");
 	}
-	
-	public void EnterStoredExistingDomain(String domain)
+
+	public void enterStoredExistingDomain(String domain)
 	{
 		driver.findElement(domainTextField).sendKeys(domain);
 		log.info("Entered and Stored Existing Domain");
-	}		
-	
-	public void EnterExistingDomain(String domain, String packageName)
-	{
-		driver.findElement(domainTextField).sendKeys(domain+random.nextInt(10000)+packageName+random.nextInt(100000)+".com");
-		log.info("Entered Existing Domain");
 	}
 
-	public void EnterDomain(String domain, String packageName)
+	public void enterExistingDomain(String domain, String packageName)
+	{
+		String existingDomain = domain+random.nextInt(10000)+packageName+random.nextInt(100000)+".com";
+		driver.findElement(domainTextField).sendKeys(existingDomain);
+		driver.findElement(domainTextField).sendKeys(Keys.TAB);
+		verifyDomainIsValid();
+		log.info("Entered and Verified Existing Domain");
+	}
+
+	public void enterDomain(String domain, String packageName)
 	{
 		driver.findElement(domainTextField).sendKeys(domain+random.nextInt(10000)+packageName+random.nextInt(10000)); //random.nextInt(10000) //date.getTime());
 		log.info("Entered New Domain");
 	}
 	//</editor-fold>
 
+	public void verifyDomainIsValid ()
+	{
+		@SuppressWarnings("deprecation")
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.withMessage("No Domain search results\n");
+		wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//*[@id=\"results-area\"]/div[1]/div/div/div/div[1]/label/span[2]"), "PRIMARY DOMAIN"));
+	}
+
 	//<editor-fold desc="Choose a Hosting Plan">
-	public void TldDropdown(int index)
+	public void tldDropdown(int index)
 	{
 		Select s=new Select(driver.findElement(tldSelect));
 		s.selectByIndex(index);
 		log.info("Selected TLD");
 	}
-	
-	public void BillingDropdown(int index)
+
+	public void billingDropdown(int index)
 	{
 		Select s=new Select(driver.findElement(billingDropdown));
 		s.selectByIndex(index);
 		log.info("Selected billing Term");
 	}
-	
-    
-	public void EnterUsername(String username)
+
+
+	public void enterUsername(String username)
 	{
 		driver.findElement(usernameTextField).sendKeys(username+random.nextInt(50));
 		log.info("Entered Username");
 	}
-	
-	public void EnterPin(String pin)
+
+	public void enterPin(String pin)
 	{
 		driver.findElement(pinTextField).sendKeys(pin);
 		log.info("Entered Pin");
@@ -189,55 +203,55 @@ public class Signuppage extends TestDriver {
 	//</editor-fold>
 
 	//<editor-fold desc="Enter Your Billing Info">
-	public void EnterEmail(String email)
+	public void enterEmail(String email)
 	{
 		driver.findElement(emailTextField).sendKeys(email);
 		log.info("Entered New Email");
 	}
-	
-	public void EnterConfirmEmail(String email)
+
+	public void enterConfirmEmail(String email)
 	{
 		driver.findElement(confirmRmailField).sendKeys(email);
 		log.info("Confirmed New Email");
 	}
-	
-	public void EnterFirstName(String firstName)
+
+	public void enterFirstName(String firstName)
 	{
 		driver.findElement(firstNameField).sendKeys(firstName);
 		log.info("Entered First Name");
 	}
-	
-	public void EnterLastName(String lastName)
+
+	public void enterLastName(String lastName)
 	{
 		driver.findElement(lastNameField).sendKeys(lastName);
 		log.info("Entered Last Name");
 	}
-	
-	public void EnterPhone(String phone)
+
+	public void enterPhone(String phone)
 	{
 		driver.findElement(phoneNumberField).sendKeys(phone);
 		log.info("Entered Phone #");
 	}
-	
-	public void EnterAddress1(String address1)
+
+	public void enterAddress1(String address1)
 	{
 		driver.findElement(address1Field).sendKeys(address1);
 		log.info("Entered Adress1");
 	}
-	
-	public void EnterAddress2(String address2)
+
+	public void enterAddress2(String address2)
 	{
 		driver.findElement(address2Field).sendKeys(address2);
 		log.info("Entered Address2");
 	}
-	
-	public void EnterCity(String city)
+
+	public void enterCity(String city)
 	{
 		driver.findElement(cityField).sendKeys(city);
 		log.info("Entered Billing City");
 	}
-	
-	public void EnterZipCode(String zipcode)
+
+	public void enterZipCode(String zipcode)
 	{
 		driver.findElement(zipCodeField).sendKeys(zipcode);
 		log.info("Entered Billing ZipCode");
@@ -250,34 +264,34 @@ public class Signuppage extends TestDriver {
 //	{
 //		driver.findElement(domain_text_field).sendKeys(domain+random.nextInt(10000)+packageName+random.nextInt(100000)+".com");
 //	}
-	
+
 	//<editor-fold desc="Payment Type: PayPal">
-	public void ClickPayPalTab()
+	public void clickPayPalTab()
 	{
 		driver.findElement(usePayPalTab).click();
 		log.info("Switched to PayPal Tab");
 	}
-	
-	public void ClickPaypalPaymentType() {
+
+	public void clickPaypalPaymentType() {
 		driver.findElement(paypalRadio).click();
 		log.info("Selected Paypal Payment type");
 	}
 	//</editor-fold>
 
 	//<editor-fold desc="Payment Type: Credit Card">
-	public void EnterCreditCardName(String ccName)
+	public void enterCreditCardName(String ccName)
 	{
 		driver.findElement(ccCardNameField).sendKeys(ccName);
 		log.info("Entered CC Name");
 	}
-	
-	public void EnterCreditCardNumber(String cc)
+
+	public void enterCreditCardNumber(String cc)
 	{
 		driver.findElement(ccNumberField).sendKeys(cc);
 		log.info("Entered CC #");
 	}
-	
-	public void EnterCreditCardCVV(String  cvv)
+
+	public void enterCreditCardCVV(String  cvv)
 	{
 		driver.findElement(ccCvvField).sendKeys(cvv);
 		log.info("Entered CC CVV");
@@ -285,19 +299,19 @@ public class Signuppage extends TestDriver {
 	//</editor-fold>
 
 	//<editor-fold desc="Review Order Details and Checkout">
-	public void CheckTos1()
+	public void checkTos1()
 	{
 		driver.findElement(tosCheckbox1).click();
 		log.info("Clicked TOS");
 	}
-	
-	public void TosCheckbox3() //works for shared pkg
+
+	public void tosCheckbox3() //works for shared pkg
 	{
 		driver.findElement(tosCheckbox3).click();
 		log.info("Clicked TOS");
 	}
-	
-	public void ClickCheckout()
+
+	public void clickCheckout()
 	{
 		driver.findElement(checkoutButton).click();
 		log.info("Clicked Checkout Button");
@@ -306,35 +320,36 @@ public class Signuppage extends TestDriver {
 
 	//// from signupcommonflow below///
 
-	PayPalLogin paypalLogin=new PayPalLogin(driver);
 
-	public void EnterEmailAndConfirm(String packageName) {
-		String email = "hgtest"+random.nextInt(10000)+packageName +random.nextInt(100000)+ "@endurance.com";
-		EnterEmail(email);
-		EnterConfirmEmail(email);
+	public void enterEmailAndConfirm(String packageName) {
+		String email = "hgtest"+random.nextInt(100000)+packageName +random.nextInt(100000)+ "@endurance.com";
+		enterEmail(email);
+		enterConfirmEmail(email);
 
 	}
 
 	public void enterBillingInfo() {
-		EnterFirstName(StaticData.firstName);
-		EnterLastName(StaticData.lastName);
-		EnterPhone(StaticData.phone);
-		EnterAddress1(StaticData.address1);
-		EnterAddress2(StaticData.address2);
-		EnterCity(StaticData.city);
-		EnterZipCode(StaticData.zip);
+		enterFirstName(StaticData.firstName);
+		enterLastName(StaticData.lastName);
+		enterPhone(StaticData.phone);
+		enterAddress1(StaticData.address1);
+		enterAddress2(StaticData.address2);
+		enterCity(StaticData.city);
+		enterZipCode(StaticData.zip);
 	}
 
 	public void enterCredirCardInfo() {
-		EnterCreditCardName(StaticData.testCreditCardName);
-		EnterCreditCardNumber(StaticData.testCreditCardNumber);
-		EnterCreditCardCVV(StaticData.testCreditCardCVV);
+		enterCreditCardName(StaticData.testCreditCardName);
+		enterCreditCardNumber(StaticData.testCreditCardNumber);
+		enterCreditCardCVV(StaticData.testCreditCardCVV);
 	}
 
 	public void checkTOSandCheckout() throws InterruptedException {
-		Thread.sleep(5000);
-		CheckTos1();
-		ClickCheckout();
+//		Thread.sleep(5000);
+//		checkIfDomainIsValid();
+		waitForSummaryTable();
+		checkTos1();
+		clickCheckout();
 
 //		Boolean isPresent = driver.findElements(By.xpath("//*[@id=\"results-area\"]/h3")).size() > 0;
 ////		if ( driver.findElement(By.xpath("//*[@id=\"results-area\"]/h3")) != null ) {
@@ -364,56 +379,100 @@ public class Signuppage extends TestDriver {
 //		}
 	}
 
-	public void verifyPaymentComplete() throws InterruptedException {
-		//WebDriverWait webWait=new WebDriverWait(driver, 10); /*above is deprecated find alternate explicit wait. See: https://stackoverflow.com/questions/42421148/wait-untilexpectedconditions-doesnt-work-any-more-in-selenium */
-
-		//Adding this to handle regflow's seemingly random invalid domain error
-
-		int waitTime = 30;
-		@SuppressWarnings("deprecation")
-		WebDriverWait w = new WebDriverWait(driver, waitTime);
-		w.until(ExpectedConditions.urlContains("/signup/complete/")); //visibilityOfElementLocated(By.id("new_cc_tab")));
-		Assert.assertTrue(driver.getCurrentUrl().contains("/signup/complete/"), "Waited for "+ waitTime +". Did not make it to signup/complete page");
-
+	public void sharedPackageCheckTOSandCheckoutTwice() {
+//		Thread.sleep(5000);
+//		checkIfDomainIsValid();
+		waitForSummaryTable();
+		checkTos1();
+		clickCheckout();
+		clickCheckout(); //Clicking checkout again cause first click loads up and does nothing
 
 	}
 
-	public void paypalLogin() throws InterruptedException {
 
+	public void verifyPaymentComplete() throws InterruptedException {
+		int waitTime = 30;
+		@SuppressWarnings("deprecation")
+		WebDriverWait wait = new WebDriverWait(driver, waitTime);
+//		wait.until(ExpectedConditions.urlContains("/signup/complete/")); //visibilityOfElementLocated(By.id("new_cc_tab")));
+		wait.until(
+				ExpectedConditions.or(
+						ExpectedConditions.urlContains("/signup/complete/"),
+						ExpectedConditions.urlContains("billing/invoice/pay/select"),
+						ExpectedConditions.urlContains("paypal")
+//						ExpectedConditions.visibilityOfElementLocated(By.id("email"))
+				)
+		);
+
+		if (driver.getCurrentUrl().contains("billing/invoice/pay/select")) {
+			log.warn("Payment error");
+
+			List<WebElement> paypalError = driver.findElements(By.xpath("//*[@id=\"gbclient\"]/div[5]/div/div[2]/div[1]/div/div/p"));
+
+			if ( paypalError.size() > 0 )  {
+				log.info("Error message: "+paypalError.get(0).getText());
+				Assert.fail("Issue with paypal");
+			}
+		} else if (driver.getCurrentUrl().contains("/signup/complete/")) {
+			log.info("Signup Complete");
+		} else if (driver.findElement(By.id("email")).isDisplayed()) { //replace this with paypallink when its working
+
+			paypalLogin();
+
+		} else if (true){
+			Thread.sleep(99999999);
+		}
+	}
+
+//		Assert.assertTrue(driver.getCurrentUrl().contains("/signup/complete/"), "Waited for "+ waitTime +". Did not make it to signup/complete page");
+//
+//		try{
+//			Assert.assertEquals(...,...);
+//		}catch(AssertionError e){
+//			Log error;
+//			Takescreenshot;
+//		}
+//
+//		log.info("Signup Complete");
+//	}
+
+	public void paypalLogin() throws InterruptedException {
 		waitUntilID(20, "email");
+		PayPalLogin paypalLogin=new PayPalLogin(driver);
 
 		paypalLogin.enterPayPalEmail(StaticData.payPalEmail);
 		paypalLogin.clickPayPalNextButton();
 		paypalLogin.enterPayPalPassword(StaticData.payPalPassword);
 //		paypalLogin.unCheckStayLoggedIn();
 		paypalLogin.clickPayPalLoginButton();
-		Thread.sleep(10000); //replace with explicit
+//		Thread.sleep(10000); //replace with explicit
 
-		Boolean notNow = driver.findElements(By.id("notNowLink")).size() > 0 ;
-		if (notNow) {
-
-			driver.findElement(By.id("notNowLink")).click();
-
-		}
-
-		paypalLogin.clickPayPalContinueButton();
-
-//		Thread.sleep(8000); //replace with explicit
-		waitUntilID(10, "confirmButtonTop");
-		paypalLogin.clickPaypalAgreeAndContinuebutton();
-
+//		Boolean notNow = driver.findElements(By.id("notNowLink")).size() > 0 ;
+//		if (notNow) {
+//
+//			driver.findElement(By.id("notNowLink")).click();
+//
+//		}
+//		paypalLogin.clickPayPalContinueButton();
+		paypalLogin.clickPayPalContinueButton2();
+//		paypalLogin.clickPaypalAgreeAndContinuebutton();
+		paypalLogin.clickPaypalAgreeAndContinuebutton2();
 	}
 
 	public void topRightSignIn(String email) {
-		ClickTopRightSignintext();
-		EnterTopRightEmail(email);
-		EnterTopRightPassword(StaticData.portalPassword);
-		ClickTopRightSigninButton();
+		clickTopRightSignintext();
+		enterTopRightEmail(email);
+		enterTopRightPassword(StaticData.portalPassword);
+		clickTopRightSigninButton();
+		@SuppressWarnings("deprecation")
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.withMessage("Login Failed");
+		wait.until(ExpectedConditions.textToBePresentInElementLocated(logoutlink, "Logout"));
+
 	}
 
 	public void existingEmailSignIn(String existingEmail, String password) throws InterruptedException {
-
-		EnterExistingAccountEmail(existingEmail);
+		enterExistingAccountEmail(existingEmail);
 
 		WebElement webElement = driver.findElement(By.id("new-email"));
 		webElement.sendKeys(Keys.TAB);
@@ -422,11 +481,53 @@ public class Signuppage extends TestDriver {
 		WebDriverWait w = new WebDriverWait(driver, 20);
 		w.until(ExpectedConditions.visibilityOfElementLocated(existingAccountPasswordField));
 
-		EnterExistingAccountPassword(password);
-		ClickExistingAccoiuntLoginButton();
+		enterExistingAccountPassword(password);
+		clickExistingAccoiuntLoginButton();
 
-//		@SuppressWarnings("deprecation")
-//		WebDriverWait w = new WebDriverWait(driver, 10);
 		w.until(ExpectedConditions.visibilityOfElementLocated(By.id("new_cc_tab")));
 	}
+
+//	public void checkIfDomainIsValid() { //adding this to handle "invalid domain error"
+//		Boolean isPresent = driver.findElements(By.xpath("//*[@id=\"results-area\"]/h3")).size() > 0;
+////		if ( driver.findElement(By.xpath("//*[@id=\"results-area\"]/h3")) != null ) {
+//		if ( isPresent ) {
+//
+//			System.out.println("Element is visible");
+//
+//			if (driver.findElement(By.xpath("//*[@id=\"results-area\"]/h3")).getText().contains("Invalid Domain")) {
+//
+//				log.error("Invalid domain error, retrying...");
+//
+//				if (driver.findElement(By.id("new_domain_tab")).getAttribute("class").contains("tab-active")) {
+//
+//					driver.findElement(By.id("old_domain_tab")).click();
+//					driver.findElement(By.id("new_domain_tab")).click();
+//				} else if (driver.findElement(By.id("old_domain_tab")).getAttribute("class").contains("tab-active")) {
+//
+//					driver.findElement(By.id("new_domain_tab")).click();
+//					driver.findElement(By.id("old_domain_tab")).click();
+//				}
+//
+//			}
+//		}
+//	}
+
+	public void waitForSummaryTable() {
+		WebDriverWait wait = new WebDriverWait(driver,20);
+		wait.until(new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver driver) {
+				WebElement summaryTable = driver.findElement(By.id("summary-table"));
+				String classAttribute = summaryTable.getAttribute("class");
+
+//					System.out.println("\n"+classAttribute+"\n");
+				if(classAttribute.contains("processing")) {
+					log.info("Summary page is still loading: "+classAttribute);
+					return false;
+				}
+				else
+					return true;
+			}
+		});
+	}
+
 }

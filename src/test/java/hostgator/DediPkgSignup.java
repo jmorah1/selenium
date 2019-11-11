@@ -1,6 +1,5 @@
 package hostgator;
 
-import hostgator.CommonFlow.SignupCommonFlow;
 import hostgator.Pages.Signup.Signuppage;
 import hostgator.driver.TestDriver;
 import hostgator.util.StaticData;
@@ -16,31 +15,30 @@ import java.util.Random;
 public class DediPkgSignup extends TestDriver {
 	Random random = new Random();
 	private static Logger log = LogManager.getLogger(DediPkgSignup.class.getName());
-	
+    Signuppage signup;
+
 	@BeforeTest
 	public void initialize() throws IOException {
 		driver =  initializeDriver();
-		log.info("Driver is initialized");
-//		driver.manage().window().maximize();
-		driver.get(prop.getProperty(MvnPassedEnvironment())+StaticData.dediPkg);
-
+		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.dediPkg);
 		log.info("Navigated to dedi pkg signup page");
 	}
-	
+
 	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-899
 	public void DediToprightSigninExistingCustomerExistingDomainPP() throws InterruptedException, IOException {
-		Signuppage signup=new Signuppage(driver);
-		signup.ClickIAlreadyOwnThisDomian();
-		String existingDomain = StaticData.domainName+random.nextInt(10000)+"dedi"+random.nextInt(100000)+".com";
-		signup.EnterStoredExistingDomain(existingDomain);
-		signup.BillingDropdown(0);
+		signup=new Signuppage(driver);
+
+		signup.clickIAlreadyOwnThisDomian();
+		signup.enterExistingDomain(StaticData.domainName, "dedi");
+		signup.verifyDomainIsValid();
+		signup.billingDropdown(0);
 		signup.topRightSignIn(StaticData.sharedDefaultAccount);
-		signup.ClickPayPalTab();
-		Thread.sleep(4000); //explicit wait
+		signup.clickPayPalTab();
 		signup.checkTOSandCheckout();
-//		signup.verifyPaymentComplete();
+		signup.verifyPaymentComplete();
 	}
-	
+	// https://hyperion-staging-portal.houston1.endurancedevs.com/billing/invoice/pay/select
+
 	@AfterTest
 	public void teardown() {
 		driver.close();

@@ -23,7 +23,7 @@
 
         <Root level="trace">
             <AppenderRef ref="Console"/>
-<!--            replace with file to log to file-->
+            <!--            replace with file to log to file-->
         </Root>
     </Loggers>
 </Configuration>

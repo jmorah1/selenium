@@ -11,30 +11,29 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class ResellerSignup extends TestDriver {
+public class VPSSignup extends TestDriver {
 
-	private static Logger log = LogManager.getLogger(ResellerSignup.class.getName());
+	private static Logger log = LogManager.getLogger(VPSSignup.class.getName());
     Signuppage signup;
 
 	@BeforeTest
 	public void initialize() throws IOException {
 		driver =  initializeDriver();
 //		driver.manage().window().maximize();
-		driver.get(prop.getProperty(MvnPassedEnvironment())+StaticData.resellerPkg);
+		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.vpsPkg);
 	}
 
-	@Test(groups  = {"SmokeTest", "SignupRegression"})  //HGQ-1125
-	public void ResellerExistingCustomerTopRightSigninExistingDomainPP() throws InterruptedException {
+	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-1133
+	public void VPSNewCustomerExistingDomainCC() throws InterruptedException, IOException {
 		signup=new Signuppage(driver);
-		signup.ClickIAlreadyOwnThisDomian();
-		signup.EnterExistingDomain(StaticData.domainName, "reseller");
-		signup.BillingDropdown(0);
-		signup.topRightSignIn(StaticData.resellerDefaultAccount);
-		signup.EnterUsername(StaticData.userName);
-		signup.ClickPayPalTab();
-		Thread.sleep(4000); //explicit wait
+		signup.clickIAlreadyOwnThisDomian();
+		signup.enterExistingDomain(StaticData.domainName, "vps");
+		signup.billingDropdown(0);
+		signup.enterPin(StaticData.pin);
+		signup.enterEmailAndConfirm("cloud");
+		signup.enterBillingInfo();
+		signup.enterCredirCardInfo();
 		signup.checkTOSandCheckout();
-		signup.paypalLogin();
 		signup.verifyPaymentComplete();
 	}
 
