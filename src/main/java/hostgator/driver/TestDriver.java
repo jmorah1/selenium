@@ -139,7 +139,7 @@ public class TestDriver {
 		proxy.addRequestFilter((request, contents, messageInfo) -> {
 			request.headers().add("X-GATOR-REQUESTOR", "jmorah-test");
 			request.headers().add("X-GATOR-AUTH", "87aa0de52ec992880513105308e3c990"); //portal10
-//			request.headers().add("X-GATOR-AUTH", "de0bc963131a815c9ab58d95bd46e790"); //portal10
+//			request.headers().add("X-GATOR-AUTH", "de0bc963131a815c9ab58d95bd46e790");
 
 			return null;
 		});
@@ -163,7 +163,6 @@ public class TestDriver {
 	public String mvnPassedEnvironment() {
 		String defaultEnvironment = "qaAutoMaintenance";
 		String environmentVariable = System.getProperty("environment");
-		//default to qaAutoMaintenance
 		if (environmentVariable==null) {
 			environmentVariable = defaultEnvironment;
 			log.info("No Environment variable passed, defaulting to " +defaultEnvironment);
