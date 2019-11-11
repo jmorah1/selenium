@@ -1,5 +1,6 @@
 package hostgator;
 
+import hostgator.CommonFlow.SignupCommonFlow;
 import hostgator.Pages.Signup.Signuppage;
 import hostgator.driver.TestDriver;
 import hostgator.util.StaticData;
@@ -10,12 +11,11 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.util.Random;
 
 public class DediPkgSignup extends TestDriver {
-	Random random = new Random();
 	private static Logger log = LogManager.getLogger(DediPkgSignup.class.getName());
     Signuppage signup;
+    SignupCommonFlow signupFlow;
 
 	@BeforeTest
 	public void initialize() throws IOException {
@@ -27,17 +27,16 @@ public class DediPkgSignup extends TestDriver {
 	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-899
 	public void DediToprightSigninExistingCustomerExistingDomainPP() throws InterruptedException, IOException {
 		signup=new Signuppage(driver);
+		signupFlow =new SignupCommonFlow(driver);
 
 		signup.clickIAlreadyOwnThisDomian();
 		signup.enterExistingDomain(StaticData.domainName, "dedi");
-		signup.verifyDomainIsValid();
 		signup.billingDropdown(0);
 		signup.topRightSignIn(StaticData.sharedDefaultAccount);
 		signup.clickPayPalTab();
-		signup.checkTOSandCheckout();
+		signupFlow.checkTOSandCheckout();
 		signup.verifyPaymentComplete();
 	}
-	// https://hyperion-staging-portal.houston1.endurancedevs.com/billing/invoice/pay/select
 
 	@AfterTest
 	public void teardown() {

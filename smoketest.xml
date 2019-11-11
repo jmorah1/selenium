@@ -6,6 +6,12 @@
   	<listener class-name="hostgator.Listener"/>
   </listeners>
 
+  <test name="SignupFromPortal">
+    <classes>
+      <class name="hostgator.SignupFromPortal"/>
+    </classes>
+  </test> <!-- Test -->
+
   <test name="DediPkgSignup">
     <classes>
       <class name="hostgator.DediPkgSignup"/>

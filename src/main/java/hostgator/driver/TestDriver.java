@@ -64,13 +64,56 @@ public class TestDriver {
 				BrowserMobProxy proxy = getProxyServer(); //getting browsermob proxy
 
 				Proxy seleniumProxy = getSeleniumProxy(proxy);
-        		capabilities.setCapability(CapabilityType.PROXY, seleniumProxy);
+				capabilities.setCapability(CapabilityType.PROXY, seleniumProxy);
+
+				driver = new ChromeDriver(capabilities); //not passing options yet
+				log.info("Mac Chrome Driver initialized");
+			}
+		}
+
+		if(os.contains("Windows")) {
+			if (browserName.contains("chrome")) {
+
+				System.setProperty("webdriver.chrome.driver", "./webDrivers/Windows/chromedriver.exe");
+
+				ChromeOptions options=new ChromeOptions();
+				if (browserName.contains("headless")) {
+					options.addArguments("--headless");
+				}
+
+				DesiredCapabilities capabilities = new DesiredCapabilities();
+				BrowserMobProxy proxy = getProxyServer(); //getting browsermob proxy
+
+				Proxy seleniumProxy = getSeleniumProxy(proxy);
+				capabilities.setCapability(CapabilityType.PROXY, seleniumProxy);
 
 				driver = new ChromeDriver(capabilities);
-				log.info("Mac Chrome Driver initialized");
+				log.info("Windows Chrome Driver initialized");
 
 			}
 		}
+
+		if(os.contains("Linux")) {
+			if (browserName.contains("chrome")) {
+
+				System.setProperty("webdriver.chrome.driver", "./webDrivers/Linux/chromedriver");
+
+				ChromeOptions options=new ChromeOptions();
+				if (browserName.contains("headless")) {
+					options.addArguments("--headless");
+				}
+
+				DesiredCapabilities capabilities = new DesiredCapabilities();
+				BrowserMobProxy proxy = getProxyServer(); //getting browsermob proxy
+
+				Proxy seleniumProxy = getSeleniumProxy(proxy);
+				capabilities.setCapability(CapabilityType.PROXY, seleniumProxy);
+
+				driver = new ChromeDriver(capabilities);
+				log.info("Linux Chrome Driver initialized");
+			}
+		}
+
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		return driver;
 
@@ -88,13 +131,16 @@ public class TestDriver {
 		}
 		return seleniumProxy;
 	}
+
 	public BrowserMobProxy getProxyServer() {
 		BrowserMobProxy proxy = new BrowserMobProxyServer();
 		proxy.setTrustAllServers(true);
 		proxy.start();
 		proxy.addRequestFilter((request, contents, messageInfo) -> {
 			request.headers().add("X-GATOR-REQUESTOR", "jmorah-test");
-			request.headers().add("X-GATOR-AUTH", "87aa0de52ec992880513105308e3c990");
+			request.headers().add("X-GATOR-AUTH", "87aa0de52ec992880513105308e3c990"); //portal10
+//			request.headers().add("X-GATOR-AUTH", "de0bc963131a815c9ab58d95bd46e790"); //portal10
+
 			return null;
 		});
 		return proxy;
@@ -103,7 +149,6 @@ public class TestDriver {
 	//Takes screenshot of section of page (section in view)
 	public void getScreenshot(String result) throws IOException {
 		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-//		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(src,new File(System.getProperty("user.dir")+"/Screenshots/"+result+"-Screenshot1.png")); ///Users/jmorah/git/automation/Screenshots
 	}
 
@@ -132,5 +177,4 @@ public class TestDriver {
 		WebDriverWait w = new WebDriverWait(driver, waitTime);
 		w.until(ExpectedConditions.visibilityOfElementLocated(By.id(id)));
 	}
-
 }

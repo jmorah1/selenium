@@ -26,7 +26,6 @@ public class Signuppage extends TestDriver {
 
 	private static Logger log = LogManager.getLogger(Signuppage.class.getName());
 
-//	private WebDriver driver;
 	public Signuppage(WebDriver driver)
 	{
 		this.driver=driver;
@@ -169,7 +168,7 @@ public class Signuppage extends TestDriver {
 	{
 		@SuppressWarnings("deprecation")
 		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.withMessage("No Domain search results\n");
+		wait.withMessage("No Valid Domain search results\n");
 		wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//*[@id=\"results-area\"]/div[1]/div/div/div/div[1]/label/span[2]"), "PRIMARY DOMAIN"));
 	}
 
@@ -318,89 +317,15 @@ public class Signuppage extends TestDriver {
 	}
 	//</editor-fold>
 
-	//// from signupcommonflow below///
-
-
-	public void enterEmailAndConfirm(String packageName) {
-		String email = "hgtest"+random.nextInt(100000)+packageName +random.nextInt(100000)+ "@endurance.com";
-		enterEmail(email);
-		enterConfirmEmail(email);
-
-	}
-
-	public void enterBillingInfo() {
-		enterFirstName(StaticData.firstName);
-		enterLastName(StaticData.lastName);
-		enterPhone(StaticData.phone);
-		enterAddress1(StaticData.address1);
-		enterAddress2(StaticData.address2);
-		enterCity(StaticData.city);
-		enterZipCode(StaticData.zip);
-	}
-
-	public void enterCredirCardInfo() {
-		enterCreditCardName(StaticData.testCreditCardName);
-		enterCreditCardNumber(StaticData.testCreditCardNumber);
-		enterCreditCardCVV(StaticData.testCreditCardCVV);
-	}
-
-	public void checkTOSandCheckout() throws InterruptedException {
-//		Thread.sleep(5000);
-//		checkIfDomainIsValid();
-		waitForSummaryTable();
-		checkTos1();
-		clickCheckout();
-
-//		Boolean isPresent = driver.findElements(By.xpath("//*[@id=\"results-area\"]/h3")).size() > 0;
-////		if ( driver.findElement(By.xpath("//*[@id=\"results-area\"]/h3")) != null ) {
-//		if ( isPresent ) {
-//
-//			System.out.println("Element is visible");
-//
-//			if ( driver.findElement(By.xpath("//*[@id=\"results-area\"]/h3")).getText().contains("Invalid Domain")  ) {
-//
-//				log.error("Invalid domain error, retrying...");
-//
-//				if ( driver.findElement(By.id("new_domain_tab")).getAttribute("class").contains("tab-active") ) {
-//
-//					driver.findElement(By.id("old_domain_tab")).click();
-//					driver.findElement(By.id("new_domain_tab")).click();
-//				}
-//				else if ( driver.findElement(By.id("old_domain_tab")).getAttribute("class").contains("tab-active") ) {
-//
-//					driver.findElement(By.id("new_domain_tab")).click();
-//					driver.findElement(By.id("old_domain_tab")).click();
-//				}
-//
-//				Thread.sleep(3000);
-//				signup.ClickCheckout();
-//
-//			}
-//		}
-	}
-
-	public void sharedPackageCheckTOSandCheckoutTwice() {
-//		Thread.sleep(5000);
-//		checkIfDomainIsValid();
-		waitForSummaryTable();
-		checkTos1();
-		clickCheckout();
-		clickCheckout(); //Clicking checkout again cause first click loads up and does nothing
-
-	}
-
-
 	public void verifyPaymentComplete() throws InterruptedException {
 		int waitTime = 30;
 		@SuppressWarnings("deprecation")
 		WebDriverWait wait = new WebDriverWait(driver, waitTime);
-//		wait.until(ExpectedConditions.urlContains("/signup/complete/")); //visibilityOfElementLocated(By.id("new_cc_tab")));
 		wait.until(
 				ExpectedConditions.or(
 						ExpectedConditions.urlContains("/signup/complete/"),
 						ExpectedConditions.urlContains("billing/invoice/pay/select"),
 						ExpectedConditions.urlContains("paypal")
-//						ExpectedConditions.visibilityOfElementLocated(By.id("email"))
 				)
 		);
 
@@ -445,8 +370,6 @@ public class Signuppage extends TestDriver {
 		paypalLogin.enterPayPalPassword(StaticData.payPalPassword);
 //		paypalLogin.unCheckStayLoggedIn();
 		paypalLogin.clickPayPalLoginButton();
-//		Thread.sleep(10000); //replace with explicit
-
 //		Boolean notNow = driver.findElements(By.id("notNowLink")).size() > 0 ;
 //		if (notNow) {
 //
@@ -487,31 +410,6 @@ public class Signuppage extends TestDriver {
 		w.until(ExpectedConditions.visibilityOfElementLocated(By.id("new_cc_tab")));
 	}
 
-//	public void checkIfDomainIsValid() { //adding this to handle "invalid domain error"
-//		Boolean isPresent = driver.findElements(By.xpath("//*[@id=\"results-area\"]/h3")).size() > 0;
-////		if ( driver.findElement(By.xpath("//*[@id=\"results-area\"]/h3")) != null ) {
-//		if ( isPresent ) {
-//
-//			System.out.println("Element is visible");
-//
-//			if (driver.findElement(By.xpath("//*[@id=\"results-area\"]/h3")).getText().contains("Invalid Domain")) {
-//
-//				log.error("Invalid domain error, retrying...");
-//
-//				if (driver.findElement(By.id("new_domain_tab")).getAttribute("class").contains("tab-active")) {
-//
-//					driver.findElement(By.id("old_domain_tab")).click();
-//					driver.findElement(By.id("new_domain_tab")).click();
-//				} else if (driver.findElement(By.id("old_domain_tab")).getAttribute("class").contains("tab-active")) {
-//
-//					driver.findElement(By.id("new_domain_tab")).click();
-//					driver.findElement(By.id("old_domain_tab")).click();
-//				}
-//
-//			}
-//		}
-//	}
-
 	public void waitForSummaryTable() {
 		WebDriverWait wait = new WebDriverWait(driver,20);
 		wait.until(new ExpectedCondition<Boolean>() {
@@ -529,5 +427,4 @@ public class Signuppage extends TestDriver {
 			}
 		});
 	}
-
 }

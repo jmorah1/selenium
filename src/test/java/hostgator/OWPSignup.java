@@ -1,5 +1,6 @@
 package hostgator;
 
+import hostgator.CommonFlow.SignupCommonFlow;
 import hostgator.Pages.Signup.Signuppage;
 import hostgator.driver.TestDriver;
 import hostgator.util.StaticData;
@@ -15,6 +16,7 @@ public class OWPSignup extends TestDriver {
 
 	private static Logger log = LogManager.getLogger(OWPSignup.class.getName());
     Signuppage signup;
+    SignupCommonFlow signupFlow;
 
 	@BeforeTest
 	public void initialize() throws IOException {
@@ -26,12 +28,13 @@ public class OWPSignup extends TestDriver {
 	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-900
 	public void WordpressExistingCustomerExistingDomainCC() throws InterruptedException, IOException {
 		signup=new Signuppage(driver);
+		signupFlow =new SignupCommonFlow(driver);
 		signup.clickIAlreadyOwnThisDomian();
 		signup.enterExistingDomain(StaticData.domainName, "owp");
 		signup.billingDropdown(0);
 		signup.enterPin(StaticData.pin);
 		signup.existingEmailSignIn(StaticData.sharedDefaultEmail, StaticData.defaultPassword);
-		signup.checkTOSandCheckout();
+		signupFlow.checkTOSandCheckout();
 		signup.verifyPaymentComplete();
 	}
 

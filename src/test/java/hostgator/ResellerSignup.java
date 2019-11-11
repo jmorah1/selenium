@@ -1,5 +1,6 @@
 package hostgator;
 
+import hostgator.CommonFlow.SignupCommonFlow;
 import hostgator.Pages.Signup.Signuppage;
 import hostgator.driver.TestDriver;
 import hostgator.util.StaticData;
@@ -15,6 +16,7 @@ public class ResellerSignup extends TestDriver {
 
 	private static Logger log = LogManager.getLogger(ResellerSignup.class.getName());
     Signuppage signup;
+    SignupCommonFlow signupFlow;
 
 	@BeforeTest
 	public void initialize() throws IOException {
@@ -26,13 +28,15 @@ public class ResellerSignup extends TestDriver {
 	@Test(groups  = {"SmokeTest", "SignupRegression"})  //HGQ-1125
 	public void ResellerExistingCustomerTopRightSigninExistingDomainPP() throws InterruptedException {
 		signup=new Signuppage(driver);
+		signupFlow = new SignupCommonFlow(driver);
+
 		signup.clickIAlreadyOwnThisDomian();
 		signup.enterExistingDomain(StaticData.domainName, "reseller");
 		signup.billingDropdown(0);
 		signup.topRightSignIn(StaticData.sharedDefaultEmail);
 		signup.enterUsername(StaticData.userName);
 		signup.clickPayPalTab();
-		signup.checkTOSandCheckout();
+		signupFlow.checkTOSandCheckout();
 		signup.verifyPaymentComplete();
 	}
 
