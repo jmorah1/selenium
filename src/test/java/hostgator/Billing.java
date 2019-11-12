@@ -1,6 +1,7 @@
 package hostgator;
 
-import hostgator.Pages.Portal.PortalHomePage;
+import hostgator.Pages.Portal.Billing.BillingHistoryPage;
+import hostgator.Pages.Portal.HomePage;
 import hostgator.Pages.Portal.LoginPage;
 import hostgator.driver.TestDriver;
 import hostgator.util.StaticData;
@@ -13,50 +14,38 @@ import java.io.IOException;
 
 public class Billing extends TestDriver {
 
-    private static Logger log = LogManager.getLogger(PkgSignup.class.getName());
-
-    @BeforeClass
-    //@BeforeTest
-    public void initialize() throws IOException {
-//		driver =  initializeDriver();
-//		log.info("Driver is initialized");
-    }
+    private static Logger log = LogManager.getLogger(Billing.class.getName());
 
     @BeforeMethod
-    public void beforeMethod() {
-//		driver.manage().window().maximize();
-
+    public void beforeMethod() throws IOException {
+        driver =  initializeDriver();
+        driver.manage().window().maximize();
     }
 
     @Test(groups  = {"SmokeTest", "BillingRegression"}) //HGQ-1127
-    public void VerifyBillingHistory() throws IOException, InterruptedException {
-        driver =  initializeDriver();
-        driver.manage().window().maximize();
+    public void HGQ_1127_Verify_Billing_History() {
 
-        driver.get(prop.getProperty("qaAutoMaintenace"));
+        driver.get(prop.getProperty(mvnPassedEnvironment()));
         log.info("Navigated to Portal page");
 
         LoginPage portalLogin=new LoginPage(driver);
-        PortalHomePage portalHomePage=new PortalHomePage(driver);
+        HomePage homePage=new HomePage(driver);
+        BillingHistoryPage billingHistoryPage = new BillingHistoryPage(driver);
 
-        portalLogin.PortalLogin(StaticData.sharedDefaultEmail, StaticData.portalPassword);
-        portalHomePage.clickBillingNav();
-
-        /*template_1: 'hostgator/templates/hostgator/login_to_portal_generic_shared_template'
-        template_2: 'hostgator/templates/hostgator/portal_billing_history_fetch_latest_invoice_template' */
-        driver.close();
+        portalLogin.portalLogin(StaticData.sharedDefaultEmail, StaticData.portalPassword);
+        homePage.navigateToBillingHistory();
+        billingHistoryPage.PrintInvoiceNumbers();
     }
 
     @AfterMethod
     public void afterMethod() throws InterruptedException {
-//		driver.close();
-
+		driver.close();
+		log.info("Closing Driver");
     }
 
     @AfterClass
     public void teardown() {
-//		driver.close();
-//		log.info("Closing Driver");
+
         driver=null;
     }
 }
