@@ -1,7 +1,7 @@
 package hostgator;
 
 import hostgator.commonflow.SignupCommonFlow;
-import hostgator.pages.signup.Signuppage;
+import hostgator.pages.signup.SignupPage;
 import hostgator.driver.TestDriver;
 import hostgator.util.StaticData;
 import org.apache.logging.log4j.LogManager;
@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class DediPkgSignup extends TestDriver {
 	private static Logger log = LogManager.getLogger(DediPkgSignup.class.getName());
-    Signuppage signup;
+    SignupPage signup;
     SignupCommonFlow signupFlow;
 
 	@BeforeTest
@@ -26,16 +26,16 @@ public class DediPkgSignup extends TestDriver {
 
 	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-899
 	public void DediToprightSigninExistingCustomerExistingDomainPP() throws InterruptedException, IOException {
-		signup=new Signuppage(driver);
+		signup=new SignupPage(driver);
 		signupFlow =new SignupCommonFlow(driver);
 
-		signup.clickIAlreadyOwnThisDomian();
-		signup.enterExistingDomain(StaticData.DOMAIN_NAME, "dedi");
-		signup.billingDropdown(0);
-		signup.topRightSignIn(StaticData.SHARED_DEFAULT_ACCOUNT);
-		signup.clickPayPalTab();
+		signup.ClickIAlreadyOwnThisDomain();
+		signup.EnterExistingDomain(StaticData.DOMAIN_NAME, "dedi");
+		signup.BillingDropdown(0);
+		signup.TopRightSignIn(StaticData.SHARED_DEFAULT_ACCOUNT);
+		signup.ClickPayPalTab();
 		signupFlow.checkTOSandCheckout();
-		signup.verifyPaymentComplete();
+		signup.VerifyPaymentComplete();
 	}
 
 	@AfterTest
