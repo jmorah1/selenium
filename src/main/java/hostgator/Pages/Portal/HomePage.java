@@ -16,20 +16,26 @@ public class HomePage extends TestDriver {
         this.driver=driver;
     }
 
-    By billingNav    = By.xpath("//*[@id=\"billing-nav-link\"]/a/span[2]"); //By.id("billing-nav-link");
+    private void noInterceptClick(WebElement elementToClick){
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("arguments[0].click();", elementToClick);
+    }
+
+    By billingNav    = By.linkText("Billing");
     By makePayment   = By.linkText("Make a Payment");
     By nextButton    = By.id("loginBtn");
     By passwordField = By.id("password");
     By loginButton   = By.id("loginBtn");
     By hosting       = By.xpath("//*[@id=\"gbclient\"]/div[1]/ul/li[2]/a");
+    By billingHistory = By.linkText("Billing History");
 
-    public void clickBillingNav()
+    private void clickBillingNav()
     {
         driver.findElement(billingNav).click();
         log.info("Clicked Billing Nav");
     }
 
-    public void clickMakePayment()
+    private void clickMakePayment()
     {
         driver.findElement(makePayment).click();
         log.info("Clicked Make a Payment");
@@ -44,5 +50,18 @@ public class HomePage extends TestDriver {
         executor.executeScript("arguments[0].click();", element);
         log.info("Clicked Hosting Nav");
     }
+    private void clickBillingHistory() {
+        driver.findElement(billingHistory).click();
+        log.info("Clicked Billing History");
 
+    }
+    public void navigateToBillingHistory() {
+        clickBillingNav();
+        clickBillingHistory();
+    }
+
+    public void navigateToMakePayment() {
+        clickBillingNav();
+        clickBillingHistory();
+    }
 }

@@ -20,7 +20,7 @@ public class DediPkgSignup extends TestDriver {
 	@BeforeTest
 	public void initialize() throws IOException {
 		driver =  initializeDriver();
-		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.dediPkg);
+		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.DEDI_PKG);
 		log.info("Navigated to dedi pkg signup page");
 	}
 
@@ -30,9 +30,9 @@ public class DediPkgSignup extends TestDriver {
 		signupFlow =new SignupCommonFlow(driver);
 
 		signup.clickIAlreadyOwnThisDomian();
-		signup.enterExistingDomain(StaticData.domainName, "dedi");
+		signup.enterExistingDomain(StaticData.DOMAIN_NAME, "dedi");
 		signup.billingDropdown(0);
-		signup.topRightSignIn(StaticData.sharedDefaultAccount);
+		signup.topRightSignIn(StaticData.SHARED_DEFAULT_ACCOUNT);
 		signup.clickPayPalTab();
 		signupFlow.checkTOSandCheckout();
 		signup.verifyPaymentComplete();

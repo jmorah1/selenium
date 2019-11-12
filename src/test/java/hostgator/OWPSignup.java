@@ -22,7 +22,7 @@ public class OWPSignup extends TestDriver {
 	public void initialize() throws IOException {
 		driver =  initializeDriver();
 //		driver.manage().window().maximize();
-		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.wordPressPkg);
+		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.WORDPRESS_PKG);
 	}
 
 	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-900
@@ -30,10 +30,10 @@ public class OWPSignup extends TestDriver {
 		signup=new Signuppage(driver);
 		signupFlow =new SignupCommonFlow(driver);
 		signup.clickIAlreadyOwnThisDomian();
-		signup.enterExistingDomain(StaticData.domainName, "owp");
+		signup.enterExistingDomain(StaticData.DOMAIN_NAME, "owp");
 		signup.billingDropdown(0);
-		signup.enterPin(StaticData.pin);
-		signup.existingEmailSignIn(StaticData.sharedDefaultEmail, StaticData.defaultPassword);
+		signup.enterPin(StaticData.PIN);
+		signup.existingEmailSignIn(StaticData.SHARED_DEFAULT_EMAIL, StaticData.DEFAULT_PASSWORD);
 		signupFlow.checkTOSandCheckout();
 		signup.verifyPaymentComplete();
 	}
