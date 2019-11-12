@@ -14,11 +14,11 @@ public class signupCompletePage{
 		this.driver=driver;
 	}
 	
-	By paymentCompleteSection = By.xpath("//*[@id=\"welcome-section\"]");
+	private By _paymentCompleteSection = By.xpath("//*[@id=\"welcome-section\"]");
 
 	public void VerifypaymentComplete()
 	{
-		driver.findElement(paymentCompleteSection).isDisplayed();
+		driver.findElement(_paymentCompleteSection).isDisplayed();
 		log.info("Verified Payment Complete URL");
 	}
 	

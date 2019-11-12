@@ -14,31 +14,31 @@ public class PayPalLogin{
 		this.driver=driver;
 	}
 
-	By paypal_email_field    = By.id("email");
-	By paypal_next_buttom    = By.id("btnNext");
-	By paypal_password_field = By.id("password");
-	By paypal_login_button   = By.id("btnLogin");
-	By paypal_continue_button= By.xpath("//*[@id=\"button\"]/button");
-	By paypal_continue_button2= By.id("fiSubmitButton");
-	By paypal_stayeLoggedIn  = By.id("keepMeLogin");
-	By paypal_agreeContinuebutton = By.id("confirmButtonTop"); ////*[@id="confirmButtonTop"]
-	By paypal_agreeContinuebutton2 = By.id("consentButton"); ////*[@id="confirmButtonTop"]
+	private By _paypal_email_field    = By.id("email");
+	private By _paypal_next_buttom    = By.id("btnNext");
+	private By _paypal_password_field = By.id("password");
+	private By _paypal_login_button   = By.id("btnLogin");
+	private By _paypal_continue_button= By.xpath("//*[@id=\"button\"]/button");
+	private By _paypal_continue_button2= By.id("fiSubmitButton");
+	private By _paypal_stayeLoggedIn  = By.id("keepMeLogin");
+	private By _paypal_agreeContinuebutton = By.id("confirmButtonTop"); ////*[@id="confirmButtonTop"]
+	private By _paypal_agreeContinuebutton2 = By.id("consentButton"); ////*[@id="confirmButtonTop"]
 
 	public void enterPayPalEmail(String PAYPAL_EMAIL)
 	{
-		driver.findElement(paypal_email_field).sendKeys(PAYPAL_EMAIL);
+		driver.findElement(_paypal_email_field).sendKeys(PAYPAL_EMAIL);
 		log.info("Entered PayPal Email");
 	}
 
 	public void clickPayPalNextButton()
 	{
-		driver.findElement(paypal_next_buttom).click();
+		driver.findElement(_paypal_next_buttom).click();
 		log.info("Clicked Next");
 	}
 
 	public void enterPayPalPassword(String paypalPassword)
 	{
-		driver.findElement(paypal_password_field).sendKeys(paypalPassword);
+		driver.findElement(_paypal_password_field).sendKeys(paypalPassword);
 		log.info("Entered PayPal Password");
 	}
 
@@ -53,31 +53,31 @@ public class PayPalLogin{
 
 	public void clickPayPalLoginButton()
 	{
-		driver.findElement(paypal_login_button).click();
+		driver.findElement(_paypal_login_button).click();
 		log.info("Clicked PayPal Login");
 	}
 
 	public void clickPayPalContinueButton()
 	{
-		driver.findElement(paypal_continue_button).click();
+		driver.findElement(_paypal_continue_button).click();
 		log.info("Clicked PayPal Continue");
 	}
 
 	public void clickPayPalContinueButton2() //paypal made some changes
 	{
-		driver.findElement(paypal_continue_button2).click();
+		driver.findElement(_paypal_continue_button2).click();
 		log.info("Clicked PayPal Continue2");
 	}
 
 	public void clickPaypalAgreeAndContinuebutton()
 	{
-		driver.findElement(paypal_agreeContinuebutton).click();
+		driver.findElement(_paypal_agreeContinuebutton).click();
 		log.info("Clicked PayPal Agree and Continue");
 	}
 
 	public void clickPaypalAgreeAndContinuebutton2() //paypal made some changes
 	{
-		driver.findElement(paypal_agreeContinuebutton2).click();
+		driver.findElement(_paypal_agreeContinuebutton2).click();
 		log.info("Clicked PayPal Agree and Continue2");
 	}
 
