@@ -34,7 +34,7 @@ public class Billing extends TestDriver {
 
         portalLogin.portalLogin(StaticData.SHARED_DEFAULT_EMAIL, StaticData.PORTAL_PASSWORD);
         homePage.navigateToBillingHistory();
-        billingHistoryPage.PrintInvoiceNumbers();
+        billingHistoryPage.printInvoiceNumbers();
     }
 
     @AfterMethod
@@ -45,7 +45,6 @@ public class Billing extends TestDriver {
 
     @AfterClass
     public void teardown() {
-
         driver=null;
     }
 }

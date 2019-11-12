@@ -17,32 +17,32 @@ public class LoginPage extends TestDriver {
     }
 
 
-    By emailField    = By.id("email");
-    By nextButton    = By.id("loginBtn");
-    By passwordField = By.id("password");
-    By loginButton   = By.id("loginBtn");
+    private By _emailField    = By.id("email");
+    private By _nextButton    = By.id("loginBtn");
+    private By _passwordField = By.id("password");
+    private By _loginButton   = By.id("loginBtn");
 
     public void enterExistingAccountEmail(String email)
     {
-        driver.findElement(emailField).sendKeys(email);
+        driver.findElement(_emailField).sendKeys(email);
         log.info("Entered Existing Email");
     }
 
     public void clickNextButton()
     {
-        driver.findElement(nextButton).click();
+        driver.findElement(_nextButton).click();
         log.info("Clicked Next");
     }
 
     public void enterExistingAccountPassword(String password)
     {
-        driver.findElement(passwordField).sendKeys(password);
+        driver.findElement(_passwordField).sendKeys(password);
         log.info("Entered Password");
     }
 
     public void clickLoginButton()
     {
-        driver.findElement(loginButton).click();
+        driver.findElement(_loginButton).click();
         log.info("Clicked Login");
     }
 

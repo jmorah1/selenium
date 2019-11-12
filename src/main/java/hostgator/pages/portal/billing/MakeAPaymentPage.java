@@ -21,6 +21,7 @@ public class MakeAPaymentPage {
         this.driver=driver;
         PageFactory.initElements(this.driver, this);
     }
+
     private void noInterceptClick(WebElement elementToClick){
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", elementToClick);
@@ -34,8 +35,8 @@ public class MakeAPaymentPage {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(elementToBeVisable));
     }
-    //region Invoice Selection Page Elements
 
+    //region Invoice Selection Page Elements
     @FindBy(how = How.CLASS_NAME, using = "check-package")
     private WebElement _prePayCheckBox;
 
@@ -74,7 +75,8 @@ public class MakeAPaymentPage {
 
     //endregion
 
-    private void  selectPrePayInvoice()
+    //region Invoice Selection Page Methods
+    private void selectPrePayInvoice()
     {
         noInterceptClick(_prePayCheckBox);
         log.info("Click Checkbox for PrePay Invoice");
@@ -84,12 +86,13 @@ public class MakeAPaymentPage {
         waitToBeClickable(_buttonBuy);
         noInterceptClick(_buttonBuy);
         log.info("Continued to Checkout");
-
     }
+    //endregion
+
+    //region Payment Type Selection Page Methods
     private void useNewCard() {
         noInterceptClick(_newCard);
         log.info("Selected New Card");
-
     }
     private void enterCreditCardInfo() {
         _cardNumberField.sendKeys(StaticData.TEST_CREDIT_CARD_NUMBER + Keys.TAB + Keys.TAB + Keys.ARROW_DOWN + Keys.ARROW_DOWN + Keys.ENTER);
@@ -121,11 +124,13 @@ public class MakeAPaymentPage {
         noInterceptClick(_paypalOneTime);
         log.info("Selected One Time Payment For PayPal");
     }
-    private void clickCheckoutButtonPayPal() {
+    private void slickCheckoutButtonPayPal() {
         waitToBeClickable(_checkoutPayPal);
         noInterceptClick(_checkoutPayPal);
         log.info("Proceeding to PayPal Site");
     }
+    //endregion
+
     public void payWithCreditCard() {
         selectPrePayInvoice();
         clickContinue();
@@ -136,6 +141,7 @@ public class MakeAPaymentPage {
         clickCheckoutButton();
         paymentSuccessCheck();
     }
+
     public void payWithPayPal() {
         PayPalLogin payPalLogin = new PayPalLogin(driver);
         selectPrePayInvoice();
@@ -143,7 +149,7 @@ public class MakeAPaymentPage {
         selectPayPal();
         selectPayPalOneTimePayment();
         clickTosCheckBox();
-        clickCheckoutButtonPayPal();
+        slickCheckoutButtonPayPal();
         payPalLogin.completePayPalSiteCheckout();
         paymentSuccessCheck();
     }

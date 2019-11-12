@@ -16,34 +16,34 @@ public class HomePage extends TestDriver {
         this.driver=driver;
     }
 
-    private void noInterceptClick(WebElement elementToClick){
+    private void NoInterceptClick(WebElement elementToClick){
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", elementToClick);
     }
 
-    By billingNav    = By.linkText("Billing");
-    By makePayment   = By.linkText("Make a Payment");
-    By nextButton    = By.id("loginBtn");
-    By passwordField = By.id("password");
-    By loginButton   = By.id("loginBtn");
-    By hosting       = By.xpath("//*[@id=\"gbclient\"]/div[1]/ul/li[2]/a");
-    By billingHistory = By.linkText("Billing History");
+    private By _billingNav    = By.linkText("Billing");
+    private By _makePayment   = By.linkText("Make a Payment");
+    private By _nextButton    = By.id("loginBtn");
+    private By _passwordField = By.id("password");
+    private By _loginButton   = By.id("loginBtn");
+    private By _hosting       = By.xpath("//*[@id=\"gbclient\"]/div[1]/ul/li[2]/a");
+    private By _billingHistory = By.linkText("Billing History");
 
     private void clickBillingNav()
     {
-        driver.findElement(billingNav).click();
+        driver.findElement(_billingNav).click();
         log.info("Clicked Billing Nav");
     }
 
     private void clickMakePayment()
     {
-        driver.findElement(makePayment).click();
+        driver.findElement(_makePayment).click();
         log.info("Clicked Make a Payment");
     }
 
     public void clickHosting()
     {
-        WebElement element = driver.findElement(hosting);
+        WebElement element = driver.findElement(_hosting);
 
         JavascriptExecutor executor = (JavascriptExecutor)driver;
 
@@ -51,7 +51,7 @@ public class HomePage extends TestDriver {
         log.info("Clicked Hosting Nav");
     }
     private void clickBillingHistory() {
-        driver.findElement(billingHistory).click();
+        driver.findElement(_billingHistory).click();
         log.info("Clicked Billing History");
 
     }

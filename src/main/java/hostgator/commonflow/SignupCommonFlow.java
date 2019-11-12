@@ -2,15 +2,15 @@ package hostgator.commonflow;
 
 import java.util.Random;
 
-import hostgator.pages.signup.Signuppage;
+import hostgator.pages.signup.SignupPage;
 
 import hostgator.util.StaticData;
 import org.openqa.selenium.WebDriver;
 
-public class SignupCommonFlow extends Signuppage{
+public class SignupCommonFlow extends SignupPage {
 
 	Random random    = new Random();
-	Signuppage signup= new Signuppage(driver);
+	SignupPage signup= new SignupPage(driver);
 
     public SignupCommonFlow(WebDriver driver) {
         super(driver);
@@ -23,7 +23,7 @@ public class SignupCommonFlow extends Signuppage{
     }
 
     public void checkTOSandCheckout() throws InterruptedException {
-        signup.waitForSummaryTable();
+        signup.WaitForSummaryTable();
         signup.checkTos1();
         signup.clickCheckout();
     }
@@ -45,7 +45,7 @@ public class SignupCommonFlow extends Signuppage{
     }
 
     public void sharedPackageCheckTOSandCheckoutTwice() {
-        signup.waitForSummaryTable();
+        signup.WaitForSummaryTable();
         signup.checkTos1();
         signup.clickCheckout();
         signup.clickCheckout(); //Clicking checkout again cause first click loads up and does nothing

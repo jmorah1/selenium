@@ -4,7 +4,7 @@ import hostgator.commonflow.SignupCommonFlow;
 import hostgator.pages.portal.HomePage;
 import hostgator.pages.portal.Hosting;
 import hostgator.pages.portal.LoginPage;
-import hostgator.pages.signup.Signuppage;
+import hostgator.pages.signup.SignupPage;
 import hostgator.driver.TestDriver;
 import hostgator.util.StaticData;
 import org.apache.logging.log4j.LogManager;
@@ -21,7 +21,7 @@ public class SignupFromPortal extends TestDriver {
 	LoginPage loginPage;
 	HomePage homePage;
 	Hosting hosting;
-	Signuppage signup;
+	SignupPage signup;
 	SignupCommonFlow signupFlow;
 
 	@BeforeTest
@@ -35,14 +35,14 @@ public class SignupFromPortal extends TestDriver {
 		loginPage  = new LoginPage(driver);
 		homePage   = new HomePage(driver);
 		hosting    = new Hosting(driver);
-		signup     = new Signuppage(driver);
+		signup     = new SignupPage(driver);
 		signupFlow = new SignupCommonFlow(driver);
 
 		loginPage.portalLogin(StaticData.SHARED_DEFAULT_EMAIL, StaticData.PORTAL_PASSWORD);
 		homePage.clickHosting();
 		hosting.addPackage();
 		hosting.shared();
-		signup.clickIAlreadyOwnThisDomian();
+		signup.clickIAlreadyOwnThisDomain();
 		signup.enterExistingDomain(StaticData.DOMAIN_NAME, "shared");
 		signup.billingDropdown(0);
 		signup.enterUsername(StaticData.USERNAME);
