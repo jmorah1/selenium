@@ -40,8 +40,8 @@ public class SignupFromPortal extends TestDriver {
 
 		loginPage.portalLogin(StaticData.SHARED_DEFAULT_EMAIL, StaticData.PORTAL_PASSWORD);
 		homePage.clickHosting();
-		hosting.addPackage();
-		hosting.shared();
+		hosting.AddPackage();
+		hosting.Shared();
 		signup.clickIAlreadyOwnThisDomian();
 		signup.enterExistingDomain(StaticData.DOMAIN_NAME, "shared");
 		signup.billingDropdown(0);

@@ -20,7 +20,7 @@ public class Hosting extends TestDriver {
     By shared = By.cssSelector("div[data-value='/signup/shared/3/36/SHARED3660']");
 
 
-    public void addPackage()
+    public void AddPackage()
     {
         WebElement element = driver.findElement(billingNav);
         JavascriptExecutor executor = (JavascriptExecutor)driver;
@@ -28,7 +28,7 @@ public class Hosting extends TestDriver {
         log.info("Clicked Add a Package");
     }
 
-    public void shared()
+    public void Shared()
     {
         WebElement element = driver.findElement(shared);
         JavascriptExecutor executor = (JavascriptExecutor)driver;
