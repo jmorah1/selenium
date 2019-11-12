@@ -365,9 +365,9 @@ public class Signuppage extends TestDriver {
 		waitUntilID(20, "email");
 		PayPalLogin paypalLogin=new PayPalLogin(driver);
 
-		paypalLogin.enterPayPalEmail(StaticData.payPalEmail);
+		paypalLogin.enterPayPalEmail(StaticData.PAYPAL_EMAIL);
 		paypalLogin.clickPayPalNextButton();
-		paypalLogin.enterPayPalPassword(StaticData.payPalPassword);
+		paypalLogin.enterPayPalPassword(StaticData.PAYPAL_PASSWORD);
 //		paypalLogin.unCheckStayLoggedIn();
 		paypalLogin.clickPayPalLoginButton();
 //		Boolean notNow = driver.findElements(By.id("notNowLink")).size() > 0 ;
@@ -385,7 +385,7 @@ public class Signuppage extends TestDriver {
 	public void topRightSignIn(String email) {
 		clickTopRightSignintext();
 		enterTopRightEmail(email);
-		enterTopRightPassword(StaticData.portalPassword);
+		enterTopRightPassword(StaticData.PORTAL_PASSWORD);
 		clickTopRightSigninButton();
 		@SuppressWarnings("deprecation")
 		WebDriverWait wait = new WebDriverWait(driver, 30);

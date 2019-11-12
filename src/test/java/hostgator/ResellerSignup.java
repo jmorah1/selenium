@@ -22,7 +22,7 @@ public class ResellerSignup extends TestDriver {
 	public void initialize() throws IOException {
 		driver =  initializeDriver();
 //		driver.manage().window().maximize();
-		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.resellerPkg);
+		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.RESELLER_PKG);
 	}
 
 	@Test(groups  = {"SmokeTest", "SignupRegression"})  //HGQ-1125
@@ -31,10 +31,10 @@ public class ResellerSignup extends TestDriver {
 		signupFlow = new SignupCommonFlow(driver);
 
 		signup.clickIAlreadyOwnThisDomian();
-		signup.enterExistingDomain(StaticData.domainName, "reseller");
+		signup.enterExistingDomain(StaticData.DOMAIN_NAME, "reseller");
 		signup.billingDropdown(0);
-		signup.topRightSignIn(StaticData.sharedDefaultEmail);
-		signup.enterUsername(StaticData.userName);
+		signup.topRightSignIn(StaticData.SHARED_DEFAULT_EMAIL);
+		signup.enterUsername(StaticData.USERNAME);
 		signup.clickPayPalTab();
 		signupFlow.checkTOSandCheckout();
 		signup.verifyPaymentComplete();

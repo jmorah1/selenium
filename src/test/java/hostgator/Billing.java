@@ -32,7 +32,7 @@ public class Billing extends TestDriver {
         HomePage homePage=new HomePage(driver);
         BillingHistoryPage billingHistoryPage = new BillingHistoryPage(driver);
 
-        portalLogin.portalLogin(StaticData.sharedDefaultEmail, StaticData.portalPassword);
+        portalLogin.portalLogin(StaticData.SHARED_DEFAULT_EMAIL, StaticData.PORTAL_PASSWORD);
         homePage.navigateToBillingHistory();
         billingHistoryPage.PrintInvoiceNumbers();
     }

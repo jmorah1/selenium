@@ -20,7 +20,7 @@ public class SharedPkgSignup extends TestDriver {
 	public void initialize() throws IOException {
 		driver =  initializeDriver();
 //		driver.manage().window().maximize();
-		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.sharedPkg);
+		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.SHARED_PKG);
 		log.info("Navigated to shared pkg signup page");
 	}
 
@@ -29,11 +29,11 @@ public class SharedPkgSignup extends TestDriver {
 	public void SharedNewCustomerNewDomainCC() throws IOException, InterruptedException {
 		signupFlow =new SignupCommonFlow(driver);
 		signup     =new Signuppage(driver);
-		signup.enterDomain(StaticData.domainName, "sharedpackage");
+		signup.enterDomain(StaticData.DOMAIN_NAME, "sharedpackage");
 		signup.tldDropdown(0);
 		signup.billingDropdown(0);
-		signup.enterUsername(StaticData.userName);
-		signup.enterPin(StaticData.pin);
+		signup.enterUsername(StaticData.USERNAME);
+		signup.enterPin(StaticData.PIN);
 		signupFlow.enterEmailAndConfirm("shared");
 		signupFlow.enterBillingInfo();
 		signupFlow.enterCredirCardInfo();

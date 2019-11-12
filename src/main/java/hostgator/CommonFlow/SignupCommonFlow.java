@@ -31,19 +31,19 @@ public class SignupCommonFlow extends Signuppage{
     }
 
     public void enterCredirCardInfo() {
-        signup.enterCreditCardName(StaticData.testCreditCardName);
-        signup.enterCreditCardNumber(StaticData.testCreditCardNumber);
-        signup.enterCreditCardCVV(StaticData.testCreditCardCVV);
+        signup.enterCreditCardName(StaticData.TEST_CREDIT_CARD_NAME);
+        signup.enterCreditCardNumber(StaticData.TEST_CREDIT_CARD_NUMBER);
+        signup.enterCreditCardCVV(StaticData.TEST_CREDIT_CARD_CVV);
     }
 
     public void enterBillingInfo() {
-        signup.enterFirstName(StaticData.firstName);
-        signup.enterLastName(StaticData.lastName);
-        signup.enterPhone(StaticData.phone);
-        signup.enterAddress1(StaticData.address1);
-        signup.enterAddress2(StaticData.address2);
-        signup.enterCity(StaticData.city);
-        signup.enterZipCode(StaticData.zip);
+        signup.enterFirstName(StaticData.FIRST_NAME);
+        signup.enterLastName(StaticData.LAST_NAME);
+        signup.enterPhone(StaticData.PHONE);
+        signup.enterAddress1(StaticData.ADDRESS1);
+        signup.enterAddress2(StaticData.ADDRESS2);
+        signup.enterCity(StaticData.CITY);
+        signup.enterZipCode(StaticData.ZIP);
     }
 
     public void sharedPackageCheckTOSandCheckoutTwice() {

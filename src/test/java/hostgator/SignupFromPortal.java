@@ -38,14 +38,14 @@ public class SignupFromPortal extends TestDriver {
 		signup     = new Signuppage(driver);
 		signupFlow = new SignupCommonFlow(driver);
 
-		loginPage.portalLogin(StaticData.sharedDefaultEmail, StaticData.portalPassword);
+		loginPage.portalLogin(StaticData.SHARED_DEFAULT_EMAIL, StaticData.PORTAL_PASSWORD);
 		homePage.clickHosting();
 		hosting.addPackage();
 		hosting.shared();
 		signup.clickIAlreadyOwnThisDomian();
-		signup.enterExistingDomain(StaticData.domainName, "shared");
+		signup.enterExistingDomain(StaticData.DOMAIN_NAME, "shared");
 		signup.billingDropdown(0);
-		signup.enterUsername(StaticData.userName);
+		signup.enterUsername(StaticData.USERNAME);
 		signupFlow.sharedPackageCheckTOSandCheckoutTwice();
 		signup.verifyPaymentComplete();
 	}

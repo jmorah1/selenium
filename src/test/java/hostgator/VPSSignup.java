@@ -21,7 +21,7 @@ public class VPSSignup extends TestDriver {
 	@BeforeTest
 	public void initialize() throws IOException {
 		driver =  initializeDriver();
-		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.vpsPkg);
+		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.VPS_PKG);
 	}
 
 	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-1133
@@ -30,9 +30,9 @@ public class VPSSignup extends TestDriver {
 		signupFlow = new SignupCommonFlow(driver);
 
 		signup.clickIAlreadyOwnThisDomian();
-		signup.enterExistingDomain(StaticData.domainName, "vps");
+		signup.enterExistingDomain(StaticData.DOMAIN_NAME, "vps");
 		signup.billingDropdown(0);
-		signup.enterPin(StaticData.pin);
+		signup.enterPin(StaticData.PIN);
 		signupFlow.enterEmailAndConfirm("cloud");
 		signupFlow.enterBillingInfo();
 		signupFlow.enterCredirCardInfo();

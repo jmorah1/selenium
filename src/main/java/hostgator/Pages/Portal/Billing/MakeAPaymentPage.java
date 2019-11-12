@@ -92,11 +92,11 @@ public class MakeAPaymentPage {
 
     }
     private void enterCreditCardInfo() {
-        _cardNumberField.sendKeys(StaticData.testCreditCardNumber + Keys.TAB + Keys.TAB + Keys.ARROW_DOWN + Keys.ARROW_DOWN + Keys.ENTER);
+        _cardNumberField.sendKeys(StaticData.TEST_CREDIT_CARD_NUMBER + Keys.TAB + Keys.TAB + Keys.ARROW_DOWN + Keys.ARROW_DOWN + Keys.ENTER);
         log.info("Entered Credit Card Number and Expiration Date");
     }
     private void enterSecurityCode() {
-        _securityCodeField.sendKeys(StaticData.testCreditCardCVV);
+        _securityCodeField.sendKeys(StaticData.TEST_CREDIT_CARD_CVV);
         log.info("Entered Credit Card CVV");
     }
     private void clickTosCheckBox() {

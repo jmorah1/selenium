@@ -40,7 +40,7 @@ public class MakePaymentFeature extends TestDriver{
 		HomePage homePage=new HomePage(driver);
 		MakeAPaymentPage makeAPaymentPage = new MakeAPaymentPage(driver);
 
-		portalLogin.portalLogin(StaticData.sharedDefaultEmail, StaticData.portalPassword);
+		portalLogin.portalLogin(StaticData.SHARED_DEFAULT_EMAIL, StaticData.PORTAL_PASSWORD);
 		homePage.navigateToMakePayment();
 		makeAPaymentPage.payWithCreditCard();
 
@@ -53,7 +53,7 @@ public class MakePaymentFeature extends TestDriver{
 		LoginPage portalLogin=new LoginPage(driver);
 		HomePage homePage=new HomePage(driver);
 		MakeAPaymentPage makeAPaymentPage = new MakeAPaymentPage(driver);
-		portalLogin.portalLogin(StaticData.sharedDefaultEmail, StaticData.portalPassword);
+		portalLogin.portalLogin(StaticData.SHARED_DEFAULT_EMAIL, StaticData.PORTAL_PASSWORD);
 		homePage.navigateToMakePayment();
 		makeAPaymentPage.payWithPayPal();
 

@@ -24,9 +24,9 @@ public class PayPalLogin{
 	By paypal_agreeContinuebutton = By.id("confirmButtonTop"); ////*[@id="confirmButtonTop"]
 	By paypal_agreeContinuebutton2 = By.id("consentButton"); ////*[@id="confirmButtonTop"]
 
-	public void enterPayPalEmail(String payPalEmail)
+	public void enterPayPalEmail(String PAYPAL_EMAIL)
 	{
-		driver.findElement(paypal_email_field).sendKeys(payPalEmail);
+		driver.findElement(paypal_email_field).sendKeys(PAYPAL_EMAIL);
 		log.info("Entered PayPal Email");
 	}
 
@@ -82,9 +82,9 @@ public class PayPalLogin{
 	}
 
 	public void completePayPalSiteCheckout() {
-		enterPayPalEmail(StaticData.payPalEmail);
+		enterPayPalEmail(StaticData.PAYPAL_EMAIL);
 		clickPayPalNextButton();
-		enterPayPalPassword(StaticData.payPalPassword);
+		enterPayPalPassword(StaticData.PAYPAL_PASSWORD);
 		clickPayPalLoginButton();
 		clickPaypalAgreeAndContinuebutton();
 	}
