@@ -45,7 +45,6 @@ public class Billing extends TestDriver {
 
     @AfterClass
     public void teardown() {
-
         driver=null;
     }
 }
