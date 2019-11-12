@@ -45,7 +45,7 @@ public class DomainRegistration extends TestDriver {
     }
 
     public void enterDomainAndSearch(){
-        String searchDomain = StaticData.domainName+random.nextInt(10000)+"domain"+random.nextInt(10000)+".com";
+        String searchDomain = StaticData.DOMAIN_NAME+random.nextInt(10000)+"domain"+random.nextInt(10000)+".com";
 
         driver.findElement(Domainfield).sendKeys(searchDomain);
         log.info("Entered Domain");

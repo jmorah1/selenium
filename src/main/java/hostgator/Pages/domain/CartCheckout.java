@@ -55,7 +55,7 @@ public class CartCheckout {
     //Your Account
     public void enterEmail()
     {
-        driver.findElement(emailField).sendKeys(StaticData.domainName +random.nextInt(10000)+"domain" +random.nextInt(100000)+ "@endurance.com");
+        driver.findElement(emailField).sendKeys(StaticData.DOMAIN_NAME +random.nextInt(10000)+"domain" +random.nextInt(100000)+ "@endurance.com");
         log.info("Entered Email");
     }
 
@@ -147,19 +147,19 @@ public class CartCheckout {
 
     public void enterBillingInfo()
     {
-        enterFirstName(StaticData.firstName);
-        enterlastName(StaticData.lastName);
-        enterHomePhone(StaticData.phone);
-        enterAddress(StaticData.address1);
-        enterCity(StaticData.city);
-        enterZipCode(StaticData.zip);
+        enterFirstName(StaticData.FIRST_NAME);
+        enterlastName(StaticData.LAST_NAME);
+        enterHomePhone(StaticData.PHONE);
+        enterAddress(StaticData.ADDRESS1);
+        enterCity(StaticData.CITY);
+        enterZipCode(StaticData.ZIP);
     }
 
     public void enterCCInfo()
     {
-        enterCCName(StaticData.testCreditCardName);
-        enterCCNumber(StaticData.testCreditCardNumber);
-        enterCVV(StaticData.testCreditCardCVV);
+        enterCCName(StaticData.TEST_CREDIT_CARD_NAME);
+        enterCCNumber(StaticData.TEST_CREDIT_CARD_NUMBER);
+        enterCVV(StaticData.TEST_CREDIT_CARD_CVV);
     }
 
     public void acceptTOSAndPlaceOrder()

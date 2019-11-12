@@ -21,7 +21,7 @@ public class DomainPurchase extends TestDriver {
 	@BeforeTest
 	public void initialize() throws IOException {
 		driver =  initializeDriver();
-		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.domainPurchase);
+		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.DOMAIN_PURCHASE);
 	}
 
 	//This test is incomplete
@@ -33,7 +33,7 @@ public class DomainPurchase extends TestDriver {
 		domainRegistration.enterDomainAndSearch();
 		domainRegistration.clickContinueCheckoutButton();
 		cartCheckout.enterEmail();
-		cartCheckout.enterConfirmPassword(StaticData.defaultPassword);
+		cartCheckout.enterConfirmPassword(StaticData.DEFAULT_PASSWORD);
 		cartCheckout.clickContinue();
 		cartCheckout.enterBillingInfo();
 		cartCheckout.enterCCInfo();
