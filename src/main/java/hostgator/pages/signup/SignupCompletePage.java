@@ -5,11 +5,11 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class signupCompletePage{
+public class SignupCompletePage {
 
-	private static Logger log = LogManager.getLogger(signupCompletePage.class.getName());
+	private static Logger log = LogManager.getLogger(SignupCompletePage.class.getName());
 	private WebDriver driver;
-	public signupCompletePage(WebDriver  driver)
+	public SignupCompletePage(WebDriver  driver)
 	{
 		this.driver=driver;
 	}
