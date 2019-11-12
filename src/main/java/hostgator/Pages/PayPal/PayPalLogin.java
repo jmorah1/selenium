@@ -1,5 +1,6 @@
 package hostgator.Pages.PayPal;
 
+import hostgator.util.StaticData;
 import org.apache.logging.log4j.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -78,5 +79,13 @@ public class PayPalLogin{
 	{
 		driver.findElement(paypal_agreeContinuebutton2).click();
 		log.info("Clicked PayPal Agree and Continue2");
+	}
+
+	public void completePayPalSiteCheckout() {
+		enterPayPalEmail(StaticData.payPalEmail);
+		clickPayPalNextButton();
+		enterPayPalPassword(StaticData.payPalPassword);
+		clickPayPalLoginButton();
+		clickPaypalAgreeAndContinuebutton();
 	}
 }
