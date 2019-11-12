@@ -29,13 +29,13 @@ public class DediPkgSignup extends TestDriver {
 		signup=new SignupPage(driver);
 		signupFlow =new SignupCommonFlow(driver);
 
-		signup.ClickIAlreadyOwnThisDomain();
-		signup.EnterExistingDomain(StaticData.DOMAIN_NAME, "dedi");
-		signup.BillingDropdown(0);
+		signup.clickIAlreadyOwnThisDomain();
+		signup.enterExistingDomain(StaticData.DOMAIN_NAME, "dedi");
+		signup.billingDropdown(0);
 		signup.TopRightSignIn(StaticData.SHARED_DEFAULT_ACCOUNT);
-		signup.ClickPayPalTab();
+		signup.clickPayPalTab();
 		signupFlow.checkTOSandCheckout();
-		signup.VerifyPaymentComplete();
+		signup.verifyPaymentComplete();
 	}
 
 	@AfterTest

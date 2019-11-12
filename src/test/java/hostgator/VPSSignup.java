@@ -29,15 +29,15 @@ public class VPSSignup extends TestDriver {
 		signup=new SignupPage(driver);
 		signupFlow = new SignupCommonFlow(driver);
 
-		signup.ClickIAlreadyOwnThisDomain();
-		signup.EnterExistingDomain(StaticData.DOMAIN_NAME, "vps");
-		signup.BillingDropdown(0);
-		signup.EnterPin(StaticData.PIN);
+		signup.clickIAlreadyOwnThisDomain();
+		signup.enterExistingDomain(StaticData.DOMAIN_NAME, "vps");
+		signup.billingDropdown(0);
+		signup.enterPin(StaticData.PIN);
 		signupFlow.enterEmailAndConfirm("cloud");
 		signupFlow.enterBillingInfo();
 		signupFlow.enterCredirCardInfo();
 		signupFlow.checkTOSandCheckout();
-		signup.VerifyPaymentComplete();
+		signup.verifyPaymentComplete();
 	}
 
 	@AfterTest

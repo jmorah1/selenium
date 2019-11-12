@@ -23,7 +23,7 @@ public class BillingHistoryPage {
     @FindBy(how = How.XPATH, using = "//*[@class='sorting_1']//a[contains(@href, '/billing/invoice/')]")
     private List<WebElement> _invoiceNumbers;
 
-    public void PrintInvoiceNumbers() {
+    public void printInvoiceNumbers() {
         for(WebElement e : _invoiceNumbers) {
             System.out.println(e.getText());
         }

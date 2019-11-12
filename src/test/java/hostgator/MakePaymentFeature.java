@@ -41,7 +41,7 @@ public class MakePaymentFeature extends TestDriver{
 
 		portalLogin.portalLogin(StaticData.SHARED_DEFAULT_EMAIL, StaticData.PORTAL_PASSWORD);
 		homePage.navigateToMakePayment();
-		makeAPaymentPage.PayWithCreditCard();
+		makeAPaymentPage.payWithCreditCard();
 
 	}
 	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-1126
@@ -54,7 +54,7 @@ public class MakePaymentFeature extends TestDriver{
 		MakeAPaymentPage makeAPaymentPage = new MakeAPaymentPage(driver);
 		portalLogin.portalLogin(StaticData.SHARED_DEFAULT_EMAIL, StaticData.PORTAL_PASSWORD);
 		homePage.navigateToMakePayment();
-		makeAPaymentPage.PayWithPayPal();
+		makeAPaymentPage.payWithPayPal();
 
 	}
 	

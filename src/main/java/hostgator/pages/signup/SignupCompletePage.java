@@ -16,7 +16,7 @@ public class SignupCompletePage {
 	
 	private By _paymentCompleteSection = By.xpath("//*[@id=\"welcome-section\"]");
 
-	public void VerifypaymentComplete()
+	public void verifypaymentComplete()
 	{
 		driver.findElement(_paymentCompleteSection).isDisplayed();
 		log.info("Verified Payment Complete URL");

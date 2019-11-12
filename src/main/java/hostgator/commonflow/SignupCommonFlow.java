@@ -18,36 +18,36 @@ public class SignupCommonFlow extends SignupPage {
 
     public void enterEmailAndConfirm(String packageName) {
         String email = "hgtest"+random.nextInt(100000)+packageName +random.nextInt(100000)+ "@endurance.com";
-        signup.EnterEmail(email);
-        signup.EnterConfirmEmail(email);
+        signup.enterEmail(email);
+        signup.enterConfirmEmail(email);
     }
 
     public void checkTOSandCheckout() throws InterruptedException {
         signup.WaitForSummaryTable();
-        signup.CheckTos1();
-        signup.ClickCheckout();
+        signup.checkTos1();
+        signup.clickCheckout();
     }
 
     public void enterCredirCardInfo() {
-        signup.EnterCreditCardName(StaticData.TEST_CREDIT_CARD_NAME);
-        signup.EnterCreditCardNumber(StaticData.TEST_CREDIT_CARD_NUMBER);
-        signup.EnterCreditCardCVV(StaticData.TEST_CREDIT_CARD_CVV);
+        signup.enterCreditCardName(StaticData.TEST_CREDIT_CARD_NAME);
+        signup.enterCreditCardNumber(StaticData.TEST_CREDIT_CARD_NUMBER);
+        signup.enterCreditCardCVV(StaticData.TEST_CREDIT_CARD_CVV);
     }
 
     public void enterBillingInfo() {
-        signup.EnterFirstName(StaticData.FIRST_NAME);
-        signup.EnterLastName(StaticData.LAST_NAME);
-        signup.EnterPhone(StaticData.PHONE);
-        signup.EnterAddress1(StaticData.ADDRESS1);
-        signup.EnterAddress2(StaticData.ADDRESS2);
-        signup.EnterCity(StaticData.CITY);
-        signup.EnterZipCode(StaticData.ZIP);
+        signup.enterFirstName(StaticData.FIRST_NAME);
+        signup.enterLastName(StaticData.LAST_NAME);
+        signup.enterPhone(StaticData.PHONE);
+        signup.enterAddress1(StaticData.ADDRESS1);
+        signup.enterAddress2(StaticData.ADDRESS2);
+        signup.enterCity(StaticData.CITY);
+        signup.enterZipCode(StaticData.ZIP);
     }
 
     public void sharedPackageCheckTOSandCheckoutTwice() {
         signup.WaitForSummaryTable();
-        signup.CheckTos1();
-        signup.ClickCheckout();
-        signup.ClickCheckout(); //Clicking checkout again cause first click loads up and does nothing
+        signup.checkTos1();
+        signup.clickCheckout();
+        signup.clickCheckout(); //Clicking checkout again cause first click loads up and does nothing
     }
 }

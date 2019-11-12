@@ -29,13 +29,13 @@ public class OWPSignup extends TestDriver {
 	public void WordpressExistingCustomerExistingDomainCC() throws InterruptedException, IOException {
 		signup=new SignupPage(driver);
 		signupFlow =new SignupCommonFlow(driver);
-		signup.ClickIAlreadyOwnThisDomain();
-		signup.EnterExistingDomain(StaticData.DOMAIN_NAME, "owp");
-		signup.BillingDropdown(0);
-		signup.EnterPin(StaticData.PIN);
+		signup.clickIAlreadyOwnThisDomain();
+		signup.enterExistingDomain(StaticData.DOMAIN_NAME, "owp");
+		signup.billingDropdown(0);
+		signup.enterPin(StaticData.PIN);
 		signup.ExistingEmailSignIn(StaticData.SHARED_DEFAULT_EMAIL, StaticData.DEFAULT_PASSWORD);
 		signupFlow.checkTOSandCheckout();
-		signup.VerifyPaymentComplete();
+		signup.verifyPaymentComplete();
 	}
 
 	@AfterTest

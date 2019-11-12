@@ -22,16 +22,16 @@ public class MakeAPaymentPage {
         PageFactory.initElements(this.driver, this);
     }
 
-    private void NoInterceptClick(WebElement elementToClick){
+    private void noInterceptClick(WebElement elementToClick){
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", elementToClick);
     }
 
-    public void WaitToBeClickable(WebElement elementToBeClicked) {
+    public void waitToBeClickable(WebElement elementToBeClicked) {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(elementToBeClicked));
     }
-    public void WaitToBeVisible(WebElement elementToBeVisable) {
+    public void waitToBeVisible(WebElement elementToBeVisable) {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(elementToBeVisable));
     }
@@ -76,81 +76,81 @@ public class MakeAPaymentPage {
     //endregion
 
     //region Invoice Selection Page Methods
-    private void SelectPrePayInvoice()
+    private void selectPrePayInvoice()
     {
-        NoInterceptClick(_prePayCheckBox);
+        noInterceptClick(_prePayCheckBox);
         log.info("Click Checkbox for PrePay Invoice");
     }
-    private void ClickContinue()
+    private void clickContinue()
     {
-        WaitToBeClickable(_buttonBuy);
-        NoInterceptClick(_buttonBuy);
+        waitToBeClickable(_buttonBuy);
+        noInterceptClick(_buttonBuy);
         log.info("Continued to Checkout");
     }
     //endregion
 
     //region Payment Type Selection Page Methods
-    private void UseNewCard() {
-        NoInterceptClick(_newCard);
+    private void useNewCard() {
+        noInterceptClick(_newCard);
         log.info("Selected New Card");
     }
-    private void EnterCreditCardInfo() {
+    private void enterCreditCardInfo() {
         _cardNumberField.sendKeys(StaticData.TEST_CREDIT_CARD_NUMBER + Keys.TAB + Keys.TAB + Keys.ARROW_DOWN + Keys.ARROW_DOWN + Keys.ENTER);
         log.info("Entered Credit Card Number and Expiration Date");
     }
-    private void EnterSecurityCode() {
+    private void enterSecurityCode() {
         _securityCodeField.sendKeys(StaticData.TEST_CREDIT_CARD_CVV);
         log.info("Entered Credit Card CVV");
     }
-    private void ClickTosCheckBox() {
-        NoInterceptClick(_tosCheckBox);
+    private void clickTosCheckBox() {
+        noInterceptClick(_tosCheckBox);
         log.info("Checked TOS Box");
     }
-    private void ClickCheckoutButton() {
-        NoInterceptClick(_checkoutButton);
+    private void clickCheckoutButton() {
+        noInterceptClick(_checkoutButton);
         log.info("Clicked Complete Checkout");
     }
-    private void PaymentSuccessCheck() {
-        WaitToBeVisible(_checkoutSuccess);
+    private void paymentSuccessCheck() {
+        waitToBeVisible(_checkoutSuccess);
         log.info("Verified Successful Payment");
     }
-    private void SelectPayPal() {
-        WaitToBeClickable(_usePayPal);
-        NoInterceptClick(_usePayPal);
+    private void selectPayPal() {
+        waitToBeClickable(_usePayPal);
+        noInterceptClick(_usePayPal);
         log.info("Selected PayPal");
     }
-    private void SelectPayPalOneTimePayment() {
-        WaitToBeClickable(_paypalOneTime);
-        NoInterceptClick(_paypalOneTime);
+    private void selectPayPalOneTimePayment() {
+        waitToBeClickable(_paypalOneTime);
+        noInterceptClick(_paypalOneTime);
         log.info("Selected One Time Payment For PayPal");
     }
-    private void ClickCheckoutButtonPayPal() {
-        WaitToBeClickable(_checkoutPayPal);
-        NoInterceptClick(_checkoutPayPal);
+    private void slickCheckoutButtonPayPal() {
+        waitToBeClickable(_checkoutPayPal);
+        noInterceptClick(_checkoutPayPal);
         log.info("Proceeding to PayPal Site");
     }
     //endregion
 
-    public void PayWithCreditCard() {
-        SelectPrePayInvoice();
-        ClickContinue();
-        UseNewCard();
-        EnterCreditCardInfo();
-        EnterSecurityCode();
-        ClickTosCheckBox();
-        ClickCheckoutButton();
-        PaymentSuccessCheck();
+    public void payWithCreditCard() {
+        selectPrePayInvoice();
+        clickContinue();
+        useNewCard();
+        enterCreditCardInfo();
+        enterSecurityCode();
+        clickTosCheckBox();
+        clickCheckoutButton();
+        paymentSuccessCheck();
     }
 
-    public void PayWithPayPal() {
+    public void payWithPayPal() {
         PayPalLogin payPalLogin = new PayPalLogin(driver);
-        SelectPrePayInvoice();
-        ClickContinue();
-        SelectPayPal();
-        SelectPayPalOneTimePayment();
-        ClickTosCheckBox();
-        ClickCheckoutButtonPayPal();
+        selectPrePayInvoice();
+        clickContinue();
+        selectPayPal();
+        selectPayPalOneTimePayment();
+        clickTosCheckBox();
+        slickCheckoutButtonPayPal();
         payPalLogin.completePayPalSiteCheckout();
-        PaymentSuccessCheck();
+        paymentSuccessCheck();
     }
 }

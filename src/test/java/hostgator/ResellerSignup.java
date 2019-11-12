@@ -30,14 +30,14 @@ public class ResellerSignup extends TestDriver {
 		signup=new SignupPage(driver);
 		signupFlow = new SignupCommonFlow(driver);
 
-		signup.ClickIAlreadyOwnThisDomain();
-		signup.EnterExistingDomain(StaticData.DOMAIN_NAME, "reseller");
-		signup.BillingDropdown(0);
+		signup.clickIAlreadyOwnThisDomain();
+		signup.enterExistingDomain(StaticData.DOMAIN_NAME, "reseller");
+		signup.billingDropdown(0);
 		signup.TopRightSignIn(StaticData.SHARED_DEFAULT_EMAIL);
-		signup.EnterUsername(StaticData.USERNAME);
-		signup.ClickPayPalTab();
+		signup.enterUsername(StaticData.USERNAME);
+		signup.clickPayPalTab();
 		signupFlow.checkTOSandCheckout();
-		signup.VerifyPaymentComplete();
+		signup.verifyPaymentComplete();
 	}
 
 	@AfterTest

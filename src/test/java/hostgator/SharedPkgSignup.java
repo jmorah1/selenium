@@ -29,16 +29,16 @@ public class SharedPkgSignup extends TestDriver {
 	public void SharedNewCustomerNewDomainCC() throws IOException, InterruptedException {
 		signupFlow =new SignupCommonFlow(driver);
 		signup     =new SignupPage(driver);
-		signup.EnterDomain(StaticData.DOMAIN_NAME, "sharedpackage");
-		signup.TldDropdown(0);
-		signup.BillingDropdown(0);
-		signup.EnterUsername(StaticData.USERNAME);
-		signup.EnterPin(StaticData.PIN);
+		signup.enterDomain(StaticData.DOMAIN_NAME, "sharedpackage");
+		signup.tldDropdown(0);
+		signup.billingDropdown(0);
+		signup.enterUsername(StaticData.USERNAME);
+		signup.enterPin(StaticData.PIN);
 		signupFlow.enterEmailAndConfirm("shared");
 		signupFlow.enterBillingInfo();
 		signupFlow.enterCredirCardInfo();
 		signupFlow.sharedPackageCheckTOSandCheckoutTwice();
-		signup.VerifyPaymentComplete();
+		signup.verifyPaymentComplete();
 	}
 
 
