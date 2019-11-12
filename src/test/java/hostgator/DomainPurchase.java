@@ -1,7 +1,7 @@
 package hostgator;
 
-import hostgator.CommonFlow.SignupCommonFlow;
-import hostgator.Pages.Signup.Signuppage;
+import hostgator.Pages.domain.CartCheckout;
+import hostgator.Pages.domain.DomainRegistration;
 import hostgator.driver.TestDriver;
 import hostgator.util.StaticData;
 import org.apache.logging.log4j.LogManager;
@@ -15,29 +15,31 @@ import java.io.IOException;
 public class DomainPurchase extends TestDriver {
 
 	private static Logger log = LogManager.getLogger(DomainPurchase.class.getName());
-    Signuppage signup;
-	SignupCommonFlow signupFlow;
+	DomainRegistration domainRegistration;
+	CartCheckout cartCheckout;
 
 	@BeforeTest
 	public void initialize() throws IOException {
 		driver =  initializeDriver();
-		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.vpsPkg);
+		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.domainPurchase);
 	}
 
-	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-1133
-	public void VPSNewCustomerExistingDomainCC() throws InterruptedException, IOException {
-		signup=new Signuppage(driver);
-		signupFlow = new SignupCommonFlow(driver);
+	//This test is incomplete
+	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-1129
+	public void NewCustomerNewDomainCC() throws InterruptedException, IOException {
+		domainRegistration =new DomainRegistration(driver);
+		cartCheckout =new CartCheckout(driver);
 
-		signup.clickIAlreadyOwnThisDomian();
-		signup.enterExistingDomain(StaticData.domainName, "vps");
-		signup.billingDropdown(0);
-		signup.enterPin(StaticData.pin);
-		signupFlow.enterEmailAndConfirm("cloud");
-		signupFlow.enterBillingInfo();
-		signupFlow.enterCredirCardInfo();
-		signupFlow.checkTOSandCheckout();
-		signup.verifyPaymentComplete();
+		domainRegistration.enterDomainAndSearch();
+		domainRegistration.clickContinueCheckoutButton();
+		cartCheckout.enterEmail();
+		cartCheckout.enterConfirmPassword(StaticData.defaultPassword);
+		cartCheckout.clickContinue();
+		cartCheckout.enterBillingInfo();
+		cartCheckout.enterCCInfo();
+		cartCheckout.clickContinueToCheckout();
+		cartCheckout.acceptTOSAndPlaceOrder();
+
 	}
 
 	@AfterTest

@@ -2,10 +2,8 @@ package hostgator.CommonFlow;
 
 import java.util.Random;
 
-import hostgator.Pages.PayPal.PayPalLogin;
 import hostgator.Pages.Signup.Signuppage;
 
-import hostgator.driver.TestDriver;
 import hostgator.util.StaticData;
 import org.openqa.selenium.WebDriver;
 
