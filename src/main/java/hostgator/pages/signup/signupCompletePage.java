@@ -1,4 +1,4 @@
-package hostgator.Pages.Signup;
+package hostgator.pages.signup;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

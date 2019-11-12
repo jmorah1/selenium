@@ -1,10 +1,10 @@
-package hostgator.Pages.Signup;
+package hostgator.pages.signup;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-import hostgator.Pages.PayPal.PayPalLogin;
+import hostgator.pages.paypal.PayPalLogin;
 import hostgator.driver.TestDriver;
 import hostgator.util.StaticData;
 import org.apache.logging.log4j.LogManager;

@@ -1,8 +1,8 @@
 package hostgator;
 
-import hostgator.Pages.Portal.Billing.BillingHistoryPage;
-import hostgator.Pages.Portal.HomePage;
-import hostgator.Pages.Portal.LoginPage;
+import hostgator.pages.portal.billing.BillingHistoryPage;
+import hostgator.pages.portal.HomePage;
+import hostgator.pages.portal.LoginPage;
 import hostgator.driver.TestDriver;
 import hostgator.util.StaticData;
 

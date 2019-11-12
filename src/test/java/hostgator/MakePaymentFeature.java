@@ -1,17 +1,16 @@
 package hostgator;
 
 import java.io.IOException;
-import java.util.Random;
 
-import hostgator.Pages.Portal.Billing.MakeAPaymentPage;
-import hostgator.Pages.Portal.LoginPage;
+import hostgator.pages.portal.billing.MakeAPaymentPage;
+import hostgator.pages.portal.LoginPage;
 import org.apache.logging.log4j.*;
 import org.testng.annotations.*;
 
 import hostgator.driver.TestDriver;
 import hostgator.util.StaticData;
 
-import hostgator.Pages.Portal.HomePage;
+import hostgator.pages.portal.HomePage;
 
 public class MakePaymentFeature extends TestDriver{
 

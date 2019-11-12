@@ -1,8 +1,8 @@
-package hostgator.CommonFlow;
+package hostgator.commonflow;
 
 import java.util.Random;
 
-import hostgator.Pages.Signup.Signuppage;
+import hostgator.pages.signup.Signuppage;
 
 import hostgator.util.StaticData;
 import org.openqa.selenium.WebDriver;

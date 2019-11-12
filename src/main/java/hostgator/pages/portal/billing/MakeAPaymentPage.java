@@ -1,6 +1,6 @@
-package hostgator.Pages.Portal.Billing;
+package hostgator.pages.portal.billing;
 
-import hostgator.Pages.PayPal.PayPalLogin;
+import hostgator.pages.paypal.PayPalLogin;
 import hostgator.util.StaticData;
 import org.openqa.selenium.*;
 import org.apache.logging.log4j.LogManager;

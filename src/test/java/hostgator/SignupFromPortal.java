@@ -1,10 +1,10 @@
 package hostgator;
 
-import hostgator.CommonFlow.SignupCommonFlow;
-import hostgator.Pages.Portal.HomePage;
-import hostgator.Pages.Portal.Hosting;
-import hostgator.Pages.Portal.LoginPage;
-import hostgator.Pages.Signup.Signuppage;
+import hostgator.commonflow.SignupCommonFlow;
+import hostgator.pages.portal.HomePage;
+import hostgator.pages.portal.Hosting;
+import hostgator.pages.portal.LoginPage;
+import hostgator.pages.signup.Signuppage;
 import hostgator.driver.TestDriver;
 import hostgator.util.StaticData;
 import org.apache.logging.log4j.LogManager;

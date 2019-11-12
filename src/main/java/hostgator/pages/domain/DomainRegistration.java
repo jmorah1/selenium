@@ -1,4 +1,4 @@
-package hostgator.Pages.domain;
+package hostgator.pages.domain;
 
 import hostgator.driver.TestDriver;
 import hostgator.util.StaticData;

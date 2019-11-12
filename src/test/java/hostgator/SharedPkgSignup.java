@@ -2,8 +2,8 @@ package hostgator;
 
 import java.io.IOException;
 
-import hostgator.CommonFlow.SignupCommonFlow;
-import hostgator.Pages.Signup.Signuppage;
+import hostgator.commonflow.SignupCommonFlow;
+import hostgator.pages.signup.Signuppage;
 import org.apache.logging.log4j.*;
 import org.testng.annotations.*;
 

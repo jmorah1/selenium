@@ -1,4 +1,4 @@
-package hostgator.Pages.PayPal;
+package hostgator.pages.paypal;
 
 import hostgator.util.StaticData;
 import org.apache.logging.log4j.*;

@@ -1,4 +1,4 @@
-package hostgator.Pages.Portal;
+package hostgator.pages.portal;
 
 import hostgator.driver.TestDriver;
 import org.apache.logging.log4j.*;

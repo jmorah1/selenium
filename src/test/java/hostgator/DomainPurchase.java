@@ -1,7 +1,7 @@
 package hostgator;
 
-import hostgator.Pages.domain.CartCheckout;
-import hostgator.Pages.domain.DomainRegistration;
+import hostgator.pages.domain.CartCheckout;
+import hostgator.pages.domain.DomainRegistration;
 import hostgator.driver.TestDriver;
 import hostgator.util.StaticData;
 import org.apache.logging.log4j.LogManager;
