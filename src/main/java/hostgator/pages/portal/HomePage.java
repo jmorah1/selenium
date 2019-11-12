@@ -16,7 +16,7 @@ public class HomePage extends TestDriver {
         this.driver=driver;
     }
 
-    private void noInterceptClick(WebElement elementToClick){
+    private void NoInterceptClick(WebElement elementToClick){
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", elementToClick);
     }
