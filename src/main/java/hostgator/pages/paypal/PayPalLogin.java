@@ -24,6 +24,7 @@ public class PayPalLogin{
 	private By _paypal_agreeContinuebutton = By.id("confirmButtonTop"); ////*[@id="confirmButtonTop"]
 	private By _paypal_agreeContinuebutton2 = By.id("consentButton"); ////*[@id="confirmButtonTop"]
 
+	//region PayPal Login Methods
 	public void enterPayPalEmail(String PAYPAL_EMAIL)
 	{
 		driver.findElement(_paypal_email_field).sendKeys(PAYPAL_EMAIL);
@@ -56,7 +57,9 @@ public class PayPalLogin{
 		driver.findElement(_paypal_login_button).click();
 		log.info("Clicked PayPal Login");
 	}
+	//endregion
 
+	//region Complete PayPal Transaction Methods
 	public void clickPayPalContinueButton()
 	{
 		driver.findElement(_paypal_continue_button).click();
@@ -80,6 +83,7 @@ public class PayPalLogin{
 		driver.findElement(_paypal_agreeContinuebutton2).click();
 		log.info("Clicked PayPal Agree and Continue2");
 	}
+	//endregion
 
 	public void completePayPalSiteCheckout() {
 		enterPayPalEmail(StaticData.PAYPAL_EMAIL);

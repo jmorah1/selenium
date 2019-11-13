@@ -23,36 +23,40 @@ public class CartCheckout {
         this.driver=driver;
     }
 
-    //Your Account
+    //region Your Account Elements
     private By _emailField           = By.name("email");
     private By _passwordField        = By.name("password");
     private By _confirmPasswordfield = By.name("confirm_password");
     private By _continueButton       = By.xpath("//*[@id=\"checkout\"]/div[2]/div[1]/div/section/div/div[2]/div[1]/section[1]/div[6]/button");
     private By _pinField             = By.name("pin");
+    //endregion
 
-    //Payment Options
+    //region Billing Info Elements
     private By _firstNameField = By.name("first_name");
     private By _lastNameField  = By.name("last_name");
     private By _homePhoneField = By.name("home_phone");
     private By _addressField   = By.name("address");
     private By _cityField      = By.name("city");
     private By _zipCodeField   = By.name("postal_code");
+    //endregion
 
-    //Payment Method
-    private By creditCardradio      = By.name("//");
-    private By payPalradio          = By.name("//");
+    //region Payment Type Elements
+    private By _creditCardradio      = By.name("//");
+    private By _payPalradio          = By.name("//");
     private By _nameOnCardField      = By.name("name_on_card");
     private By _ccNumerField         = By.name("number");
-    private By expDateMonthDropDown = By.name("//");
-    private By expDateYearDropDown  = By.name("//");
+    private By _expDateMonthDropDown = By.name("//");
+    private By _expDateYearDropDown  = By.name("//");
     private By _cvvCodeField         = By.name("cvv");
+ //endregion
+
+    //region Order Summary Elements
     private By _continueToCheckout   = By.linkText("Continue to Checkout");
-    private By _tos                  = By.xpath("//*[@id=\"checkout\"]/div[2]/div[3]/div/section/div/div/div[2]/div/div/p[2]/div/ins"); //By.id("accept-tos");
+    private By _tos                  = By.xpath("//*[@id=\"checkout\"]/div[2]/div[3]/div/section/div/div/div[2]/div/div/p[2]/div/ins"); //By.id("accept-tos")
+    private By _placeOrderButton = By.xpath("//*[@id=\"checkout\"]/div[2]/div[3]/div/section/div/div/div[4]/ul/li[2]/button");
+    //endregion
 
-    //order Summary
-    private By placeOrderButton = By.xpath("//*[@id=\"checkout\"]/div[2]/div[3]/div/section/div/div/div[4]/ul/li[2]/button");
-
-    //Your Account
+    //region Your Account Methods
     public void enterEmail()
     {
         driver.findElement(_emailField).sendKeys(StaticData.DOMAIN_NAME +random.nextInt(10000)+"domain" +random.nextInt(100000)+ "@endurance.com");
@@ -78,8 +82,9 @@ public class CartCheckout {
     public void enterPin(String pin){
         driver.findElement(_pinField).sendKeys(pin);
     }
+    //endregion
 
-    //Payment Options
+    //region Billing Info Methods
     public void enterFirstName(String firstName) {
         driver.findElement(_firstNameField).sendKeys(firstName);
         log.info("Entered First Name");
@@ -109,7 +114,9 @@ public class CartCheckout {
         driver.findElement(_zipCodeField).sendKeys(zip);
         log.info("Entered Zip");
     }
+    //endregion
 
+    //region Payment Type Methods
     public void enterCCName(String ccName) {
         driver.findElement(_nameOnCardField).sendKeys(ccName);
         log.info("Entered Zip");
@@ -124,7 +131,9 @@ public class CartCheckout {
         driver.findElement(_cvvCodeField).sendKeys(cvv);
         log.info("Entered CVV");
     }
+    //endregion
 
+    //region Review Order Details Methods
     public void clickContinueToCheckout() {
         driver.findElement(_continueToCheckout).click();
     }
@@ -136,8 +145,9 @@ public class CartCheckout {
     }
 
     public void clickPlaceOrder() {
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(placeOrderButton)).click();
+        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(_placeOrderButton)).click();
     }
+    //endregion
 
     public void enterPasswordAndConfirm(String password)
     {

@@ -30,20 +30,21 @@ public class SignupPage extends TestDriver {
 	{
 		this.driver=driver;
 	}
+
 	//Page Elements
-	//<editor-fold desc="Domain Section">
+	//region Domain Section Elements
 	private By _iOwnThisDomain = By.id("old_domain_tab");
 	private By _domainTextField = By.id("domain_field");
-	//</editor-fold>
+	//endregion
 
-	//<editor-fold desc="Hosting Plan">
+	//region Hosting Plan Elements
 	private By _tldSelect = By.id("tld_select");
 	private By _billingDropdown = By.id("billing_cycle");
 	private By _usernameTextField = By.xpath("//*[@id=\"username\"]");
 	private By _pinTextField = By.id("new_pin");
-	//</editor-fold>
+	//endregion
 
-	//<editor-fold desc="Billing Info Section">
+	//region Billing Info Section Elements
 	private By _emailTextField = By.id("new-email");
 	private By _confirmRmailField = By.id("new-email-confirm");
 	private By _firstNameField = By.id("new-first-name");
@@ -53,43 +54,43 @@ public class SignupPage extends TestDriver {
 	private By _address2Field = By.id("new-address2");
 	private By _cityField = By.id("new-city");
 	private By _zipCodeField = By.id("zip_code");
-	//</editor-fold>
+	//endregion
 
-	//<editor-fold desc="Credit Card Payment Type">
+	//region Credit Card Payment Type Elements
 	private By _ccCardNameField = By.id("new-name-on-card");
 	private By _ccNumberField = By.id("new_cc");
 	private By _ccCvvField = By.id("security_code_new");
-	//</editor-fold>
+	//endregion
 
-	//<editor-fold desc="Checkout Section">
+	//region Checkout Section Elements
 	private By _tosCheckbox1 = By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins");
 	private By _tosCheckbox2 = By.id("tos-agree");  //By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins");
 	private By _tosCheckbox3 = By.className("iCheck-helper"); //By.id("tos-agree");  //By.xpath("//*[@id=\"validation-form\"]/div[7]/div/div/div/p[3]/div/ins");
 	private By _checkoutButton = By.id("final-checkout");
-	//</editor-fold>
+	//endregion
 
-	//<editor-fold desc="Top Right Sign-in">
+	//region Top Right Sign-in Elements
 	private By _regflowTopRightEmailField = By.id("sign-in-un");
 	private By _regflowTopRightPasswordField = By.id("sign-in-pw");
 	private By _regflowTopRightSignintext = By.linkText("Sign In!");
 	private By _regFlowTopRightSigninButton = By.xpath("//*[@id=\"signup-container\"]/section/div[1]/div/div/div/div[2]/a");
 	private By _logoutlink = By.xpath("//*[@id=\"signup-container\"]/section/div[1]/div/div/a");
-	//</editor-fold>
+	//endregion
 
-	//<editor-fold desc="Existing Account Sign-in">
+	//region Existing Account Sign-in Elements
 	private By _existingAccountPasswordField = By.id("existing-password");
 	private By _existingAccountLoginButton = By.id("section-login");
-	//</editor-fold>
+	//endregion
 
-	//<editor-fold desc="PayPal">
+	//region PayPal Elements
 	private By _usePayPalTab = By.id("paypal_tab");
 	private By _paypalRadio = By.id("paypal");
-	//</editor-fold>
+	//endregion
 	//End of Page Elements
 
 	//Page Functions
 
-	//<editor-fold desc="Top Right Sign-in">
+	//region Top Right Sign-in Methods
 	public void clickTopRightSignintext()
 	{
 		driver.findElement(_regflowTopRightSignintext).click();
@@ -113,9 +114,9 @@ public class SignupPage extends TestDriver {
 		driver.findElement(_regFlowTopRightSigninButton).click();
 		log.info("Clicked Signin Button");
 	}
-	//</editor-fold>
+	//endregion
 
-	//<editor-fold desc="Login With Existing Account: Middle Sign in">
+	//region Login With Existing Account: Middle Sign in Methods
 	public void enterExistingAccountEmail(String email)
 	{
 		driver.findElement(_emailTextField).sendKeys(email);
@@ -133,9 +134,9 @@ public class SignupPage extends TestDriver {
 		driver.findElement(_existingAccountLoginButton).click();
 		log.info("Clicked on Logion Button");
 	}
-	//</editor-fold>
+	//endregion
 
-	//<editor-fold desc="Choose a Domain">
+	//region Choose a Domain Methods
 	public void clickIAlreadyOwnThisDomain()
 	{
 		driver.findElement(_iOwnThisDomain).click();
@@ -162,7 +163,7 @@ public class SignupPage extends TestDriver {
 		driver.findElement(_domainTextField).sendKeys(domain+random.nextInt(10000)+packageName+random.nextInt(10000)); //random.nextInt(10000) //date.getTime());
 		log.info("Entered New Domain");
 	}
-	//</editor-fold>
+	//endregion
 
 	public void verifyDomainIsValid()
 	{
@@ -172,7 +173,7 @@ public class SignupPage extends TestDriver {
 		wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//*[@id=\"results-area\"]/div[1]/div/div/div/div[1]/label/span[2]"), "PRIMARY DOMAIN"));
 	}
 
-	//<editor-fold desc="Choose a Hosting Plan">
+	//region Choose a Hosting Plan Methods
 	public void tldDropdown(int index)
 	{
 		Select s=new Select(driver.findElement(_tldSelect));
@@ -199,9 +200,9 @@ public class SignupPage extends TestDriver {
 		driver.findElement(_pinTextField).sendKeys(pin);
 		log.info("Entered Pin");
 	}
-	//</editor-fold>
+	//endregion
 
-	//<editor-fold desc="Enter Your Billing Info">
+	//region Enter Your Billing Info Methods
 	public void enterEmail(String email)
 	{
 		driver.findElement(_emailTextField).sendKeys(email);
@@ -254,9 +255,8 @@ public class SignupPage extends TestDriver {
 	{
 		driver.findElement(_zipCodeField).sendKeys(zipcode);
 		log.info("Entered Billing ZipCode");
-
 	}
-	//</editor-fold>
+	//endregion
 
 
 //	public void enterExistingEmail(String domain, String packageName)
@@ -264,7 +264,7 @@ public class SignupPage extends TestDriver {
 //		driver.findElement(domain_text_field).sendKeys(domain+random.nextInt(10000)+packageName+random.nextInt(100000)+".com");
 //	}
 
-	//<editor-fold desc="Payment Type: PayPal">
+	//region Payment Type: PayPal Methods
 	public void clickPayPalTab()
 	{
 		driver.findElement(_usePayPalTab).click();
@@ -275,9 +275,9 @@ public class SignupPage extends TestDriver {
 		driver.findElement(_paypalRadio).click();
 		log.info("Selected Paypal Payment type");
 	}
-	//</editor-fold>
+	//endregion
 
-	//<editor-fold desc="Payment Type: Credit Card">
+	//region Payment Type: Credit Card Methods
 	public void enterCreditCardName(String ccName)
 	{
 		driver.findElement(_ccCardNameField).sendKeys(ccName);
@@ -295,9 +295,9 @@ public class SignupPage extends TestDriver {
 		driver.findElement(_ccCvvField).sendKeys(cvv);
 		log.info("Entered CC CVV");
 	}
-	//</editor-fold>
+	//endregion
 
-	//<editor-fold desc="Review Order Details and Checkout">
+	//region Review Order Details and Checkout Methods
 	public void checkTos1()
 	{
 		driver.findElement(_tosCheckbox1).click();
@@ -315,7 +315,7 @@ public class SignupPage extends TestDriver {
 		driver.findElement(_checkoutButton).click();
 		log.info("Clicked Checkout Button");
 	}
-	//</editor-fold>
+	//endregion
 
 	public void verifyPaymentComplete() throws InterruptedException {
 		int waitTime = 30;
