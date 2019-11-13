@@ -25,8 +25,8 @@ public class DomainPurchase extends TestDriver {
 	}
 
 	//This test is incomplete
-	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-1129
-	public void NewCustomerNewDomainCC() throws InterruptedException, IOException {
+	@Test(groups  = {"SmokeTest", "SignupRegression"})
+	public void HGQ_1129_new_customer_new_domain_cc() throws InterruptedException, IOException {
 		domainRegistration =new DomainRegistration(driver);
 		cartCheckout =new CartCheckout(driver);
 
@@ -39,7 +39,6 @@ public class DomainPurchase extends TestDriver {
 		cartCheckout.enterCCInfo();
 		cartCheckout.clickContinueToCheckout();
 		cartCheckout.acceptTOSAndPlaceOrder();
-
 	}
 
 	@AfterTest
