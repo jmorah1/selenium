@@ -31,7 +31,7 @@ public class MakePaymentFeature extends TestDriver{
 	}
 	
 	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-1124
-	public void HGQ_1124_Make_A_Payment_Feature_By_Using_CC() throws IOException, InterruptedException {
+	public void HGQ_1124_make_a_payment_feature_by_using_cc() throws IOException, InterruptedException {
 		driver.get(prop.getProperty(mvnPassedEnvironment()));
 		log.info("Navigated signin page");
 

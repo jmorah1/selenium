@@ -25,8 +25,8 @@ public class ResellerSignup extends TestDriver {
 		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.RESELLER_PKG);
 	}
 
-	@Test(groups  = {"SmokeTest", "SignupRegression"})  //HGQ-1125
-	public void ResellerExistingCustomerTopRightSigninExistingDomainPP() throws InterruptedException {
+	@Test(groups  = {"SmokeTest", "SignupRegression"})
+	public void HGQ_1125_reseller_existing_customer_top_right_signin_existing_domain_pp() throws InterruptedException {
 		signup=new SignupPage(driver);
 		signupFlow = new SignupCommonFlow(driver);
 
