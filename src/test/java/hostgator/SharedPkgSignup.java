@@ -25,8 +25,8 @@ public class SharedPkgSignup extends TestDriver {
 	}
 
 
-	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-898
-	public void SharedNewCustomerNewDomainCC() throws IOException, InterruptedException {
+	@Test(groups  = {"SmokeTest", "SignupRegression"}) //
+	public void HGQ_898_shared_new_customer_new_domain_cc() throws IOException, InterruptedException {
 		signupFlow =new SignupCommonFlow(driver);
 		signup     =new SignupPage(driver);
 		signup.EnterDomain(StaticData.DOMAIN_NAME, "sharedpackage");

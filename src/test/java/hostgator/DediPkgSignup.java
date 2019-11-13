@@ -24,8 +24,8 @@ public class DediPkgSignup extends TestDriver {
 		log.info("Navigated to dedi pkg signup page");
 	}
 
-	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-899
-	public void DediToprightSigninExistingCustomerExistingDomainPP() throws InterruptedException, IOException {
+	@Test(groups  = {"SmokeTest", "SignupRegression"})
+	public void HGQ_899_dedi_topright_signin_existing_customer_existing_domain_pp() throws InterruptedException, IOException {
 		signup=new SignupPage(driver);
 		signupFlow =new SignupCommonFlow(driver);
 

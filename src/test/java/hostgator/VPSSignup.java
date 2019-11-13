@@ -24,8 +24,8 @@ public class VPSSignup extends TestDriver {
 		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.VPS_PKG);
 	}
 
-	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-1133
-	public void VPSNewCustomerExistingDomainCC() throws InterruptedException, IOException {
+	@Test(groups  = {"SmokeTest", "SignupRegression"})
+	public void HGQ_1133_vps_new_customer_existing_domain_cc() throws InterruptedException, IOException {
 		signup=new SignupPage(driver);
 		signupFlow = new SignupCommonFlow(driver);
 

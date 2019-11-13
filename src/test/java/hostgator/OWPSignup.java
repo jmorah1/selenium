@@ -25,8 +25,8 @@ public class OWPSignup extends TestDriver {
 		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.WORDPRESS_PKG);
 	}
 
-	@Test(groups  = {"SmokeTest", "SignupRegression"}) //HGQ-900
-	public void WordpressExistingCustomerExistingDomainCC() throws InterruptedException, IOException {
+	@Test(groups  = {"SmokeTest", "SignupRegression"})
+	public void HGQ_900_wordpress_existing_customer_existing_domain_cc() throws InterruptedException, IOException {
 		signup=new SignupPage(driver);
 		signupFlow =new SignupCommonFlow(driver);
 		signup.ClickIAlreadyOwnThisDomain();

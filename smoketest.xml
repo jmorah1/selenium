@@ -6,15 +6,27 @@
   	<listener class-name="hostgator.Listener"/>
   </listeners>
 
-  <test name="SignupFromPortal">
+  <test name="Billing">
     <classes>
-      <class name="hostgator.SignupFromPortal"/>
+      <class name="hostgator.Billing"/>
     </classes>
   </test> <!-- Test -->
 
   <test name="DediPkgSignup">
     <classes>
       <class name="hostgator.DediPkgSignup"/>
+    </classes>
+  </test> <!-- Test -->
+
+<!--  <test name="DomainPurchase">-->
+<!--    <classes>-->
+<!--      <class name="hostgator.DomainPurchase"/>-->
+<!--    </classes>-->
+<!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
+
+  <test name="MakePaymentFeature">
+    <classes>
+      <class name="hostgator.MakePaymentFeature"/>
     </classes>
   </test> <!-- Test -->
 
@@ -36,10 +48,15 @@
     </classes>
   </test> <!-- Test -->
 
+  <test name="SignupFromPortal">
+    <classes>
+      <class name="hostgator.SignupFromPortal"/>
+    </classes>
+  </test> <!-- Test -->
+
   <test name="VPSSignup">
     <classes>
       <class name="hostgator.VPSSignup"/>
     </classes>
   </test> <!-- Test -->
-
 </suite> <!-- Suite -->

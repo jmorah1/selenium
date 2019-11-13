@@ -30,8 +30,8 @@ public class SignupFromPortal extends TestDriver {
 		driver.get(prop.getProperty(mvnPassedEnvironment()));
 	}
 
-	@Test(groups  = {"SmokeTest", "SignupRegression"})  //HGQ-1125
-	public void SharedExistingCustomerSignupFromPortalCC() throws InterruptedException{
+	@Test(groups  = {"SmokeTest", "SignupRegression"})
+	public void HGQ_1125_shared_existing_customer_signup_from_portal_cc() throws InterruptedException{
 		loginPage  = new LoginPage(driver);
 		homePage   = new HomePage(driver);
 		hosting    = new Hosting(driver);

@@ -23,7 +23,7 @@ public class Billing extends TestDriver {
     }
 
     @Test(groups  = {"SmokeTest", "BillingRegression"}) //HGQ-1127
-    public void HGQ_1127_Verify_Billing_History() {
+    public void HGQ_1127_verify_billing_history() {
 
         driver.get(prop.getProperty(mvnPassedEnvironment()));
         log.info("Navigated to Portal page");
