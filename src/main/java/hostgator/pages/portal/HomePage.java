@@ -20,7 +20,7 @@ public class HomePage extends TestDriver {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", elementToClick);
     }
-
+    //region Portal Home Page Elements
     private By _billingNav    = By.linkText("Billing");
     private By _makePayment   = By.linkText("Make a Payment");
     private By _nextButton    = By.id("loginBtn");
@@ -28,7 +28,9 @@ public class HomePage extends TestDriver {
     private By _loginButton   = By.id("loginBtn");
     private By _hosting       = By.xpath("//*[@id=\"gbclient\"]/div[1]/ul/li[2]/a");
     private By _billingHistory = By.linkText("Billing History");
+    //endregion
 
+    //region Billing Tab Navigation Methods
     private void clickBillingNav()
     {
         driver.findElement(_billingNav).click();
@@ -41,6 +43,12 @@ public class HomePage extends TestDriver {
         log.info("Clicked Make a Payment");
     }
 
+    private void clickBillingHistory() {
+        driver.findElement(_billingHistory).click();
+        log.info("Clicked Billing History");
+    }
+    //endregion
+
     public void clickHosting()
     {
         WebElement element = driver.findElement(_hosting);
@@ -50,11 +58,7 @@ public class HomePage extends TestDriver {
         executor.executeScript("arguments[0].click();", element);
         log.info("Clicked Hosting Nav");
     }
-    private void clickBillingHistory() {
-        driver.findElement(_billingHistory).click();
-        log.info("Clicked Billing History");
 
-    }
     public void navigateToBillingHistory() {
         clickBillingNav();
         clickBillingHistory();

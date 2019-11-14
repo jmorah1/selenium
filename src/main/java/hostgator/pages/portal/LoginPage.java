@@ -16,12 +16,14 @@ public class LoginPage extends TestDriver {
         this.driver=driver;
     }
 
-
+    //region Portal Login Page Elements
     private By _emailField    = By.id("email");
     private By _nextButton    = By.id("loginBtn");
     private By _passwordField = By.id("password");
     private By _loginButton   = By.id("loginBtn");
+    //endregion
 
+    //region Portal Login Page Methods
     public void enterExistingAccountEmail(String email)
     {
         driver.findElement(_emailField).sendKeys(email);
@@ -45,6 +47,7 @@ public class LoginPage extends TestDriver {
         driver.findElement(_loginButton).click();
         log.info("Clicked Login");
     }
+    //endregion
 
     public void portalLogin(String email, String password)
     {
