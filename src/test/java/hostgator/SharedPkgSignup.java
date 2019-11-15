@@ -36,7 +36,7 @@ public class SharedPkgSignup extends TestDriver {
 		signup.enterPin(StaticData.PIN);
 		signupFlow.enterEmailAndConfirm("shared");
 		signupFlow.enterBillingInfo();
-		signupFlow.enterCredirCardInfo();
+		signupFlow.enterCreditCardInfo();
 		signupFlow.sharedPackageCheckTOSandCheckoutTwice();
 		signup.verifyPaymentComplete();
 	}

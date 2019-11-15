@@ -35,7 +35,7 @@ public class VPSSignup extends TestDriver {
 		signup.enterPin(StaticData.PIN);
 		signupFlow.enterEmailAndConfirm("cloud");
 		signupFlow.enterBillingInfo();
-		signupFlow.enterCredirCardInfo();
+		signupFlow.enterCreditCardInfo();
 		signupFlow.checkTOSandCheckout();
 		signup.verifyPaymentComplete();
 	}

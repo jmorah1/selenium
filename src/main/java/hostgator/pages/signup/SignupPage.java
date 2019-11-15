@@ -340,13 +340,11 @@ public class SignupPage extends TestDriver {
 			}
 		} else if (driver.getCurrentUrl().contains("/signup/complete/")) {
 			log.info("Signup Complete");
-		} else if (driver.findElement(By.id("email")).isDisplayed()) { //replace this with paypallink when its working
+		} //else if (driver.findElement(By.id("email")).isDisplayed()) { //replace this with paypallink when its working
 
-			paypalLogin();
+		//	paypalLogin();
 
-		} else if (true){
-			Thread.sleep(99999999);
-		}
+		//}
 	}
 
 //		Assert.assertTrue(driver.getCurrentUrl().contains("/signup/complete/"), "Waited for "+ waitTime +". Did not make it to signup/complete page");
