@@ -2,7 +2,7 @@ package hostgator;
 
 import hostgator.commonflow.SignupCommonFlow;
 import hostgator.pages.portal.HomePage;
-import hostgator.pages.portal.Hosting;
+import hostgator.pages.portal.HostingPage;
 import hostgator.pages.portal.LoginPage;
 import hostgator.pages.signup.SignupPage;
 import hostgator.driver.TestDriver;
@@ -20,7 +20,7 @@ public class SignupFromPortal extends TestDriver {
 	private static Logger log = LogManager.getLogger(SignupFromPortal.class.getName());
 	LoginPage loginPage;
 	HomePage homePage;
-	Hosting hosting;
+	HostingPage hosting;
 	SignupPage signup;
 	SignupCommonFlow signupFlow;
 
@@ -34,7 +34,7 @@ public class SignupFromPortal extends TestDriver {
 	public void HGQ_1125_shared_existing_customer_signup_from_portal_cc() throws InterruptedException{
 		loginPage  = new LoginPage(driver);
 		homePage   = new HomePage(driver);
-		hosting    = new Hosting(driver);
+		hosting    = new HostingPage(driver);
 		signup     = new SignupPage(driver);
 		signupFlow = new SignupCommonFlow(driver);
 

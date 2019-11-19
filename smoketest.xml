@@ -12,6 +12,12 @@
     </classes>
   </test> <!-- Test -->
 
+  <test name="CheckHostingPage">
+    <classes>
+      <class name="hostgator.CheckHostingPage"/>
+    </classes>
+  </test> <!-- Test -->
+
   <test name="CloudsitesSignup">
     <classes>
       <class name="hostgator.CloudsitesSignup"/>
