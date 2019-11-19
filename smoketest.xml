@@ -6,9 +6,15 @@
   	<listener class-name="hostgator.Listener"/>
   </listeners>
 
-  <test name="Billing">
+  <test name="MakePaymentFeature">
     <classes>
-      <class name="hostgator.Billing"/>
+      <class name="hostgator.MakePaymentFeature"/>
+    </classes>
+  </test> <!-- Test -->
+
+  <test name="CheckHostingPage">
+    <classes>
+      <class name="hostgator.CheckHostingPage"/>
     </classes>
   </test> <!-- Test -->
 
@@ -30,9 +36,10 @@
 <!--    </classes>-->
 <!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
 
-  <test name="MakePaymentFeature">
+
+  <test name="Billing">
     <classes>
-      <class name="hostgator.MakePaymentFeature"/>
+      <class name="hostgator.Billing"/>
     </classes>
   </test> <!-- Test -->
 
