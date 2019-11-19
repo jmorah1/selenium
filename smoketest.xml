@@ -12,6 +12,12 @@
     </classes>
   </test> <!-- Test -->
 
+  <test name="CloudsitesSignup">
+    <classes>
+      <class name="hostgator.CloudsitesSignup"/>
+    </classes>
+  </test> <!-- Test -->
+
   <test name="DediPkgSignup">
     <classes>
       <class name="hostgator.DediPkgSignup"/>
@@ -59,4 +65,5 @@
       <class name="hostgator.VPSSignup"/>
     </classes>
   </test> <!-- Test -->
+
 </suite> <!-- Suite -->
