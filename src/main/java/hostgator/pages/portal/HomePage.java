@@ -66,6 +66,6 @@ public class HomePage extends TestDriver {
 
     public void navigateToMakePayment() {
         clickBillingNav();
-        clickBillingHistory();
+        clickMakePayment();
     }
 }
