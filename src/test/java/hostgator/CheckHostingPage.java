@@ -21,8 +21,7 @@ public class CheckHostingPage extends TestDriver {
     LoginPage loginPage;
     HomePage homePage;
     HostingPage hosting;
-    SignupPage signup;
-    SignupCommonFlow signupFlow;
+
 
     @BeforeTest
     public void initialize() throws IOException {
@@ -35,8 +34,6 @@ public class CheckHostingPage extends TestDriver {
         loginPage  = new LoginPage(driver);
         homePage   = new HomePage(driver);
         hosting    = new HostingPage(driver);
-        signup     = new SignupPage(driver);
-        signupFlow = new SignupCommonFlow(driver);
 
         loginPage.portalLogin(StaticData.SHARED_DEFAULT_EMAIL, StaticData.PORTAL_PASSWORD);
         homePage.clickHosting();
