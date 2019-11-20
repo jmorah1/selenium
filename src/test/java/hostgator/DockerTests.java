@@ -13,7 +13,7 @@ public class DockerTests extends BaseTestDriver {
 		driver.get("http://www.google.com");
 		System.out.println("Title of page is "+driver.getTitle());
 		System.out.println("URL of page is "+driver.getCurrentUrl());
-		log.info("Got to Test1///////find me/////////");
+		log.info("Got to Test1///////find me/////////aaaaa");
 	}
 
 	@Test
@@ -22,7 +22,7 @@ public class DockerTests extends BaseTestDriver {
 		log.info("Title of page is "+driver.getCurrentUrl());
 		log.info("URL of page is "+driver.getTitle());
 		System.out.println("Page Title 2 is " + driver.getTitle());
-		log.info("Got to Test2///////find me/////////");
+		log.info("Got to Test2///////find me/////////aaaaaa");
 	}
 
 	@Test
@@ -31,6 +31,6 @@ public class DockerTests extends BaseTestDriver {
 		log.info("Title of page is "+driver.getCurrentUrl());
 		log.info("URL of page is "+driver.getTitle());
 		System.out.println("Page Title 3 is " + driver.getTitle());
-		log.info("Got to Test3///////find me/////////");
+		log.info("Got to Test3///////find me/////////aaaaaa");
 	}
 }
