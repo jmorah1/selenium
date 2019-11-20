@@ -7,14 +7,14 @@
   <listener class-name="hostgator.Listener"/>
 </listeners>
 
-  <test name="VPSSignup">
+  <test name="DockerTests3">
     <classes>
-      <class name="hostgator.VPSSignup"/>
+      <class name="hostgator.DockerTests"/>
     </classes>
   </test> <!-- Test -->
-  <test name="SharedPkgSignup">
+  <test name="DockerTests4">
     <classes>
-      <class name="hostgator.SharedPkgSignup"/>
+      <class name="hostgator.DockerTests"/>
     </classes>
   </test> <!-- Test -->
 
