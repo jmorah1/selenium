@@ -12,7 +12,7 @@ import hostgator.util.StaticData;
 
 import hostgator.pages.portal.HomePage;
 
-public class MakePaymentFeature extends TestDriver{
+public class MakePaymentFeature extends TestDriver {
 
 
 	private static Logger log = LogManager.getLogger(MakePaymentFeature.class.getName());
@@ -25,7 +25,7 @@ public class MakePaymentFeature extends TestDriver{
 
 	@BeforeMethod
 	public void beforeMethod() throws IOException {
-		driver =  initializeDriver();
+		initializeDriver();
 		log.info("Driver is initialized");
 		driver.manage().window().maximize();
 	}

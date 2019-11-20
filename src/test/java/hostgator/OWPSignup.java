@@ -20,7 +20,7 @@ public class OWPSignup extends TestDriver {
 
 	@BeforeTest
 	public void initialize() throws IOException {
-		driver =  initializeDriver();
+		initializeDriver();
 //		driver.manage().window().maximize();
 		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.WORDPRESS_PKG);
 	}

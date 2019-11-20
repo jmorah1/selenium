@@ -1,6 +1,6 @@
 package hostgator.pages.domain;
 
-import hostgator.driver.TestDriver;
+import hostgator.driver.TestDriver2;
 import hostgator.util.StaticData;
 import org.apache.logging.log4j.*;
 import org.openqa.selenium.By;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Random;
 
-public class DomainRegistration extends TestDriver {
+public class DomainRegistration extends TestDriver2 {
 
     private static Logger log = LogManager.getLogger(DomainRegistration.class.getName());
     Random random = new Random();

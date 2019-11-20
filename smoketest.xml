@@ -1,34 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="SmokeTestSuite" parallel="tests" thread-count="1">
+        <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SmokeTestSuite" parallel="tests" thread-count="4">
 
-  <listeners>
-  	<listener class-name="hostgator.Listener"/>
-  </listeners>
+<listeners>
+  <listener class-name="hostgator.Listener"/>
+</listeners>
 
-  <test name="MakePaymentFeature">
-    <classes>
-      <class name="hostgator.MakePaymentFeature"/>
-    </classes>
-  </test> <!-- Test -->
+<test name="Billing">
+  <classes>
+    <class name="hostgator.Billing"/>
+  </classes>
+</test> <!-- Test -->
 
-  <test name="CheckHostingPage">
-    <classes>
-      <class name="hostgator.CheckHostingPage"/>
-    </classes>
-  </test> <!-- Test -->
-
-  <test name="CloudsitesSignup">
-    <classes>
-      <class name="hostgator.CloudsitesSignup"/>
-    </classes>
-  </test> <!-- Test -->
-
-  <test name="DediPkgSignup">
-    <classes>
-      <class name="hostgator.DediPkgSignup"/>
-    </classes>
-  </test> <!-- Test -->
+<test name="DediPkgSignup">
+  <classes>
+    <class name="hostgator.DediPkgSignup"/>
+  </classes>
+</test> <!-- Test -->
 
 <!--  <test name="DomainPurchase">-->
 <!--    <classes>-->
@@ -36,41 +24,39 @@
 <!--    </classes>-->
 <!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
 
+<test name="MakePaymentFeature">
+  <classes>
+    <class name="hostgator.MakePaymentFeature"/>
+  </classes>
+</test> <!-- Test -->
 
-  <test name="Billing">
-    <classes>
-      <class name="hostgator.Billing"/>
-    </classes>
-  </test> <!-- Test -->
+<test name="OWPSignup">
+  <classes>
+    <class name="hostgator.OWPSignup"/>
+  </classes>
+</test> <!-- Test -->
 
-  <test name="OWPSignup">
-    <classes>
-      <class name="hostgator.OWPSignup"/>
-    </classes>
-  </test> <!-- Test -->
+<test name="ResellerSignup">
+  <classes>
+    <class name="hostgator.ResellerSignup"/>
+  </classes>
+</test> <!-- Test -->
 
-  <test name="ResellerSignup">
-    <classes>
-      <class name="hostgator.ResellerSignup"/>
-    </classes>
-  </test> <!-- Test -->
+<test name="SharedPkgSignup">
+  <classes>
+    <class name="hostgator.SharedPkgSignup"/>
+  </classes>
+</test> <!-- Test -->
 
-  <test name="SharedPkgSignup">
-    <classes>
-      <class name="hostgator.SharedPkgSignup"/>
-    </classes>
-  </test> <!-- Test -->
+<test name="SignupFromPortal">
+  <classes>
+    <class name="hostgator.SignupFromPortal"/>
+  </classes>
+</test> <!-- Test -->
 
-  <test name="SignupFromPortal">
-    <classes>
-      <class name="hostgator.SignupFromPortal"/>
-    </classes>
-  </test> <!-- Test -->
-
-  <test name="VPSSignup">
-    <classes>
-      <class name="hostgator.VPSSignup"/>
-    </classes>
-  </test> <!-- Test -->
-
+<test name="VPSSignup">
+  <classes>
+    <class name="hostgator.VPSSignup"/>
+  </classes>
+</test> <!-- Test -->
 </suite> <!-- Suite -->

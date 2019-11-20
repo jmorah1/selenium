@@ -1,11 +1,7 @@
 package hostgator.pages.signup;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
-
-import hostgator.pages.paypal.PayPalLogin;
 import hostgator.driver.TestDriver;
+import hostgator.pages.paypal.PayPalLogin;
 import hostgator.util.StaticData;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,6 +14,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
 
 public class SignupPage extends TestDriver {
 
@@ -340,11 +340,13 @@ public class SignupPage extends TestDriver {
 			}
 		} else if (driver.getCurrentUrl().contains("/signup/complete/")) {
 			log.info("Signup Complete");
-		} //else if (driver.findElement(By.id("email")).isDisplayed()) { //replace this with paypallink when its working
+		} else if (driver.findElement(By.id("email")).isDisplayed()) { //replace this with paypallink when its working
 
-		//	paypalLogin();
+			paypalLogin();
 
-		//}
+		} else if (true){
+			Thread.sleep(99999999);
+		}
 	}
 
 //		Assert.assertTrue(driver.getCurrentUrl().contains("/signup/complete/"), "Waited for "+ waitTime +". Did not make it to signup/complete page");

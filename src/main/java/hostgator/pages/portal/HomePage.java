@@ -1,13 +1,13 @@
 package hostgator.pages.portal;
 
-import hostgator.driver.TestDriver;
+import hostgator.driver.TestDriver2;
 import org.apache.logging.log4j.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class HomePage extends TestDriver {
+public class HomePage extends TestDriver2 {
 
     private static Logger log = LogManager.getLogger(HomePage.class.getName());
 
@@ -66,6 +66,6 @@ public class HomePage extends TestDriver {
 
     public void navigateToMakePayment() {
         clickBillingNav();
-        clickMakePayment();
+        clickBillingHistory();
     }
 }

@@ -19,7 +19,7 @@ public class DediPkgSignup extends TestDriver {
 
 	@BeforeTest
 	public void initialize() throws IOException {
-		driver =  initializeDriver();
+		initializeDriver();
 		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.DEDI_PKG);
 		log.info("Navigated to dedi pkg signup page");
 	}

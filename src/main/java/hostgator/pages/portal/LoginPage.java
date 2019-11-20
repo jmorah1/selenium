@@ -1,13 +1,13 @@
 package hostgator.pages.portal;
 
-import hostgator.driver.TestDriver;
+import hostgator.driver.TestDriver2;
 import org.apache.logging.log4j.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPage extends TestDriver {
+public class LoginPage extends TestDriver2 {
 
     private static Logger log = LogManager.getLogger(LoginPage.class.getName());
 

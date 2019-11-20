@@ -18,7 +18,7 @@ public class Billing extends TestDriver {
 
     @BeforeMethod
     public void beforeMethod() throws IOException {
-        driver =  initializeDriver();
+        initializeDriver();
         driver.manage().window().maximize();
     }
 

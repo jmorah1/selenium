@@ -28,7 +28,7 @@ public class SignupCommonFlow extends SignupPage {
         signup.clickCheckout();
     }
 
-    public void enterCreditCardInfo() {
+    public void enterCredirCardInfo() {
         signup.enterCreditCardName(StaticData.TEST_CREDIT_CARD_NAME);
         signup.enterCreditCardNumber(StaticData.TEST_CREDIT_CARD_NUMBER);
         signup.enterCreditCardCVV(StaticData.TEST_CREDIT_CARD_CVV);

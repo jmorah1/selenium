@@ -20,7 +20,7 @@ public class DomainPurchase extends TestDriver {
 
 	@BeforeTest
 	public void initialize() throws IOException {
-		driver =  initializeDriver();
+		initializeDriver();
 		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.DOMAIN_PURCHASE);
 	}
 
