@@ -1,7 +1,7 @@
 package hostgator;
 
 import hostgator.commonflow.SignupCommonFlow;
-import hostgator.driver.TestDriver;
+import hostgator.driver.BaseTestDriver;
 import hostgator.pages.signup.SignupPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class RecaptchaTest extends TestDriver {
+public class RecaptchaTest extends BaseTestDriver {
 
 	private static Logger log = LogManager.getLogger(RecaptchaTest.class.getName());
     SignupPage signup;
@@ -18,8 +18,6 @@ public class RecaptchaTest extends TestDriver {
 
 	@Test(groups  = {"SmokeTest", "SignupRegression"})
 	public void HGQ_1133_vps_new_customer_existing_domain_cc() throws InterruptedException, IOException {
-		initializeDriver();
-
 		driver.get("https://hyperion-staging-portal.houston1.endurancedevs.com/login");
 //		Boolean isPresent = driver.findElements(By.xpath("/html/body/div[2]")).size() > 0;
 //

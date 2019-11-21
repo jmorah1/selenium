@@ -1,27 +1,20 @@
 package hostgator;
 
 import hostgator.commonflow.SignupCommonFlow;
-import hostgator.driver.BaseTest;
+import hostgator.driver.BaseTestDriver;
 import hostgator.pages.signup.SignupPage;
 import hostgator.util.StaticData;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class SharedPkgSignup extends BaseTest {
-
-	private static Logger log = LogManager.getLogger(SharedPkgSignup.class.getName());
-    SignupPage signup;
-	SignupCommonFlow signupFlow;
-
+public class SharedPkgSignup extends BaseTestDriver {
 	@Test(groups  = {"SmokeTest", "SignupRegression"}) //
 	public void HGQ_898_shared_new_customer_new_domain_cc() throws IOException, InterruptedException {
-		driver.get("https://portal10.hostgator.com"+StaticData.SHARED_PKG);
+		SignupPage signup           =new SignupPage(driver);
+		SignupCommonFlow signupFlow =new SignupCommonFlow(driver);
 
-		signupFlow =new SignupCommonFlow(driver);
-		signup     =new SignupPage(driver);
+		signup.gotoSIgnupPage(StaticData.SHARED_PKG);
 		signup.enterDomain(StaticData.DOMAIN_NAME, "sharedpackage");
 		signup.tldDropdown(0);
 		signup.billingDropdown(0);
@@ -29,7 +22,7 @@ public class SharedPkgSignup extends BaseTest {
 		signup.enterPin(StaticData.PIN);
 		signupFlow.enterEmailAndConfirm("shared");
 		signupFlow.enterBillingInfo();
-		signupFlow.enterCredirCardInfo();
+		signupFlow.enterCreditCardInfo();
 //		signupFlow.sharedPackageCheckTOSandCheckoutTwice();
 //		signup.verifyPaymentComplete();
 	}

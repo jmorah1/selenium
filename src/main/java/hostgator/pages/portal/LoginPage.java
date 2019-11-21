@@ -1,13 +1,16 @@
 package hostgator.pages.portal;
 
-import hostgator.driver.TestDriver2;
+import hostgator.driver.BaseTestDriver;
+import hostgator.driver.TestDriver;
 import org.apache.logging.log4j.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPage extends TestDriver2 {
+import java.io.IOException;
+
+public class LoginPage extends BaseTestDriver {
 
     private static Logger log = LogManager.getLogger(LoginPage.class.getName());
 
@@ -24,6 +27,11 @@ public class LoginPage extends TestDriver2 {
     //endregion
 
     //region Portal Login Page Methods
+    public void gotoLoginPage() throws IOException {
+        driver.get(environment());
+        log.info("Navigated to LoginPage");
+    }
+
     public void enterExistingAccountEmail(String email)
     {
         driver.findElement(_emailField).sendKeys(email);

@@ -20,19 +20,25 @@ import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.Inet4Address;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.UnknownHostException;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.Properties;
 
 public class BaseTestDriver {
-    protected WebDriver driver;
-    private static Logger log = LogManager.getLogger(TestDriver2.class.getName());
+    public WebDriver driver;
+    public Properties prop;
 
-    @BeforeTest
-    public void setupDriver(ITestContext ctx) throws MalformedURLException {
+    private static Logger log = LogManager.getLogger(BaseTestDriver.class.getName());
+
+    @BeforeTest(groups  = {"required"})
+    public void setupDriver(ITestContext ctx) throws IOException {
         // BROWSER => chrome / firefox
         // HUB_HOST => localhost / 10.0.1.3 / hostname
 
@@ -54,16 +60,17 @@ public class BaseTestDriver {
         String completeUrl = "http://" + host + ":4444/wd/hub";
         capabilities.setCapability("name", testName);
 
-        //
-        BrowserMobProxy proxy = getProxyServer(); //getting browsermob proxy
+        //below for header
+        BrowserMobProxy proxy = getProxyServer();
         Proxy seleniumProxy = getSeleniumProxy(proxy);
         capabilities.setCapability(CapabilityType.PROXY, seleniumProxy);
-        //
+        //above for header//
+
         this.driver = new RemoteWebDriver(new URL(completeUrl), capabilities);
         log.info("Chrome remote Driver is initialized");
     }
 
-    @AfterTest
+    @AfterTest(groups  = {"required"})
     public void quitDriver(){
         this.driver.quit();
         log.info("Closing remote Driver");
@@ -92,6 +99,7 @@ public class BaseTestDriver {
 //			request.headers().add("X-GATOR-AUTH", "de0bc963131a815c9ab58d95bd46e790");
             return null;
         });
+        log.info("Bypassing Recaptcha");
         return proxy;
     }
 
@@ -103,14 +111,26 @@ public class BaseTestDriver {
         }
     }
 
-    public String mvnPassedEnvironment() {
-        String defaultEnvironment = "qaAutoMaintenance";
+
+    public String environment() throws IOException{
+        prop=new Properties();
+        FileInputStream fis2=new FileInputStream(System.getProperty("user.dir")+"/Environments.properties");
+        prop.load(fis2);
+
+        String defaultEnvironment = "portal10";
         String environmentVariable = System.getProperty("environment");
         if (environmentVariable==null) {
             environmentVariable = defaultEnvironment;
             log.info("No Environment variable passed, defaulting to " +defaultEnvironment);
         }
-        return environmentVariable;
+
+        String[] production = {"production", "portal9", "portal10", "portal11"};
+        if(Arrays.asList(production).contains(environmentVariable)){
+            log.warn("\n\nThis is on a Production Environment\n");
+        }
+
+        return prop.getProperty(environmentVariable);
+
     }
 
     public void waitUntilID(int waitTime, String id) {

@@ -1,28 +1,20 @@
 package hostgator;
 
+import hostgator.driver.BaseTestDriver;
 import hostgator.pages.domain.CartCheckout;
 import hostgator.pages.domain.DomainRegistration;
-import hostgator.driver.TestDriver;
 import hostgator.util.StaticData;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class DomainPurchase extends TestDriver {
+public class DomainPurchase extends BaseTestDriver {
 
 	private static Logger log = LogManager.getLogger(DomainPurchase.class.getName());
 	DomainRegistration domainRegistration;
 	CartCheckout cartCheckout;
-
-	@BeforeTest
-	public void initialize() throws IOException {
-		initializeDriver();
-		driver.get(prop.getProperty(mvnPassedEnvironment())+StaticData.DOMAIN_PURCHASE);
-	}
 
 	//This test is incomplete
 	@Test(groups  = {"SmokeTest", "SignupRegression"})
@@ -30,6 +22,7 @@ public class DomainPurchase extends TestDriver {
 		domainRegistration =new DomainRegistration(driver);
 		cartCheckout =new CartCheckout(driver);
 
+		domainRegistration.gotoDomainRegistrationPage();
 		domainRegistration.enterDomainAndSearch();
 		domainRegistration.clickContinueCheckoutButton();
 		cartCheckout.enterEmail();
@@ -37,14 +30,7 @@ public class DomainPurchase extends TestDriver {
 		cartCheckout.clickContinue();
 		cartCheckout.enterBillingInfo();
 		cartCheckout.enterCCInfo();
-		cartCheckout.clickContinueToCheckout();
-		cartCheckout.acceptTOSAndPlaceOrder();
-	}
-
-	@AfterTest
-	public void teardown() {
-		driver.close();
-		log.info("Closing Driver");
-		driver=null;
+//		cartCheckout.clickContinueToCheckout();
+//		cartCheckout.acceptTOSAndPlaceOrder();
 	}
 }

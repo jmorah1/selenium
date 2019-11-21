@@ -7,14 +7,9 @@ WORKDIR /usr/share/automation
 ADD target/selenium-docker.jar         selenium-docker.jar
 ADD target/selenium-docker-tests.jar   selenium-docker-tests.jar
 ADD target/libs                        libs
+ADD Environments.properties            Environments.properties
 
-
-ADD dockertest.xml           dockertest.xml
-ADD dockertest2.xml          dockertest2.xml
+ADD smoketest.xml           smoketest.xml
 ADD verifyhubrunsuite.sh    verifyhubrunsuite.sh
 
 ENTRYPOINT sh verifyhubrunsuite.sh
-
-# $BROWSER
-# $HUB_HOST
-# $SUITE

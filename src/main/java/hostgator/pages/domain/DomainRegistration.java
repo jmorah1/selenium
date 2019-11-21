@@ -1,6 +1,7 @@
 package hostgator.pages.domain;
 
-import hostgator.driver.TestDriver2;
+import hostgator.driver.BaseTestDriver;
+import hostgator.driver.TestDriver;
 import hostgator.util.StaticData;
 import org.apache.logging.log4j.*;
 import org.openqa.selenium.By;
@@ -8,9 +9,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.IOException;
 import java.util.Random;
 
-public class DomainRegistration extends TestDriver2 {
+public class DomainRegistration extends BaseTestDriver {
 
     private static Logger log = LogManager.getLogger(DomainRegistration.class.getName());
     Random random = new Random();
@@ -24,6 +26,11 @@ public class DomainRegistration extends TestDriver2 {
     private By _searchDomainButton = By.xpath("//*[@id=\"spa_content\"]/div/div[1]/div/section/div/div[1]/button");
     private By _continueCheckoutButton = By.xpath("//*[@id=\"cart_brick\"]/div/div[2]/form/button");
 
+    public void gotoDomainRegistrationPage() throws IOException {
+        driver.get(environment());
+        driver.get(environment()+StaticData.DOMAIN_PURCHASE);
+        log.info("Navigated to Domain Registration Page");
+    }
 
     public void enterDomain()
     {
